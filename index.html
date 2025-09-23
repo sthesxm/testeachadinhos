@@ -1,362 +1,299 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Achei Promo Boa 😱🛍 | Entrar no Grupo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achei Promo Boa 😱🛍</title>
 
-  <!-- Meta Pixel Code (ID mantido como você enviou) -->
+  <!-- Meta Pixel Code -->
   <script>
-  !function(f,b,e,v,n,t,s){
-    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)
-  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1652603255345461');
   fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root{
-      --pink:#ff2aa3;           /* rosa pink neon principal */
-      --pink-dark:#d91f86;      /* rosa mais escuro p/ hover */
-      --pink-bg:#ffe6f3;        /* rosa bem claro de apoio */
-      --yellow:#ffc107;         /* amarelo gema */
-      --yellow-soft:rgba(255,193,7,.18);
-      --text:#2b2b2b;
-      --muted:#666;
-      --white:#fff;
+    :root {
+      --pink: #ff1493; /* Rosa neon */
+      --yellow: #FFD700; /* Amarelo gema */
+      --white: #fff;
+      --gray: #444;
     }
 
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",sans-serif;color:var(--text);background:var(--white)}
-
-    /* HEADER PINK (menor, como você pediu) */
-    .hero{
-      background: linear-gradient(180deg, var(--pink) 0%, #ff58b9 50%, #ff8acc 100%);
-      padding: 26px 18px 24px; /* barra rosa menor */
-      text-align:center;
-      color:var(--white);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero .logo{
-      width:86px;height:86px;border-radius:50%;
-      object-fit:cover;
-      border:4px solid rgba(255,255,255,.9);
-      box-shadow:0 8px 24px rgba(0,0,0,.2);
-      margin:6px auto 12px;
-      display:block;
-      animation:float 6s ease-in-out infinite;
-      background:#fff;
-    }
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-
-    .title{
-      font-weight:800;font-size:24px;letter-spacing:.2px;margin:0 0 8px;
-    }
-    .subtitle{
-      font-size:14.5px;opacity:.95;margin:0 auto 12px;max-width:780px;line-height:1.35;
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: var(--pink);
+      color: var(--white);
+      text-align: center;
     }
 
-    /* VAGAS + BARRA (texto branco + ampulheta) */
-    .slots{
-      display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;
-      margin:6px auto 0;max-width:760px;
-    }
-    .slots .line{
-      color:#fff;font-weight:600;font-size:15px;
-      display:flex;align-items:center;gap:8px;
-    }
-    .bar{
-      width:100%;height:12px;border-radius:999px;background:rgba(255,255,255,.35);
-      position:relative;overflow:hidden;
-    }
-    .bar > span{
-      position:absolute;left:0;top:0;height:100%;width:0%;
-      background:linear-gradient(90deg,var(--yellow),#ffd95c);
-      transition:width .6s ease;
-      box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);
+    header {
+      padding: 2rem 1rem 1rem;
     }
 
-    /* CTA PRINCIPAL */
-    .cta{
-      padding:16px 18px 12px;text-align:center;background:#fff;
-    }
-    .cta .btn-primary{
-      display:inline-block;
-      background:var(--pink);
-      color:#fff;
-      padding:16px 26px;
-      border-radius:999px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.4px;
-      border:3px solid var(--yellow);
-      box-shadow:0 10px 26px rgba(255,42,163,.35);
-      cursor:pointer;
-      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-      animation:pulse 1.25s ease-in-out infinite; /* pulsar mais rapidinho */
-    }
-    .cta .btn-primary:hover{transform:translateY(-1px);background:var(--pink-dark)}
-    @keyframes pulse{
-      0%,100%{transform:scale(1)}
-      50%{transform:scale(1.035)}
-    }
-    .cta .caption{
-      margin-top:10px;font-size:12.5px;color:#999;font-weight:600;
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
     }
 
-    /* FEED DE NOMES (notificações pequenas, centradas) */
-    .feed-wrap{
-      margin:14px auto 8px;max-width:680px;
-      padding:0 10px;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
-    .feed{
-      margin:0 auto;
-      width:100%;
-      max-width:560px;
-      height:160px;               /* quadrado menor, como pediu */
-      overflow:hidden;
-      display:flex;flex-direction:column;gap:8px;
-      align-items:center;
-    }
-    .note{
-      display:inline-flex;align-items:center;gap:10px;
-      background:#fff;border:1px solid #eee;
-      border-radius:12px;
-      padding:8px 12px;
-      box-shadow:0 6px 14px rgba(0,0,0,.06);
-      font-size:14px;color:#333;
-      min-width:280px;max-width:90%;
-      transition:transform .3s ease, opacity .3s ease;
-    }
-    .note .tick{font-size:16px;color:#2ecc71}
-    .note.fade-in{opacity:0;transform:translateY(8px)}
-    .note.fade-in.show{opacity:1;transform:translateY(0)}
 
-    /* BENEFÍCIOS (fundo branco) */
-    .benefits{
-      padding:28px 16px 96px;background:#fff;
-      border-top:1px solid #f1f1f1;
+    .subtitle {
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
-    .benefits-grid{
-      max-width:980px;margin:0 auto;
-      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px;
-    }
-    @media (max-width:680px){.benefits-grid{grid-template-columns:1fr}}
-    .card{
-      display:flex;gap:12px;align-items:flex-start;
-      border:1px solid #eee;border-radius:14px;background:#fff;
-      padding:14px 14px;
-      box-shadow:0 8px 18px rgba(0,0,0,.06);
-    }
-    .card .icon{
-      width:42px;height:42px;border-radius:10px;flex:0 0 42px;
-      display:flex;align-items:center;justify-content:center;
-      background:var(--yellow-soft); /* amarelo translúcido */
-      font-size:20px;
-    }
-    .card .text b{display:block;margin-bottom:4px}
-    .card .text small{color:var(--muted)}
 
-    /* RODAPÉ FIXO (sempre visível) */
-    .sticky{
-      position:fixed;left:0;right:0;bottom:0;z-index:50;
-      background:linear-gradient(90deg, var(--pink) 0%, #ff58b9 100%);
-      color:#fff;border-top:2px solid rgba(255,255,255,.25);
-      display:flex;align-items:center;justify-content:center;gap:14px;
-      padding:10px 12px;
+    .progress-container {
+      background: #fff;
+      border-radius: 20px;
+      height: 20px;
+      width: 80%;
+      margin: 1rem auto;
+      overflow: hidden;
     }
-    .sticky .left{font-weight:800;display:flex;align-items:center;gap:8px}
-    .sticky .btn{
-      background:var(--yellow);color:#2b2b2b;
-      border:none;border-radius:999px;padding:12px 18px;
-      font-weight:900;cursor:pointer;box-shadow:0 10px 22px rgba(0,0,0,.18);
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--yellow);
+      transition: width 1s ease-in-out;
     }
-    .spacer-bottom{height:74px} /* espaço p/ não cobrir o conteúdo pelo footer fixo */
+
+    .vaga-texto {
+      font-weight: bold;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    .cta-button {
+      background: var(--pink);
+      border: 3px solid var(--yellow);
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 1rem 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .feed {
+      background: var(--white);
+      color: var(--gray);
+      border-radius: 10px;
+      margin: 1rem auto;
+      width: 85%;
+      max-width: 400px;
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .feed p {
+      margin: 0;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      animation: scrollUp 1.5s linear forwards;
+    }
+
+    @keyframes scrollUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+
+    .benefits {
+      background: var(--white);
+      color: var(--gray);
+      padding: 2rem 1rem;
+      border-radius: 20px 20px 0 0;
+      margin-top: 2rem;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 1rem auto;
+      max-width: 400px;
+      padding: 1rem;
+      background: rgba(255,215,0,0.15);
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+
+    .benefit span {
+      background: var(--yellow);
+      border-radius: 50%;
+      padding: 0.5rem;
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    footer {
+      background: var(--white);
+      color: var(--gray);
+      padding: 1rem;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    }
+
+    .footer-btn {
+      background: var(--yellow);
+      border: none;
+      color: var(--gray);
+      font-weight: bold;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 <body>
-
-  <!-- HEADER PINK com logo + títulos centralizados -->
-  <section class="hero">
-    <!-- Troque 'logo.png' pelo arquivo da sua logo -->
-    <img class="logo" src="logo.png" alt="Logo Achei Promo Boa">
-
-    <h1 class="title">Achei Promo Boa 😱🛍</h1>
-    <p class="subtitle">Não somos uma loja ● Mandamos promoções da Shopee</p>
-
-    <div class="slots">
-      <div class="line">⏳ <span id="slotsText">Últimas vagas de hoje — restam <b>--</b></span></div>
-      <div class="bar"><span id="barFill"></span></div>
+  <header>
+    <img src="logo.png" alt="Logo Achei Promo Boa">
+    <h1>Achei Promo Boa 😱🛍</h1>
+    <p class="subtitle">Não somos uma loja<br>Mandamos promoções da Shopee direto no seu celular<br>Pra você, dona de casa, economizar</p>
+    
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
     </div>
-  </section>
+    <p class="vaga-texto" id="vagaTexto">⏳ Restam 25 vagas hoje</p>
 
-  <!-- CTA principal -->
-  <section class="cta">
-    <button id="btnMain" class="btn-primary">ENTRAR NO GRUPO AGORA</button>
-    <div class="caption">Vagas limitadas</div>
-  </section>
+    <button class="cta-button" id="mainBtn">ENTRAR NO GRUPO AGORA</button>
 
-  <!-- Feed de nomes (notificações) -->
-  <div class="feed-wrap">
-    <div id="feed" class="feed" aria-live="polite"></div>
-  </div>
+    <div class="feed" id="feed"></div>
+  </header>
 
-  <!-- BENEFÍCIOS -->
   <section class="benefits">
-    <div class="benefits-grid">
-      <div class="card">
-        <div class="icon">✅</div>
-        <div class="text">
-          <b>Ofertas validadas</b>
-          <small>Promoções reais e testadas</small>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon">🔥</div>
-        <div class="text">
-          <b>Descontos insanos</b>
-          <small>Produtos com até 70% OFF</small>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon">👀</div>
-        <div class="text">
-          <b>Itens em alta</b>
-          <small>Os mais desejados do momento</small>
-        </div>
-      </div>
-      <div class="card">
-        <div class="icon">🎟</div>
-        <div class="text">
-          <b>Cupons exclusivos</b>
-          <small>Só para membros do grupo</small>
-        </div>
-      </div>
-    </div>
+    <div class="benefit"><span>✅</span> <b>Ofertas validadas</b> — promoções reais e testadas</div>
+    <div class="benefit"><span>🔥</span> <b>Descontos insanos</b> — produtos com até 70% OFF</div>
+    <div class="benefit"><span>👀</span> <b>Itens em alta</b> — os mais desejados do momento</div>
+    <div class="benefit"><span>🎟️</span> <b>Cupons exclusivos</b> — vantagens só para membros VIP</div>
   </section>
 
-  <div class="spacer-bottom"></div>
-
-  <!-- Rodapé fixo -->
-  <div class="sticky">
-    <div class="left">⏳ Últimas vagas de hoje</div>
-    <button id="btnFooter" class="btn">Entrar no grupo</button>
-  </div>
+  <footer>
+    <p>Últimas vagas de hoje ⏳</p>
+    <button class="footer-btn" id="footerBtn">Entrar no Grupo</button>
+  </footer>
 
   <script>
-    /* ========= CONFIG ========= */
-    const WHATS_LINK = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t";
-
-    /* ========= BARRA DE VAGAS ========= */
-    const slotsText = document.getElementById('slotsText');
-    const barFill = document.getElementById('barFill');
-
-    // começa com 18–25 vagas e nunca baixa de 2
-    const startSlots = Math.floor(Math.random()*8)+18; // 18..25
-    const minSlots = 2; 
-    let currentSlots = startSlots;
-
-    function updateSlotsUI(){
-      slotsText.innerHTML = `Últimas vagas de hoje — restam <b>${currentSlots}</b>`;
-      const filled = ( (startSlots - currentSlots) / (startSlots - minSlots) ) * 100;
-      const pct = Math.max(0, Math.min(100, filled));
-      barFill.style.width = pct + '%';
-    }
-    updateSlotsUI();
-
-    (function tickSlots(){
-      const delay = Math.floor(Math.random()*1200)+900; // 0.9s..2.1s para parecer natural
-      setTimeout(()=>{
-        if(currentSlots>minSlots){
-          currentSlots--;
-          updateSlotsUI();
-          tickSlots();
-        }
-      }, delay);
-    })();
-
-    /* ========= FEED DE NOMES ========= */
-    const feed = document.getElementById('feed');
-
-    const firstNames = [
-      "Maria","Ana","Júlia","Marina","Beatriz","Luiza","Larissa","Camila","Gabriela",
-      "Patrícia","Renata","Carla","Fernanda","Caroline","Isabela","Bianca","Aline",
-      "Tatiane","Bruna","Letícia","Amanda","Nathalia","Helena","Laura","Sofia",
-      "Rafaela","Vitória","Raquel","Elisa","Yasmin","Priscila","Viviane",
-      "João","Carlos","Pedro","Lucas","Gustavo","Bruno","Rafael","Felipe",
-      "André","Rodrigo","Leonardo","Paulo","Marcelo","Eduardo","Diego","Mateus",
-      "Thiago","Daniel","Henrique","Vinícius","Caio","Vítor"
-    ];
-    const middle = [
-      "Clara","Helena","Luiza","Rosa","Alice","Valentina","Pietra","Maria",
-      "João","Pedro","Luiz","Miguel","Antônio","Paulo","José","Augusto","Henrique"
-    ];
-    const lastNames = [
-      "Souza","Silva","Santos","Oliveira","Pereira","Costa","Rodrigues","Almeida",
-      "Gomes","Martins","Araujo","Barbosa","Cardoso","Pinto","Carvalho","Ferreira",
-      "Melo","Moura","Ribeiro","Moreira","Lima","Vieira","Nascimento","Correia",
-      "Batista","Rocha","Dias","Teixeira","Freitas","Rezende","Soares"
-    ];
-
-    function shuffle(arr){
-      for(let i=arr.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]]=[arr[j],arr[i]];
-      }
-      return arr;
+    // Pixel tracking
+    function trackLead() {
+      fbq('track', 'Lead');
     }
 
-    function makeBrazilianName(){
-      // 60% nomes compostos
-      const composed = Math.random()<0.6;
-      const f = firstNames[Math.floor(Math.random()*firstNames.length)];
-      const m = middle[Math.floor(Math.random()*middle.length)];
-      const l = lastNames[Math.floor(Math.random()*lastNames.length)];
-      const l2 = Math.random()<0.35 ? ' ' + lastNames[Math.floor(Math.random()*lastNames.length)] : '';
-      return composed ? `${f} ${m} ${l}${l2}` : `${f} ${l}${l2}`;
-    }
+    // Botões
+    document.getElementById("mainBtn").onclick = function() {
+      trackLead();
+      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG", "_blank");
+    };
+    document.getElementById("footerBtn").onclick = function() {
+      trackLead();
+      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG", "_blank");
+    };
 
-    function addNote(){
-      const name = makeBrazilianName();
-      const el = document.createElement('div');
-      el.className = 'note fade-in';
-      el.innerHTML = `<span class="tick">✅</span> <span><b>${name}</b> entrou no grupo</span>`;
-      feed.appendChild(el);
-      // anima aparecer suave
-      requestAnimationFrame(()=>{ el.classList.add('show'); });
-      // mantém lista enxuta
-      const maxItems = 7;
-      while(feed.children.length>maxItems){
-        feed.removeChild(feed.firstChild);
+    // Barra de vagas
+    let vagas = 25;
+    const vagaTexto = document.getElementById("vagaTexto");
+    const progressBar = document.getElementById("progressBar");
+
+    function atualizarVagas() {
+      if (vagas > 2) {
+        vagas--;
+        vagaTexto.textContent = "⏳ Restam " + vagas + " vagas hoje";
+        progressBar.style.width = ((25 - vagas) / 25 * 100) + "%";
+        setTimeout(atualizarVagas, Math.random() * 3000 + 1500);
       }
     }
+    setTimeout(atualizarVagas, 2000);
 
-    // embaralha ritmo inicial
-    const startBurst = shuffle([0,400,800,1200,1600,2000,2400]);
-    startBurst.forEach((t,i)=>setTimeout(addNote, t));
+    // Lista de nomes brasileiros
+    const nomes = [
+      "✅ Maria Souza entrou no grupo",
+      "✅ João Silva entrou no grupo",
+      "✅ Ana Paula entrou no grupo",
+      "✅ Marcos Oliveira entrou no grupo",
+      "✅ Fernanda Costa entrou no grupo",
+      "✅ Rafael Almeida entrou no grupo",
+      "✅ Júlia Santos entrou no grupo",
+      "✅ Bruno Rocha entrou no grupo",
+      "✅ Mariana Ribeiro entrou no grupo",
+      "✅ Tiago Fernandes entrou no grupo",
+      "✅ Camila Moreira entrou no grupo",
+      "✅ Rodrigo Lima entrou no grupo",
+      "✅ Patrícia Gomes entrou no grupo",
+      "✅ André Carvalho entrou no grupo",
+      "✅ Aline Martins entrou no grupo",
+      "✅ Felipe Araújo entrou no grupo",
+      "✅ Beatriz Mendes entrou no grupo",
+      "✅ Daniel Pereira entrou no grupo",
+      "✅ Larissa Monteiro entrou no grupo",
+      "✅ Gabriel Souza entrou no grupo"
+    ];
 
-    // loop infinito a cada 1.5s (como pediu)
-    setInterval(addNote, 1500);
-
-    /* ========= BOTÕES (Lead + abrir grupo) ========= */
-    function handleClick(){
-      try{ fbq('track','Lead'); }catch(e){}
-      setTimeout(()=>{ window.open(WHATS_LINK,'_blank'); }, 500);
+    function embaralhar(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
-    document.getElementById('btnMain').addEventListener('click', handleClick);
-    document.getElementById('btnFooter').addEventListener('click', handleClick);
+
+    let feed = document.getElementById("feed");
+    let lista = embaralhar([...nomes]);
+    let index = 0;
+
+    function atualizarFeed() {
+      if (index >= lista.length) {
+        lista = embaralhar([...nomes]);
+        index = 0;
+      }
+      let p = document.createElement("p");
+      p.textContent = lista[index];
+      feed.appendChild(p);
+      if (feed.childNodes.length > 4) {
+        feed.removeChild(feed.childNodes[0]);
+      }
+      index++;
+      setTimeout(atualizarFeed, 1500);
+    }
+    atualizarFeed();
   </script>
 </body>
 </html>
