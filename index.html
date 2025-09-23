@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Achei Promo Boa 😱🛍 | Ofertas validadas e descontos insanos</title>
+  <title>Achei Promo Boa 😱🛍</title>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -20,282 +20,274 @@
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1" />
+    src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root{
-      --pink:#ff1493;          /* rosa pink neon (principal) */
-      --pink-dark:#cc0f76;     /* rosa mais escuro (hover/rodapé) */
-      --yellow:#FFD700;        /* amarelo-gema */
-      --yellow-soft:rgba(255,215,0,0.18);
-      --white:#ffffff;
-      --text:#2c2c2c;
-      --muted:#666;
-      --shadow:0 10px 30px rgba(0,0,0,0.12);
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #ff4fc4, #ff1493);
+      color: #333;
+      text-align: center;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:var(--white);}
-
-    /* HEADER ROSA (até a mensagem “Não somos uma loja…”) */
-    header{background:linear-gradient(180deg,var(--pink) 0%, #ff3cab 60%, var(--pink) 100%);
-      color:var(--white); padding:28px 18px 20px; position:relative; overflow:hidden;}
-    .topbar{max-width:980px;margin:0 auto; display:flex; align-items:center; gap:14px;}
-    .logo-wrap{width:62px;height:62px; flex:0 0 62px; border-radius:50%;
-      box-shadow:0 6px 18px rgba(0,0,0,0.15); overflow:hidden; display:grid; place-items:center; background:var(--white);}
-    .logo-wrap img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
-    .title-block{display:flex; flex-direction:column; gap:6px;}
-    h1{font-size:1.55rem; letter-spacing:-0.4px; line-height:1.1; font-weight:800; display:flex; align-items:center; gap:8px;}
-    .desc-line{font-weight:600; font-size:0.98rem; opacity:.95;}
-    .desc-sub{font-size:0.95rem; opacity:.9;}
-    .desc-sub b{font-weight:800;}
-
-    /* BARRA DE VAGAS + CTA PRINCIPAL (AINDA EM FUNDO ROSA) */
-    .hero{max-width:980px;margin:16px auto 0; padding:0 18px 12px;}
-    .vacant-card{background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
-      border-radius:14px; padding:14px 14px 16px;}
-    .vacant-row{display:flex; justify-content:space-between; align-items:center; color:var(--white); margin-bottom:10px;}
-    .vacant-row .left{display:flex; align-items:center; gap:8px; font-weight:700;}
-    .vacant-row .right{font-weight:700;}
-    .progress{height:10px; width:100%; border-radius:999px; background:rgba(255,255,255,0.45); overflow:hidden;}
-    .progress > i{display:block; height:100%; width:0%; background:var(--yellow); transition:width .6s ease;}
-
-    .cta-wrap{display:grid; place-items:center; margin:14px auto 0;}
-    .btn-primary{
-      appearance:none; border:none; cursor:pointer; text-transform:uppercase; font-weight:900; letter-spacing:.4px;
-      background:var(--pink); color:var(--white); padding:16px 24px; border-radius:12px; min-width:280px;
-      border:3px solid var(--yellow); box-shadow:0 10px 28px rgba(255,20,147,.35);
-      animation:pulse 1.2s ease-in-out infinite;
+    header {
+      padding: 30px 20px 10px;
     }
-    .btn-primary:hover{filter:brightness(1.05)}
-    @keyframes pulse{
-      0%{transform:scale(1)}
-      50%{transform:scale(1.03)}
-      100%{transform:scale(1)}
+    .logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: block;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
+    }
+    h1 span {
+      font-size: 1.8rem;
+    }
+    p.sub {
+      font-size: 1rem;
+      color: #fff;
+      margin-top: 8px;
     }
 
-    /* DIVISÃO: parte branca começa logo abaixo do botão e do aviso */
-    .white-section{background:var(--white); padding:18px 18px 24px;}
-    .white-inner{max-width:980px; margin:0 auto;}
-
-    /* AVISO “Vagas limitadas” + FEED DE NOMES (logo abaixo do botão principal) */
-    .note{margin:14px auto 12px; text-align:center; color:#fff; opacity:.95;}
-    .feed{margin:10px auto 0; background:#fff; border:1px solid #eee; border-radius:12px; box-shadow:var(--shadow);
-      max-width:740px; overflow:hidden;}
-    .feed-list{list-style:none; max-height:280px; overflow:hidden; padding:10px;}
-    .feed-item{display:flex; gap:8px; align-items:center; justify-content:center; color:#1f2937; padding:8px 6px; font-weight:600;}
-    .check{color:#10b981}
-
-    /* BENEFÍCIOS */
-    .benefits{margin:18px auto 0; display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
-    .benefit{background:#fff; border:1px solid #eee; border-radius:14px; box-shadow:var(--shadow); padding:14px;}
-    .benefit .iconBox{width:40px;height:40px;border-radius:10px;background:var(--yellow-soft);display:grid;place-items:center;margin-bottom:8px;}
-    .benefit b{display:block; margin-bottom:4px;}
-    .benefit p{color:var(--muted); font-weight:500; font-size:0.95rem}
-
-    /* RODAPÉ FIXO */
-    .sticky-footer{position:fixed; left:0; right:0; bottom:0; background:linear-gradient(180deg,var(--pink-dark),#a70d68);
-      box-shadow:0 -10px 24px rgba(0,0,0,0.2); padding:10px 12px; z-index:50;}
-    .sticky-inner{max-width:980px;margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px;}
-    .sticky-title{color:#fff; font-weight:800; letter-spacing:.3px;}
-    .btn-secondary{
-      appearance:none; border:none; cursor:pointer; font-weight:900; letter-spacing:.3px; text-transform:uppercase;
-      background:#fff; color:var(--pink-dark); padding:12px 16px; border-radius:10px;
-      border:3px solid var(--yellow);
-      box-shadow:0 8px 22px rgba(0,0,0,.18);
+    /* contador */
+    .counter {
+      margin: 20px auto;
+      font-size: 1rem;
+      color: #ffeb3b;
+      font-weight: bold;
     }
-    .spacer{height:68px} /* espaço para o rodapé fixo não cobrir conteúdo */
-
-    @media (max-width:900px){
-      .benefits{grid-template-columns:1fr 1fr}
-      .sticky-title{font-size:0.95rem}
-      .btn-primary{min-width:240px}
+    .progress-bar {
+      width: 80%;
+      height: 12px;
+      background: #fff;
+      border-radius: 8px;
+      margin: 8px auto;
+      overflow: hidden;
     }
-    @media (max-width:560px){
-      .benefits{grid-template-columns:1fr}
-      .title-block h1{font-size:1.3rem}
-      .desc-line,.desc-sub{font-size:0.92rem}
+    .progress-fill {
+      height: 100%;
+      background: #ff1493;
+      width: 100%;
+      transition: width 0.5s ease;
+    }
+
+    /* Botões */
+    .cta-main {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 18px 35px;
+      background: #ff1493;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .cta-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      z-index: 1000;
+    }
+    .cta-footer span {
+      color: #fff;
+      font-size: 1rem;
+    }
+    .cta-footer a {
+      background: #ff1493;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* Nomes rolando */
+    .feed {
+      margin-top: 10px;
+      height: 60px;
+      overflow: hidden;
+      position: relative;
+    }
+    .feed p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+      color: #fff;
+      animation: scrollFeed 12s linear infinite;
+    }
+    @keyframes scrollFeed {
+      0% { transform: translateY(100%); }
+      100% { transform: translateY(-100%); }
+    }
+
+    /* Benefícios */
+    section.benefits {
+      background: #fff;
+      padding: 25px 15px 80px;
+      margin-top: 20px;
+      border-radius: 25px 25px 0 0;
+      text-align: left;
+    }
+    .benefit {
+      display: flex;
+      align-items: center;
+      background: #fff3d1;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 10px;
+    }
+    .benefit span.emoji {
+      background: #ffeb3b;
+      border-radius: 8px;
+      padding: 8px;
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+    .benefit strong {
+      font-size: 1rem;
+      color: #333;
+    }
+    .benefit p {
+      margin: 2px 0 0;
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
 
-  <!-- TOPO ROSA + TÍTULO + LOGO -->
   <header>
-    <div class="topbar">
-      <div class="logo-wrap">
-        <!-- COLE AQUI A SUA LOGO EM BASE64 (PNG/JPG) -->
-        <!-- Exemplo: src="data:image/png;base64,AAA..." -->
-        <img alt="Logo Achei Promo Boa" src="DATA_URI_DA_SUA_LOGO_AQUI">
-      </div>
-      <div class="title-block">
-        <h1>Achei Promo Boa 😱🛍</h1>
-        <div class="desc-line">Não somos uma loja</div>
-        <div class="desc-sub">Mandamos promoções da Shopee direto no seu celular — <b>pra você, dona de casa, economizar</b> ⏳</div>
-      </div>
-    </div>
-
-    <!-- VAGAS + BARRA + CTA PRINCIPAL -->
-    <div class="hero">
-      <div class="vacant-card">
-        <div class="vacant-row">
-          <div class="left">⏳ <span id="vacantText">Restam 0 vagas hoje</span></div>
-          <div class="right" id="vacantCount">—</div>
-        </div>
-        <div class="progress"><i id="vacantBar"></i></div>
-      </div>
-
-      <div class="cta-wrap">
-        <button id="btnMain" class="btn-primary">ENTRAR NO GRUPO AGORA</button>
-        <div class="note">Vagas limitadas</div>
-      </div>
-    </div>
+    <img class="logo" src="data:image/png;base64,<!-- BASE64 AQUI -->" alt="Logo Achei Promo Boa"/>
+    <h1>Achei Promo Boa 😱🛍</h1>
+    <p class="sub">Não somos uma loja • Mandamos promoções da Shopee direto no seu celular • Pra você, dona de casa, economizar</p>
   </header>
 
-  <!-- PARTE BRANCA: FEED DE NOMES + BENEFÍCIOS -->
-  <section class="white-section">
-    <div class="white-inner">
-      <!-- FEED DE NOMES -->
-      <div class="feed" aria-live="polite">
-        <ul id="feedList" class="feed-list"></ul>
-      </div>
+  <div class="counter">
+    ⏳ Restam <span id="slots">25</span> vagas hoje
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+  </div>
 
-      <!-- BENEFÍCIOS -->
-      <div class="benefits">
-        <div class="benefit">
-          <div class="iconBox">✅</div>
-          <b>Ofertas validadas</b>
-          <p>Promoções reais e testadas.</p>
-        </div>
-        <div class="benefit">
-          <div class="iconBox">🔥</div>
-          <b>Descontos insanos</b>
-          <p>Produtos com até 70% OFF.</p>
-        </div>
-        <div class="benefit">
-          <div class="iconBox">👀</div>
-          <b>Itens em alta</b>
-          <p>Os mais desejados do momento.</p>
-        </div>
-        <div class="benefit">
-          <div class="iconBox">🎟️</div>
-          <b>Cupons exclusivos</b>
-          <p>Só para membros do grupo.</p>
-        </div>
+  <a class="cta-main" 
+     href="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t"
+     onclick="fbq('track', 'Lead')">
+    ENTRAR NO GRUPO AGORA
+  </a>
+
+  <div class="feed" id="feed"></div>
+
+  <section class="benefits">
+    <div class="benefit">
+      <span class="emoji">☑️</span>
+      <div>
+        <strong>Ofertas validadas</strong>
+        <p>Promoções reais e testadas</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <span class="emoji">🔥</span>
+      <div>
+        <strong>Descontos insanos</strong>
+        <p>Produtos com até 70% OFF</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <span class="emoji">👀</span>
+      <div>
+        <strong>Itens em alta</strong>
+        <p>Os mais desejados do momento</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <span class="emoji">🎟️</span>
+      <div>
+        <strong>Cupons exclusivos</strong>
+        <p>Vantagens só para o grupo VIP</p>
       </div>
     </div>
   </section>
 
-  <!-- RODAPÉ FIXO -->
-  <div class="spacer" aria-hidden="true"></div>
-  <footer class="sticky-footer" role="contentinfo">
-    <div class="sticky-inner">
-      <div class="sticky-title">Últimas vagas de hoje</div>
-      <button id="btnFooter" class="btn-secondary">Entrar no grupo</button>
-    </div>
-  </footer>
+  <div class="cta-footer">
+    <span>⏳ Últimas vagas de hoje</span>
+    <a href="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t"
+       onclick="fbq('track', 'Lead')">
+      Entrar no grupo
+    </a>
+  </div>
 
   <script>
-    // ====== CONFIGURAÇÕES ======
-    const LINK_GRUPO = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t";
+    // contador
+    let slots = 25;
+    const slotEl = document.getElementById("slots");
+    const progress = document.getElementById("progress");
 
-    // ====== RASTREAR EVENTOS (PIXEL) ======
-    function trackLead(source){
-      try{ fbq('track','Lead',{source}); }catch(e){}
+    function reduceSlot() {
+      if (slots > 1) {
+        slots--;
+        slotEl.textContent = slots;
+        progress.style.width = (slots / 25 * 100) + "%";
+        setTimeout(reduceSlot, Math.random() * 3000 + 1500);
+      } else {
+        slotEl.textContent = "0 (novas vagas em breve)";
+      }
     }
-    // ViewContent após 3s
-    setTimeout(()=>{ try{ fbq('track','ViewContent',{content_name:'Landing Achei Promo Boa'});}catch(e){} }, 3000);
+    setTimeout(reduceSlot, 2000);
 
-    // ====== CTA BOTÕES ======
-    document.getElementById('btnMain').addEventListener('click', (e)=>{
-      e.preventDefault(); trackLead('botao_principal');
-      setTimeout(()=>{ window.open(LINK_GRUPO,'_blank'); }, 300);
-    });
-    document.getElementById('btnFooter').addEventListener('click', (e)=>{
-      e.preventDefault(); trackLead('botao_rodape');
-      setTimeout(()=>{ window.open(LINK_GRUPO,'_blank'); }, 300);
-    });
-
-    // ====== BARRA DE VAGAS (começa vazia, enche e PARA em 2 vagas) ======
-    (function vagas(){
-      const minStart = 18, maxStart = 25;        // começa entre 18 e 25
-      let vagas = Math.floor(Math.random()*(maxStart-minStart+1))+minStart;
-      const minRestantes = 2;                    // para em 2
-      const total = vagas;                       // base para calcular barra
-      const text = document.getElementById('vacantText');
-      const count = document.getElementById('vacantCount');
-      const bar = document.getElementById('vacantBar');
-
-      function render(){
-        text.textContent = `Restam ${vagas} vagas hoje`;
-        count.textContent = vagas;
-        const filled = (1 - ((vagas-minRestantes)/ (total-minRestantes))) * 100;
-        const width = Math.max(0, Math.min(100, filled));
-        bar.style.width = width.toFixed(1) + '%';
-      }
-      render();
-
-      function tick(){
-        if(vagas > minRestantes){
-          // intervalos aleatórios 1–3s
-          const wait = Math.floor(Math.random()*2000)+1000;
-          setTimeout(()=>{
-            vagas = Math.max(minRestantes, vagas - 1);
-            render();
-            if(vagas > minRestantes) tick();
-          }, wait);
-        }
-      }
-      // começa esvaziado e vai enchendo: chamamos tick para reduzir "vagas" e aumentar a barra
-      tick();
-    })();
-
-    // ====== FEED INFINITO DE NOMES (BR) ======
-    const firstNames = [
-      "Maria","Ana","Camila","Fernanda","Beatriz","Mariana","Júlia","Letícia","Vitória","Patrícia",
-      "Carla","Natália","Bruna","Renata","Aline","Larissa","Priscila","Bianca","Amanda","Luana",
-      "João","Pedro","Gabriel","Rafael","Lucas","Matheus","Carlos","André","Tiago","Felipe",
-      "Gustavo","Rodrigo","Diego","Henrique","Daniel","Eduardo","Bruno","Vinícius","Leonardo","Caio"
+    // feed de nomes
+    const names = [
+      "✅️ Marina Souza entrou no grupo",
+      "✅️ Roberto Soares entrou no grupo",
+      "✅️ Júlia Santos entrou no grupo",
+      "✅️ Fernanda Oliveira entrou no grupo",
+      "✅️ Paulo Henrique entrou no grupo",
+      "✅️ Camila Rocha entrou no grupo",
+      "✅️ Lucas Martins entrou no grupo",
+      "✅️ Ana Beatriz entrou no grupo",
+      "✅️ João Pedro entrou no grupo",
+      "✅️ Larissa Fernandes entrou no grupo",
+      "✅️ Thiago Gomes entrou no grupo",
+      "✅️ Mariana Carvalho entrou no grupo",
+      "✅️ Diego Costa entrou no grupo",
+      "✅️ Aline Souza entrou no grupo",
+      "✅️ Gabriel Silva entrou no grupo",
+      "✅️ Priscila Mendes entrou no grupo"
     ];
-    const compound = ["Clara","Paula","Helena","Sofia","Isabela","Miguel","Antônio","Luiz","Guilherme","Augusto","Henrique","Pedro"];
-    const lastNames = [
-      "Silva","Souza","Oliveira","Ferreira","Costa","Gomes","Rocha","Pereira","Mendes","Barbosa",
-      "Martins","Dias","Teixeira","Almeida","Araújo","Moreira","Castro","Nogueira","Cardoso","Carvalho",
-      "Santos","Lima","Ribeiro","Pinto","Correia","Campos","Moura","Batista","Rezende","Barros"
-    ];
-
-    function sorteio(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-    function nomeBR(){
-      const base = sorteio(firstNames);
-      const usaComposto = Math.random() < 0.45; // ~45% compostos
-      let primeiro = base;
-      if(usaComposto){
-        const segundo = sorteio(compound);
-        // evitar duplicata tipo "Pedro Pedro"
-        if(segundo !== base){ primeiro = `${base} ${segundo}`; }
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
-      const sobrenome = `${sorteio(lastNames)}${Math.random()<0.35? " " + sorteio(lastNames):""}`;
-      return `${primeiro} ${sobrenome}`;
+      return array;
     }
-
-    const feedList = document.getElementById('feedList');
-    function addFeedItem(){
-      const li = document.createElement('li');
-      li.className = 'feed-item';
-      li.innerHTML = `<span class="check">✅</span> <span>${nomeBR()} entrou no grupo</span>`;
-      feedList.appendChild(li);
-
-      // rolar visualmente: remove o primeiro quando passar de N itens
-      const MAX = 10; // visíveis
-      if(feedList.children.length > MAX){
-        feedList.removeChild(feedList.firstElementChild);
-      }
-    }
-    // coloca alguns iniciais
-    for(let i=0;i<4;i++) addFeedItem();
-    // intervalo de 1.5s
-    setInterval(addFeedItem, 1500);
+    const shuffled = shuffle([...names]);
+    const feedEl = document.getElementById("feed");
+    shuffled.forEach(name => {
+      const p = document.createElement("p");
+      p.textContent = name;
+      feedEl.appendChild(p);
+    });
   </script>
+
 </body>
 </html>
