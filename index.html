@@ -48,7 +48,7 @@
     header {
       background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
       color: var(--white);
-      padding: 1.8rem 1rem 2.2rem; /* menor para subir a CTA */
+      padding: 1.8rem 1rem 2.2rem;
       text-align:center;
       border-radius: 0 0 40px 40px;
       box-shadow: var(--shadow);
@@ -97,7 +97,8 @@
     /* BARRA VAGAS */
     .vacancy-wrap{text-align:center;max-width:650px;margin:1.2rem auto .4rem;}
     .vacancy-top{font-weight:800;margin-bottom:.5rem;color:var(--pink-dark);}
-    .bar{position:relative;width:100%;height:14px;background:#fff;border-radius:999px;overflow:hidden;}
+    .bar{position:relative;width:100%;height:16px;background:#eee;border-radius:999px;
+      overflow:hidden;box-shadow: inset 0 0 3px rgba(0,0,0,.12);}
     .fill{position:absolute;inset:0 100% 0 0;background:linear-gradient(90deg,var(--yellow),var(--yellow-dark));
       box-shadow:0 6px 18px rgba(255,204,0,.35);border-radius:999px;transition:inset .6s ease;}
 
@@ -114,11 +115,15 @@
 
     /* BENEFITS */
     .benefits{max-width:900px;margin:2rem auto;padding:0 6px;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
-    .benefit{background:#fff;border-radius:16px;padding:20px 14px;box-shadow:var(--shadow);
-      text-align:center;}
-    .benefit .emojibox{font-size:28px;margin-bottom:10px;}
-    .benefit h4{font-weight:900;font-size:16px;margin-bottom:6px;color:#111;}
+    .benefit{background:#fff;border-radius:16px;padding:16px;box-shadow:var(--shadow);
+      display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+    .emojibox{
+      width:42px;height:42px;min-width:42px;
+      border-radius:12px;background:rgba(255,204,0,.25);
+      display:flex;align-items:center;justify-content:center;
+      font-size:22px;
+    }
+    .benefit h4{font-weight:900;font-size:15px;margin-bottom:4px;color:#111;}
     .benefit p{font-size:14px;color:#666;}
 
     /* RODAPÉ FIXO */
@@ -156,24 +161,30 @@
 
     <!-- Benefícios -->
     <section class="benefits">
-      <div class="grid">
-        <div class="benefit">
-          <div class="emojibox">🔥</div>
+      <div class="benefit">
+        <div class="emojibox">🔥</div>
+        <div>
           <h4>Descontos Insanos</h4>
           <p>Produtos com até 70% OFF</p>
         </div>
-        <div class="benefit">
-          <div class="emojibox">🎟️</div>
+      </div>
+      <div class="benefit">
+        <div class="emojibox">🎟️</div>
+        <div>
           <h4>Cupons Exclusivos</h4>
           <p>Só para membros do grupo</p>
         </div>
-        <div class="benefit">
-          <div class="emojibox">👀</div>
+      </div>
+      <div class="benefit">
+        <div class="emojibox">👀</div>
+        <div>
           <h4>Itens em Alta</h4>
           <p>Os mais desejados do momento</p>
         </div>
-        <div class="benefit">
-          <div class="emojibox">✅</div>
+      </div>
+      <div class="benefit">
+        <div class="emojibox">✅</div>
+        <div>
           <h4>Ofertas Verificadas</h4>
           <p>Promoções reais e testadas</p>
         </div>
@@ -193,45 +204,68 @@
     const WHATS_LINK = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG";
     const START_VACANCIES = 24, MIN_VACANCIES = 2;
     let currentVacancies = START_VACANCIES;
-    const totalSpan = START_VACANCIES - MIN_VACANCIES;
 
     const feedEl = document.getElementById('feed');
     const vacancyText = document.getElementById('vacancyText');
     const fillBar = document.getElementById('fillBar');
 
-    const NAMES = ["Maria Souza","Ana Clara","Marina Silva","Beatriz Santos","Fernanda Lima",
-      "Carlos Eduardo","João Pedro","Matheus Araújo","Bruno Almeida","Diego Pereira"];
+    const NAMES = [
+      "Ana Beatriz Souza","Maria Júlia Ferreira","Francisca Lacerda",
+      "Rosália Maria","Cecília Duarte","Helena Cardoso",
+      "Laura Nogueira","Mariana Castro","Camila Figueiredo",
+      "Isabela Teixeira","Vitória Rocha","Patrícia Mendes",
+      "Lúcia Tavares","Joana Prado","Elisabete Moraes",
+      "Rita de Cássia","Irene Martins","Conceição Almeida",
+      "Adriana Torres","Marta Freitas","Ângela Barbosa",
+      "Fátima Ribeiro","Lourdes Gonçalves","Tereza Lemos",
+      "Clarice Moreira","Josefina Costa","Sílvia Azevedo",
+      "Regina Duarte","Luciana Monteiro","Cristina Xavier",
+      "Sônia Pacheco","Glória Fernandes","Márcia Rezende",
+      "Paula Guimarães","Valéria Batista","Carolina Moura",
+      "Beatriz Correia","Renata Campos","Gabriela Antunes",
+      "Clara Silva"
+    ];
+    let namesQueue = shuffle([...NAMES]);
     let idx=0;
+
+    function shuffle(arr){
+      for(let i=arr.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]]=[arr[j],arr[i]];
+      }
+      return arr;
+    }
 
     function updateVacancyUI(){
       vacancyText.textContent = `⏳ Últimas vagas de hoje • Restam ${currentVacancies}`;
-      const filled=(START_VACANCIES-currentVacancies)/totalSpan;
+      const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
       const pct=Math.max(0,Math.min(1,filled));
       fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
     }
-    function stepVacancies(){
-      if(currentVacancies<=MIN_VACANCIES)return;
-      currentVacancies=Math.max(MIN_VACANCIES,currentVacancies-1);
-      updateVacancyUI();
-      if(currentVacancies>MIN_VACANCIES){
-        const nextMs=[900,1200,1600,2000,1300,1700][Math.floor(Math.random()*6)];
-        setTimeout(stepVacancies,nextMs);
-      }
-    }
 
-    function pushNotification(name){
+    function pushNotification(){
+      if(currentVacancies<=MIN_VACANCIES) return;
       if(feedEl.children.length>=3){
         const last=feedEl.lastElementChild;
         last.style.transition='opacity .35s ease, transform .35s ease';
         last.style.opacity='0';last.style.transform='translateY(8px)';
         setTimeout(()=>last&&last.remove(),350);
       }
+      const name=namesQueue[idx%namesQueue.length];
+      idx++;
       const row=document.createElement('div');
       row.className='notif';
       row.innerHTML=`<div class="badge">✅</div><div class="text"><strong>${name}</strong> entrou no grupo</div>`;
       feedEl.insertBefore(row,feedEl.firstChild);
+
+      // Decrementar vagas
+      currentVacancies=Math.max(MIN_VACANCIES,currentVacancies-1);
+      updateVacancyUI();
+
+      // Intervalo aleatório entre 1 e 3s
+      const nextMs=[1000,2000,3000][Math.floor(Math.random()*3)];
+      setTimeout(pushNotification,nextMs);
     }
-    function startFeed(){setInterval(()=>{pushNotification(NAMES[idx%NAMES.length]);idx++;},2000);}
 
     function goToGroup(){try{fbq('track','Lead');}catch(e){}window.open(WHATS_LINK,"_blank");}
     document.getElementById('ctaMain').addEventListener('click',goToGroup);
@@ -239,8 +273,7 @@
 
     window.addEventListener('load',()=>{
       updateVacancyUI();
-      setTimeout(stepVacancies,800);
-      startFeed();
+      setTimeout(pushNotification,1500);
       try{fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'});}catch(e){}
     });
   </script>
