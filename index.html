@@ -179,7 +179,7 @@
 </head>
 <body>
   <header>
-    <div class="logo-wrap"><img src="/logo.png" alt="Logo"></div>
+    <div class="logo-wrap"><img src="https://i.postimg.cc/2y714XJX/logo.png" alt="Logo"></div>
     <h1>Achei Promo Boa 😱🛍</h1>
     <div class="subtitle">As melhores promoções para donas de casa direto no seu WhatsApp.</div>
   </header>
@@ -202,7 +202,7 @@
       </div>
     </div>
     <div class="benefit">
-      <div class="emojibox">🎟️</div>
+      <div class="emojibox">🎟</div>
       <div class="benefit-text">
         <h4>Cupons Exclusivos</h4>
         <p>Só para membros do grupo</p>
@@ -282,10 +282,10 @@
     // -----------------------------------------------
 
     function updateVacancyUI(){
-      vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies} 👇`;
+      vacancyText.textContent=Últimas vagas de hoje • Restam ${currentVacancies} 👇;
       const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
       const pct=Math.max(0,Math.min(1,filled));
-      fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
+      fillBar.style.inset=0 ${(1-pct)*100}% 0 0;
     }
 
     function step(){
@@ -305,7 +305,7 @@
     function pushNotification(name){
       const row=document.createElement('div');
       row.className='notif';
-      row.innerHTML=`<div class="badge">✅</div><div><strong>${name}</strong> entrou no grupo</div>`;
+      row.innerHTML=<div class="badge">✅</div><div><strong>${name}</strong> entrou no grupo</div>;
       if(feedEl.firstChild){
         feedEl.insertBefore(row,feedEl.firstChild);
       }else{
