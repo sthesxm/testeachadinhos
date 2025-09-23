@@ -25,7 +25,7 @@
       --pink:#ff1fae;
       --pink-dark:#c71585;
       --amber:#ffcc00;
-      --amber-light:#fff4cc;
+      --amber-light:#ffd633; /* tom mais claro */
       --white:#ffffff;
       --gray:#555;
       --muted:#777;
@@ -37,12 +37,12 @@
     body{
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
       background:#fff;color:#222;
-      padding-bottom:90px; /* respiro para rodapé fixo */
+      padding-bottom:80px; /* respiro para rodapé fixo */
     }
 
     header{
       background: linear-gradient(135deg, #ff1493 0%, var(--pink-dark) 100%);
-      padding:30px 20px 25px;
+      padding:20px 20px 30px; /* menor espaço no topo */
       text-align:center;
       border-radius:0 0 28px 28px;
       color:var(--white);
@@ -53,19 +53,21 @@
       border-radius:50%;background:#fff;padding:6px;
       box-shadow:0 8px 20px rgba(0,0,0,.2);
     }
-    .logo-wrap img{
-      width:100%;height:100%;border-radius:50%;object-fit:cover;
-    }
+    .logo-wrap img{width:100%;height:100%;border-radius:50%;}
     h1{font-size:28px;font-weight:800;margin-bottom:6px;}
     .subtitle{
       font-size:15px;
       color:#f1f1f1;
-      margin-bottom:0; /* termina logo após o subtítulo */
+      margin-bottom:10px;
     }
 
     /* Barra de vagas */
     .vacancy-wrap{max-width:600px;margin:12px auto 0;text-align:center;}
-    .vacancy-top{font-weight:700;margin-bottom:8px;}
+    .vacancy-top{
+      font-weight:800;
+      font-size:17px; /* maior e negrito */
+      margin-bottom:8px;
+    }
     .bar{
       width:100%;height:16px;background:#f1f1f1;
       border:2px solid #ddd;border-radius:999px;
@@ -73,7 +75,7 @@
     }
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background:linear-gradient(90deg,var(--amber),#ffe066);
+      background:linear-gradient(90deg,var(--amber),var(--amber-light));
       border-radius:999px;
       transition:inset .5s ease;
     }
@@ -86,12 +88,9 @@
       max-width:700px;
     }
     .cta-btn{
-      display:block;
-      width:100%;
-      max-width:620px;
-      margin:15px auto 0;
-      padding:18px 32px;
-      border-radius:999px;font-weight:800;font-size:18px;
+      display:inline-block;padding:16px 32px;
+      width:100%; /* ocupa quase toda largura */
+      border-radius:999px;font-weight:800;font-size:16px;
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
       color:#fff;border:none;cursor:pointer;
       animation:pulse 1.6s ease-in-out infinite;
@@ -106,7 +105,7 @@
     .feed{
       margin:18px auto 12px;
       max-width:500px;
-      background:#fafafa;
+      background:#f0f0f0; /* cinza bloco */
       border:1px solid #ccc;
       border-radius:16px;
       padding:12px;
@@ -136,7 +135,7 @@
       background:rgba(255,31,174,0.08); /* rosinha mais forte */
       border-radius:16px;
       padding:14px 16px;margin-bottom:14px;
-      border:1px solid var(--pink);
+      border:1px solid var(--pink); /* borda rosa */
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
     }
     .emojibox{
@@ -162,9 +161,7 @@
       display:flex;align-items:center;justify-content:space-between;
       z-index:50;
     }
-    .sticky-footer div{
-      font-weight:700;
-    }
+    .sticky-footer div{font-weight:700;}
     .sticky-btn{
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
       color:#fff;border:none;border-radius:999px;
@@ -178,18 +175,16 @@
 </head>
 <body>
   <header>
-    <div class="logo-wrap"><img src="https://drive.google.com/uc?export=view&id=129RzckpYE5YiV2nN4k-w2bpuBdL85W1r" alt="Logo"></div>
+    <div class="logo-wrap"><img src="/logo.png" alt="Logo"></div>
     <h1>Achei Promo Boa 😱🛍</h1>
     <div class="subtitle">As melhores promoções para donas de casa direto no seu WhatsApp.</div>
   </header>
 
   <section class="cta-section">
-    <!-- Barra de vagas agora fica aqui -->
     <div class="vacancy-wrap">
-      <div class="vacancy-top"><span id="vacancyTextCTA">Últimas vagas de hoje • Restam 24</span></div>
-      <div class="bar"><div class="fill" id="fillBarCTA"></div></div>
+      <div class="vacancy-top"><span id="vacancyText">Últimas vagas de hoje • Restam 24 👇</span></div>
+      <div class="bar"><div class="fill" id="fillBar"></div></div>
     </div>
-
     <button id="ctaMain" class="cta-btn">ENTRAR NO GRUPO AGORA</button>
     <div class="feed" id="feed"></div>
   </section>
@@ -234,8 +229,8 @@
     const WHATS_LINK="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG";
     const START_VACANCIES=24, MIN_VACANCIES=2;
     const feedEl=document.getElementById('feed');
-    const vacancyTextCTA=document.getElementById('vacancyTextCTA');
-    const fillBarCTA=document.getElementById('fillBarCTA');
+    const vacancyText=document.getElementById('vacancyText');
+    const fillBar=document.getElementById('fillBar');
 
     const NAMES_POOL=[
       "Francisca Lacerda","Rosália Maria","Maria Júlia Souza","Ana Beatriz Nogueira","Josefa Almeida",
@@ -253,10 +248,10 @@
     let currentVacancies=START_VACANCIES;
 
     function updateVacancyUI(){
-      vacancyTextCTA.textContent=`Últimas vagas de hoje • Restam ${currentVacancies}`;
+      vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies} 👇`;
       const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
       const pct=Math.max(0,Math.min(1,filled));
-      fillBarCTA.style.inset=`0 ${(1-pct)*100}% 0 0`;
+      fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
     }
 
     function step(){
