@@ -38,7 +38,7 @@
 
     header{
       background: linear-gradient(135deg, var(--pink) 0%, #ff6ac6 100%);
-      padding:30px 20px 50px;
+      padding:30px 20px 36px; /* espaço reduzido */
       text-align:center;
       border-radius:0 0 28px 28px;
       color:var(--white);
@@ -51,16 +51,14 @@
     }
     .logo-wrap img{width:100%;height:100%;border-radius:50%;}
     h1{font-size:28px;font-weight:800;margin-bottom:6px;}
-
-    .top-text{
-      font-weight:700;
-      color:#6a0055; /* rosa bem escuro */
-      margin-top:10px;
-      font-size:16px;
+    .subtitle{
+      font-size:15px;
+      color:#f1f1f1; /* branco levemente mais escuro */
+      margin-bottom:10px;
     }
 
     /* Barra de vagas */
-    .vacancy-wrap{max-width:600px;margin:18px auto 0;text-align:center;}
+    .vacancy-wrap{max-width:600px;margin:12px auto 0;text-align:center;}
     .vacancy-top{font-weight:700;margin-bottom:8px;}
     .bar{
       width:100%;height:16px;background:#f1f1f1;
@@ -75,7 +73,18 @@
     }
 
     /* CTA */
-    .cta-section{text-align:center;margin:30px auto;padding:20px;max-width:700px;}
+    .cta-section{
+      text-align:center;
+      margin:15px auto 0; /* espaço reduzido do header */
+      padding:15px;
+      max-width:700px;
+    }
+    .top-text{
+      font-weight:700;
+      color:#6a0055; /* rosa bem escuro */
+      font-size:16px;
+      margin-bottom:10px;
+    }
     .cta-btn{
       display:inline-block;padding:16px 32px;
       border-radius:999px;font-weight:800;font-size:16px;
@@ -91,7 +100,7 @@
 
     /* Feed */
     .feed{
-      margin:20px auto;max-width:500px;
+      margin:18px auto;max-width:500px;
       background:#f9f9f9;border-radius:16px;
       padding:12px;box-shadow:var(--shadow);
       overflow:hidden;
@@ -101,8 +110,8 @@
       background:#fff;padding:10px;border-radius:12px;
       margin-bottom:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);
       font-size:14px;font-weight:600;
-      opacity:0;transform:translateY(10px);
-      animation:slideIn .4s ease forwards;
+      opacity:0;transform:translateY(-20px);
+      animation:slideDown .4s ease forwards;
     }
     .notif .badge{
       background:rgba(46,204,113,.15);
@@ -110,10 +119,12 @@
       color:#1e8e3e;font-weight:800;font-size:13px;
       padding:6px 8px;border-radius:999px;
     }
-    @keyframes slideIn{to{opacity:1;transform:translateY(0)}}
+    @keyframes slideDown{
+      to{opacity:1;transform:translateY(0);}
+    }
 
     /* Vantagens */
-    .benefits{max-width:700px;margin:30px auto;padding:0 15px;}
+    .benefits{max-width:700px;margin:20px auto;padding:0 15px;}
     .benefit{
       display:flex;align-items:center;gap:14px;
       background:#fff;border-radius:16px;
@@ -127,7 +138,7 @@
       font-size:22px;
     }
     .benefit-text h4{
-      font-size:16px;font-weight:800;margin-bottom:3px;
+      font-size:17px;font-weight:800;margin-bottom:2px;
     }
     .benefit-text p{
       font-size:14px;color:var(--muted);margin:0;
@@ -153,7 +164,7 @@
   <header>
     <div class="logo-wrap"><img src="/logo.png" alt="Logo"></div>
     <h1>Achei Promo Boa 😱🛍</h1>
-    <div class="top-text">Vagas limitadas ⬤ Clique abaixo</div>
+    <div class="subtitle">As melhores promoções para donas de casa direto no seu WhatsApp.</div>
 
     <div class="vacancy-wrap">
       <div class="vacancy-top"><span id="vacancyText">Últimas vagas de hoje • Restam 24</span></div>
@@ -162,6 +173,7 @@
   </header>
 
   <section class="cta-section">
+    <div class="top-text">Vagas limitadas ⬤ Clique abaixo 👇</div>
     <button id="ctaMain" class="cta-btn">ENTRAR NO GRUPO AGORA</button>
     <div class="feed" id="feed"></div>
   </section>
@@ -247,9 +259,14 @@
       const row=document.createElement('div');
       row.className='notif';
       row.innerHTML=`<div class="badge">✅</div><div><strong>${name}</strong> entrou no grupo</div>`;
-      feedEl.appendChild(row);
+      // Insere no topo
+      if(feedEl.firstChild){
+        feedEl.insertBefore(row,feedEl.firstChild);
+      }else{
+        feedEl.appendChild(row);
+      }
       if(feedEl.children.length>3){
-        feedEl.firstElementChild.remove();
+        feedEl.removeChild(feedEl.lastChild);
       }
     }
 
