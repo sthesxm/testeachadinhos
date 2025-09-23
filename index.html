@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Achei Promo Boa 😱🛍</title>
 
-  <!-- Pixel -->
+  <!-- Pixel Facebook -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,7 +15,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1652603255345461');
+    fbq('init', '1652603255345461'); 
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -26,252 +26,237 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #ff4eb5;
+      font-family: Arial, sans-serif;
+      background: #ff0099;
       color: #fff;
       text-align: center;
     }
 
     header {
-      padding: 2rem 1rem 1rem;
+      padding: 20px;
     }
 
-    .logo {
+    header img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      margin: 0 auto 1rem;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      display: block;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      margin: 15px 0 5px;
+      font-size: 1.8rem;
     }
 
     .subtitle {
       font-size: 1rem;
-      line-height: 1.4;
+      opacity: 0.9;
     }
 
-    /* Barra de vagas */
-    .vagas-container {
-      margin: 1.5rem auto;
-      max-width: 300px;
-    }
-    .vagas-text {
+    .contador {
+      margin: 20px 0;
+      font-size: 1.2rem;
       font-weight: bold;
-      margin-bottom: 0.3rem;
     }
+
     .barra {
-      width: 100%;
+      width: 80%;
       height: 12px;
       background: #fff;
-      border-radius: 20px;
+      border-radius: 6px;
+      margin: 10px auto;
       overflow: hidden;
     }
+
     .barra-fill {
       height: 100%;
       width: 0%;
       background: #FFD700;
-      transition: width 0.8s ease-in-out;
+      transition: width 1s ease-in-out;
     }
 
-    /* Botão principal */
-    .cta-btn {
-      display: inline-block;
-      background: #ff1493;
+    .cta-button {
+      background: #ff0099;
       color: #fff;
+      border: 3px solid #FFD700;
+      padding: 15px 25px;
       font-size: 1.2rem;
       font-weight: bold;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      border: 3px solid #FFD700;
-      text-decoration: none;
-      margin: 1rem 0;
+      border-radius: 30px;
       cursor: pointer;
+      margin-top: 20px;
       animation: pulse 1.2s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
+      50% { transform: scale(1.07); }
       100% { transform: scale(1); }
     }
 
-    /* Feed nomes */
-    .feed {
-      margin: 1rem auto 2rem;
-      max-width: 350px;
-      height: 50px;
+    .feed-nomes {
+      margin: 20px auto;
+      width: 90%;
+      max-width: 400px;
+      background: #fff;
+      color: #000;
+      border-radius: 10px;
+      height: 120px;
       overflow: hidden;
       position: relative;
     }
-    .feed p {
-      margin: 0;
-      padding: 0.4rem;
-      background: #fff;
-      color: #333;
-      font-size: 0.9rem;
-      border-radius: 10px;
-      animation: slideUp 1.5s ease-in-out forwards;
-    }
-    @keyframes slideUp {
-      0% { transform: translateY(100%); opacity: 0; }
-      30% { opacity: 1; }
-      100% { transform: translateY(-100%); opacity: 0; }
+
+    .nome {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+      text-align: left;
     }
 
-    /* Benefícios */
-    .benefits {
+    .beneficios {
       background: #fff;
-      color: #333;
-      padding: 2rem 1rem;
+      color: #000;
+      padding: 30px 15px;
+      margin-top: 30px;
     }
-    .benefit {
+
+    .beneficio {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      background: rgba(255,215,0,0.2);
+      justify-content: center;
+      background: rgba(255, 215, 0, 0.2);
       border-radius: 12px;
-      padding: 0.8rem 1rem;
-      margin: 0.7rem auto;
+      padding: 12px;
+      margin: 12px auto;
       max-width: 350px;
-      font-weight: 500;
-    }
-    .benefit span {
-      font-size: 1.3rem;
-      margin-right: 0.8rem;
+      font-weight: bold;
     }
 
-    /* Rodapé fixo */
+    .beneficio span {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
     footer {
       position: fixed;
       bottom: 0;
-      left: 0; right: 0;
-      background: #ff1493;
-      padding: 0.8rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 100%;
+      background: #fff;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
     }
-    .rodape-text {
-      color: #fff;
+
+    footer p {
+      margin: 0;
       font-weight: bold;
-      margin-bottom: 0.4rem;
+      color: #000;
     }
-    .rodape-btn {
+
+    .cta-footer {
       background: #FFD700;
-      color: #333;
+      color: #000;
+      padding: 12px 25px;
+      font-size: 1rem;
       font-weight: bold;
-      padding: 0.7rem 1.5rem;
-      border-radius: 40px;
-      border: none;
+      border-radius: 25px;
       cursor: pointer;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="logo.png" alt="Logo" class="logo">
+    <img src="logo.png" alt="Logo Achei Promo Boa">
     <h1>Achei Promo Boa 😱🛍</h1>
     <p class="subtitle">Não somos uma loja<br>Mandamos promoções da Shopee direto no seu celular<br>Pra você, dona de casa, economizar</p>
-
-    <div class="vagas-container">
-      <p class="vagas-text">⏳ Restam <span id="vagas">20</span> vagas hoje</p>
-      <div class="barra"><div class="barra-fill" id="barraFill"></div></div>
-    </div>
-
-    <a href="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t" 
-       class="cta-btn" onclick="fbq('track','Lead')">
-       ENTRAR NO GRUPO AGORA
-    </a>
   </header>
 
-  <!-- Feed nomes -->
-  <div class="feed" id="feed"></div>
+  <div class="contador">⏳ Restam <span id="vagas">25</span> vagas hoje</div>
+  <div class="barra"><div class="barra-fill" id="barra"></div></div>
 
-  <!-- Benefícios -->
-  <div class="benefits">
-    <div class="benefit"><span>✅</span>Ofertas validadas — promoções reais e testadas</div>
-    <div class="benefit"><span>🔥</span>Descontos insanos — produtos com até 70% OFF</div>
-    <div class="benefit"><span>👀</span>Itens em alta — os mais desejados do momento</div>
-    <div class="benefit"><span>🎟️</span>Cupons exclusivos — descontos extras só no grupo</div>
-  </div>
+  <button class="cta-button" id="btnPrincipal">ENTRAR NO GRUPO AGORA</button>
 
-  <!-- Rodapé fixo -->
+  <div class="feed-nomes" id="feedNomes"></div>
+
+  <section class="beneficios">
+    <div class="beneficio"><span>✅</span>Ofertas validadas — promoções reais e testadas</div>
+    <div class="beneficio"><span>🔥</span>Descontos insanos — produtos com até 70% OFF</div>
+    <div class="beneficio"><span>👀</span>Itens em alta — o que todo mundo está comprando</div>
+    <div class="beneficio"><span>🎟️</span>Cupons exclusivos — vantagens só pra você</div>
+  </section>
+
   <footer>
-    <p class="rodape-text">⏳ Últimas vagas de hoje</p>
-    <button class="rodape-btn" 
-            onclick="fbq('track','Lead'); window.open('https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t','_blank')">
-            Entrar no grupo
-    </button>
+    <p>⏳ Últimas vagas de hoje</p>
+    <button class="cta-footer" id="btnFooter">ENTRAR NO GRUPO</button>
   </footer>
 
-<script>
-  // Vagas
-  let vagas = 20;
-  const vagasSpan = document.getElementById("vagas");
-  const barra = document.getElementById("barraFill");
-  function reduzirVagas() {
-    if (vagas > 2) {
-      vagas--;
-      vagasSpan.textContent = vagas;
-      barra.style.width = ((20 - vagas) / 18) * 100 + "%";
-      setTimeout(reduzirVagas, Math.random()*3000+1000);
+  <script>
+    // Link do grupo
+    const linkGrupo = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t";
+
+    function redirecionar() {
+      fbq('track', 'Lead');
+      setTimeout(() => {
+        window.open(linkGrupo, "_blank");
+      }, 500);
     }
-  }
-  setTimeout(reduzirVagas, 2000);
 
-  // Feed nomes brasileiros
-  const nomes = [
-    "✅ Marina Souza entrou no grupo",
-    "✅ Roberto Soares entrou no grupo",
-    "✅ Ana Clara Lima entrou no grupo",
-    "✅ Pedro Henrique entrou no grupo",
-    "✅ Júlia Sousa entrou no grupo",
-    "✅ Fernanda Oliveira entrou no grupo",
-    "✅ Carlos Eduardo entrou no grupo",
-    "✅ Mariana Silva entrou no grupo",
-    "✅ Felipe Andrade entrou no grupo",
-    "✅ Laura Martins entrou no grupo",
-    "✅ Rafael Gomes entrou no grupo",
-    "✅ Camila Ferreira entrou no grupo",
-    "✅ Lucas Almeida entrou no grupo",
-    "✅ Beatriz Rocha entrou no grupo",
-    "✅ Bruno Carvalho entrou no grupo",
-    "✅ Sofia Ribeiro entrou no grupo",
-    "✅ João Pedro entrou no grupo",
-    "✅ Gabriela Monteiro entrou no grupo",
-    "✅ Thiago Barbosa entrou no grupo",
-    "✅ Patrícia Mendes entrou no grupo"
-  ];
+    document.getElementById("btnPrincipal").addEventListener("click", redirecionar);
+    document.getElementById("btnFooter").addEventListener("click", redirecionar);
 
-  function embaralhar(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+    // Contador de vagas
+    let vagas = 25;
+    function atualizarVagas() {
+      if (vagas > 2) {
+        vagas--;
+        document.getElementById("vagas").textContent = vagas;
+        document.getElementById("barra").style.width = ((25 - vagas) / 23) * 100 + "%";
+        setTimeout(atualizarVagas, Math.random() * 4000 + 2000);
+      }
     }
-    return array;
-  }
+    setTimeout(atualizarVagas, 3000);
 
-  const feed = document.getElementById("feed");
-  let nomesEmbaralhados = embaralhar([...nomes]);
-  let index = 0;
+    // Feed de nomes automáticos
+    const nomes = [
+      "Maria Souza","João Silva","Ana Paula","Roberto Soares","Marina Silva","Juliana Costa",
+      "Lucas Almeida","Fernanda Rocha","Paulo Henrique","Camila Duarte","Rafael Nunes",
+      "Larissa Oliveira","Carlos Eduardo","Patrícia Gomes","André Santos","Beatriz Moreira",
+      "Diego Carvalho","Isabela Mendes","Rodrigo Alves","Tatiane Martins","Fábio Lima",
+      "Aline Barbosa","Eduardo Ferreira","Michele Souza","Vinícius Castro","Gabriela Freitas",
+      "Renato Pires","Luana Vieira","Felipe Melo","Cláudia Lopes","Bruno Ribeiro","Vanessa Fernandes",
+      "Daniel Correia","Natália Ramos","Marcelo Azevedo","Carolina Peixoto","Thiago Monteiro",
+      "Priscila Cardoso","Gustavo Teixeira","Simone Borges","Leonardo Moraes","Débora Farias"
+    ];
 
-  function mostrarNome() {
-    if (index >= nomesEmbaralhados.length) {
-      nomesEmbaralhados = embaralhar([...nomes]);
-      index = 0;
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
     }
-    feed.innerHTML = `<p>${nomesEmbaralhados[index]}</p>`;
-    index++;
-    setTimeout(mostrarNome, 1500);
-  }
 
-  mostrarNome();
-</script>
+    const feed = document.getElementById("feedNomes");
+    let nomesEmbaralhados = shuffleArray([...nomes]);
+    let index = 0;
+
+    function mostrarNome() {
+      const nomeDiv = document.createElement("div");
+      nomeDiv.className = "nome";
+      nomeDiv.textContent = `✅ ${nomesEmbaralhados[index]} entrou no grupo`;
+      feed.appendChild(nomeDiv);
+      feed.scrollTop = feed.scrollHeight;
+      index++;
+      if (index >= nomesEmbaralhados.length) {
+        index = 0;
+        nomesEmbaralhados = shuffleArray([...nomes]);
+      }
+    }
+
+    setInterval(mostrarNome, 1500);
+  </script>
+
 </body>
 </html>
