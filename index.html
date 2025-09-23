@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -177,4 +177,101 @@
   <header>
     <img src="logo.png" alt="Logo" class="logo">
     <h1>Achei Promo Boa 😱🛍</h1>
-    <p class="subtitle">Não somos uma loja<br>Mandamos promoções da Shopee dire
+    <p class="subtitle">Não somos uma loja<br>Mandamos promoções da Shopee direto no seu celular<br>Pra você, dona de casa, economizar</p>
+
+    <div class="vagas-container">
+      <p class="vagas-text">⏳ Restam <span id="vagas">20</span> vagas hoje</p>
+      <div class="barra"><div class="barra-fill" id="barraFill"></div></div>
+    </div>
+
+    <a href="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t" 
+       class="cta-btn" onclick="fbq('track','Lead')">
+       ENTRAR NO GRUPO AGORA
+    </a>
+  </header>
+
+  <!-- Feed nomes -->
+  <div class="feed" id="feed"></div>
+
+  <!-- Benefícios -->
+  <div class="benefits">
+    <div class="benefit"><span>✅</span>Ofertas validadas — promoções reais e testadas</div>
+    <div class="benefit"><span>🔥</span>Descontos insanos — produtos com até 70% OFF</div>
+    <div class="benefit"><span>👀</span>Itens em alta — os mais desejados do momento</div>
+    <div class="benefit"><span>🎟️</span>Cupons exclusivos — descontos extras só no grupo</div>
+  </div>
+
+  <!-- Rodapé fixo -->
+  <footer>
+    <p class="rodape-text">⏳ Últimas vagas de hoje</p>
+    <button class="rodape-btn" 
+            onclick="fbq('track','Lead'); window.open('https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t','_blank')">
+            Entrar no grupo
+    </button>
+  </footer>
+
+<script>
+  // Vagas
+  let vagas = 20;
+  const vagasSpan = document.getElementById("vagas");
+  const barra = document.getElementById("barraFill");
+  function reduzirVagas() {
+    if (vagas > 2) {
+      vagas--;
+      vagasSpan.textContent = vagas;
+      barra.style.width = ((20 - vagas) / 18) * 100 + "%";
+      setTimeout(reduzirVagas, Math.random()*3000+1000);
+    }
+  }
+  setTimeout(reduzirVagas, 2000);
+
+  // Feed nomes brasileiros
+  const nomes = [
+    "✅ Marina Souza entrou no grupo",
+    "✅ Roberto Soares entrou no grupo",
+    "✅ Ana Clara Lima entrou no grupo",
+    "✅ Pedro Henrique entrou no grupo",
+    "✅ Júlia Sousa entrou no grupo",
+    "✅ Fernanda Oliveira entrou no grupo",
+    "✅ Carlos Eduardo entrou no grupo",
+    "✅ Mariana Silva entrou no grupo",
+    "✅ Felipe Andrade entrou no grupo",
+    "✅ Laura Martins entrou no grupo",
+    "✅ Rafael Gomes entrou no grupo",
+    "✅ Camila Ferreira entrou no grupo",
+    "✅ Lucas Almeida entrou no grupo",
+    "✅ Beatriz Rocha entrou no grupo",
+    "✅ Bruno Carvalho entrou no grupo",
+    "✅ Sofia Ribeiro entrou no grupo",
+    "✅ João Pedro entrou no grupo",
+    "✅ Gabriela Monteiro entrou no grupo",
+    "✅ Thiago Barbosa entrou no grupo",
+    "✅ Patrícia Mendes entrou no grupo"
+  ];
+
+  function embaralhar(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const feed = document.getElementById("feed");
+  let nomesEmbaralhados = embaralhar([...nomes]);
+  let index = 0;
+
+  function mostrarNome() {
+    if (index >= nomesEmbaralhados.length) {
+      nomesEmbaralhados = embaralhar([...nomes]);
+      index = 0;
+    }
+    feed.innerHTML = `<p>${nomesEmbaralhados[index]}</p>`;
+    index++;
+    setTimeout(mostrarNome, 1500);
+  }
+
+  mostrarNome();
+</script>
+</body>
+</html>
