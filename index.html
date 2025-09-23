@@ -37,45 +37,66 @@
       --shadow: 0 14px 40px rgba(255,31,174,0.15);
     }
 
+    *{box-sizing:border-box;margin:0;padding:0}
+
     body {
       font-family: 'Inter','Poppins',sans-serif;
-      margin:0;
       background: var(--white);
       color: var(--text);
+      min-height:100vh;
     }
 
+    /* HEADER */
     header {
       background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
       color: var(--white);
-      padding: 2.5rem 1rem;
+      padding: 2.2rem 1rem 2.6rem;
       text-align:center;
       border-radius: 0 0 40px 40px;
       box-shadow: var(--shadow);
+      position:relative;
+    }
+    .logo-wrap{
+      width:110px;height:110px;margin:0 auto 12px;
+      border-radius:50%;
+      background:#fff;
+      padding:6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .logo-wrap img{
+      width:100%;height:100%;object-fit:cover;border-radius:50%;
+      display:block;
     }
     header h1 {
-      font-size:2.5rem;
+      font-size: clamp(1.8rem, 4.5vw, 2.5rem);
       font-weight:700;
-      margin-bottom:.6rem;
+      margin-top: 6px;
+      margin-bottom:.45rem;
+      white-space: nowrap; /* mantém em uma linha */
     }
-    header p {
-      font-size:1.2rem;
+    header .subtitle {
+      font-size:1.05rem;
       font-weight:400;
+      opacity:.95;
     }
 
-    /* CTA */
+    .container{max-width:980px;margin:0 auto;padding:0 16px}
+
+    /* CTA CARD */
     .cta-section {
       text-align:center;
-      margin:2.5rem auto;
+      margin:2.2rem auto;
       background: var(--white);
       border-radius:20px;
       box-shadow: var(--shadow);
       max-width:850px;
-      padding:2rem 1.5rem;
+      padding:2rem 1.5rem 1.6rem;
     }
     .cta-title {
-      font-size:1.6rem;
+      font-size:1.45rem;
       font-weight:600;
-      margin-bottom:1.5rem;
+      margin-bottom:1.2rem;
     }
     .cta-button {
       display:inline-block;
@@ -83,48 +104,62 @@
       color:var(--white);
       padding:1rem 2.5rem;
       border-radius:999px;
-      font-weight:700;
-      font-size:1.1rem;
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:1.05rem;
       border:3px solid var(--yellow);
       cursor:pointer;
-      transition:.3s;
+      transition: transform .2s ease;
+      min-width: 280px;
+      /* animação de pulsar contínua */
+      animation: pulse 1.6s ease-in-out infinite;
+      transform-origin:center;
     }
-    .cta-button:hover { transform:scale(1.05); }
+    .cta-button:hover { transform: scale(1.05); }
+    .cta-button:active { transform: scale(0.98); }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
 
-    /* Barra de vagas */
+    /* BARRA DE VAGAS (estilo com inset) */
     .vacancy-wrap {
-      margin:1.5rem auto;
+      margin:1.2rem auto .4rem;
       max-width:650px;
       text-align:center;
     }
     .vacancy-top {
-      font-weight:700;
+      font-weight:800;
       margin-bottom:.5rem;
       color: var(--pink-dark);
     }
     .bar {
+      position:relative;
       width:100%; height:14px;
-      background:#eee;
+      background:#ffffff;
       border-radius:999px;
       overflow:hidden;
       box-shadow: inset 0 0 0 2px rgba(0,0,0,.05);
+      margin: 0 auto;
     }
     .fill {
-      height:100%;
-      background: linear-gradient(90deg, var(--yellow), var(--yellow-dark));
-      width:0%;
-      transition: width .6s ease;
+      position:absolute; 
+      inset: 0 100% 0 0; /* começa vazia */
+      background: linear-gradient(90deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+      box-shadow: 0 6px 18px rgba(255,204,0,.35);
+      border-radius:999px;
+      transition: inset .6s ease;
     }
 
-    /* Feed */
+    /* FEED EM BOX (máx 3) */
     .feed-box {
       background: var(--off-white);
       border-radius:16px;
       box-shadow: 0 6px 20px rgba(0,0,0,.08);
       padding:14px 12px;
-      margin:1.5rem auto 0;
+      margin:1.2rem auto 0;
       max-width:650px;
-      min-height:120px;
+      min-height:110px;
     }
     .notif {
       display:flex; align-items:center; gap:10px;
@@ -132,31 +167,64 @@
       border-radius:12px;
       padding:8px 12px;
       margin-bottom:10px;
-      box-shadow:0 3px 10px rgba(0,0,0,.05);
+      box-shadow:0 3px 10px rgba(0,0,0,.06);
       opacity:0;
-      transform:translateY(-15px);
+      transform:translateY(-14px);
       animation: slideDown .45s ease forwards;
     }
     .notif .badge {
       background:rgba(46,204,113,.12);
       border:1px solid rgba(46,204,113,.35);
       color:#1e8e3e;
-      font-weight:700;
+      font-weight:800;
       font-size:.85rem;
       padding:4px 8px;
       border-radius:999px;
     }
-    .notif .text {font-size:.9rem; font-weight:600;}
+    .notif .text {font-size:.95rem; font-weight:600;color:#222;}
 
-    @keyframes slideDown {
-      to { opacity:1; transform:translateY(0); }
+    @keyframes slideDown { to { opacity:1; transform:translateY(0); } }
+
+    /* RODAPÉ FIXO COM BOTÃO AMARELO */
+    .sticky-footer{
+      position:fixed;left:0;right:0;bottom:0;z-index:50;
+      background: linear-gradient(180deg, #121212 0%, #1b1b1b 100%);
+      color:#fff;
+      padding:12px 16px;
+      box-shadow: 0 -12px 26px rgba(0,0,0,.25);
+    }
+    .sticky-inner{
+      max-width:980px;margin:0 auto;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      flex-wrap:wrap;
+    }
+    .sticky-title{
+      display:flex;align-items:center;gap:8px;
+      font-weight:900;letter-spacing:.2px;
+    }
+    .sticky-btn{
+      background: linear-gradient(180deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+      color:#111;border:none;border-radius:999px;padding:12px 20px;
+      font-weight:900;cursor:pointer;box-shadow: 0 10px 24px rgba(255,204,0,.35);
+    }
+    .sticky-btn:active{ transform: translateY(1px); }
+
+    /* Mobile tweaks */
+    @media (max-width: 400px){
+      header h1 { font-size: 1.65rem; }
+      .sticky-inner{justify-content:center;text-align:center;}
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>😱🛍 Achei Promo Boa</h1>
-    <p>As melhores promoções da Shopee direto no seu WhatsApp</p>
+    <!-- Moldura redonda com foto/logo -->
+    <div class="logo-wrap">
+      <!-- troque /logo.png pela sua imagem -->
+      <img src="/logo.png" alt="Achei Promo Boa">
+    </div>
+    <h1>😱🛍 Achei Promo&nbsp;Boa</h1>
+    <p class="subtitle">As melhores promoções da Shopee direto no seu WhatsApp</p>
   </header>
 
   <div class="container">
@@ -170,19 +238,25 @@
         <div class="bar"><div class="fill" id="fillBar"></div></div>
       </div>
 
-      <!-- Feed -->
+      <!-- Feed (máx 3) -->
       <div class="feed-box" id="feed"></div>
     </div>
   </div>
 
-  <script>
-    const feedEl = document.getElementById('feed');
-    const vacancyText = document.getElementById('vacancyText');
-    const fillBar = document.getElementById('fillBar');
+  <!-- Rodapé fixo -->
+  <div class="sticky-footer">
+    <div class="sticky-inner">
+      <div class="sticky-title">⏳ Últimas vagas de hoje</div>
+      <button id="ctaFooter" class="sticky-btn">Entrar no grupo</button>
+    </div>
+  </div>
 
+  <script>
+    // ====== CONFIG ======
+    const WHATS_LINK = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG";
     const START_VACANCIES = 24;
     const MIN_VACANCIES = 2;
-    let currentVacancies = START_VACANCIES;
+    const totalSpan = START_VACANCIES - MIN_VACANCIES;
 
     const NAMES = [
       "Maria Souza","Ana Clara","Marina Silva","Beatriz Santos","Fernanda Lima",
@@ -191,27 +265,49 @@
     ];
     let idx = 0;
 
+    // ====== ELEMENTOS ======
+    const feedEl = document.getElementById('feed');
+    const vacancyText = document.getElementById('vacancyText');
+    const fillBar = document.getElementById('fillBar');
+    const ctaMain = document.getElementById('ctaMain');
+    const ctaFooter = document.getElementById('ctaFooter');
+
+    // ====== BARRA DE VAGAS ======
+    let currentVacancies = START_VACANCIES;
+
     function updateVacancyUI() {
       vacancyText.textContent = `⏳ Últimas vagas de hoje • Restam ${currentVacancies}`;
-      const filled = (START_VACANCIES - currentVacancies) / (START_VACANCIES - MIN_VACANCIES);
-      fillBar.style.width = `${filled*100}%`;
+      const filled = (START_VACANCIES - currentVacancies) / totalSpan;
+      const pct = Math.max(0, Math.min(1, filled));
+      const rightInset = `${(1 - pct) * 100}%`;
+      fillBar.style.inset = `0 ${rightInset} 0 0`;
     }
 
     function stepVacancies() {
       if(currentVacancies <= MIN_VACANCIES) return;
-      currentVacancies--;
+      currentVacancies = Math.max(MIN_VACANCIES, currentVacancies - 1);
       updateVacancyUI();
-      if(currentVacancies > MIN_VACANCIES) {
-        setTimeout(stepVacancies, [1200,1600,2000,1400,1700][Math.floor(Math.random()*5)]);
+      if(currentVacancies > MIN_VACANCIES){
+        const nextMs = [900,1200,1600,2000,1300,1700][Math.floor(Math.random()*6)];
+        setTimeout(stepVacancies, nextMs);
       }
     }
 
+    // ====== FEED (máx 3) ======
     function pushNotification(name) {
       const row = document.createElement('div');
       row.className = 'notif';
       row.innerHTML = `<div class="badge">✅</div><div class="text"><strong>${name}</strong> entrou no grupo</div>`;
       feedEl.insertBefore(row, feedEl.firstChild);
-      if(feedEl.children.length > 6) feedEl.lastChild.remove();
+
+      // manter sempre no máximo 3 itens
+      if (feedEl.children.length > 3) {
+        const last = feedEl.lastElementChild;
+        last.style.transition = 'opacity .35s ease, transform .35s ease';
+        last.style.opacity = '0';
+        last.style.transform = 'translateY(8px)';
+        setTimeout(()=> last && last.remove(), 350);
+      }
     }
 
     function startFeed() {
@@ -221,14 +317,18 @@
       }, 2000);
     }
 
-    document.getElementById('ctaMain').addEventListener('click', ()=>{
+    // ====== CTA ======
+    function goToGroup(){
       try { fbq('track','Lead'); } catch(e){}
-      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG", "_blank");
-    });
+      window.open(WHATS_LINK, "_blank");
+    }
+    ctaMain.addEventListener('click', goToGroup);
+    ctaFooter.addEventListener('click', goToGroup);
 
+    // ====== INIT ======
     window.addEventListener('load', ()=>{
       updateVacancyUI();
-      setTimeout(stepVacancies, 1000);
+      setTimeout(stepVacancies, 800);
       startFeed();
       try { fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'});}catch(e){}
     });
