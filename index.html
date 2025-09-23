@@ -3,297 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Achei Promo Boa 😱🛍</title>
+  <title>Achei Promo Boa 😱🛍 | Ofertas Exclusivas</title>
 
   <!-- Meta Pixel Code -->
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1652603255345461');
-  fbq('track', 'PageView');
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1652603255345461');
+    fbq('track', 'PageView');
+
+    function trackConversion(eventName, params) {
+      fbq('track', eventName, params);
+    }
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
+      src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
     :root {
-      --pink: #ff1493; /* Rosa neon */
-      --yellow: #FFD700; /* Amarelo gema */
-      --white: #fff;
-      --gray: #444;
+      --pink: #FF1493;
+      --yellow: #FFD700;
+      --white: #FFFFFF;
+      --gray: #4A4A4A;
+      --black: #2C2C2C;
     }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: var(--pink);
-      color: var(--white);
-      text-align: center;
+      background: var(--white);
+      color: var(--gray);
     }
 
     header {
-      padding: 2rem 1rem 1rem;
-    }
-
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--pink), #ff4da6);
+      text-align: center;
+      color: var(--white);
+      padding: 2.5rem 1rem;
+      border-radius: 0 0 20px 20px;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
+      font-weight: 700;
     }
 
     .subtitle {
-      font-size: 1rem;
-      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      margin-top: .5rem;
     }
 
-    .progress-container {
-      background: #fff;
-      border-radius: 20px;
-      height: 20px;
-      width: 80%;
-      margin: 1rem auto;
-      overflow: hidden;
+    .cta-section {
+      text-align:center;
+      margin:2rem auto;
+      padding:2rem 1rem;
+      background: var(--white);
+      border-radius:15px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      max-width:800px;
     }
 
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--yellow);
-      transition: width 1s ease-in-out;
-    }
-
-    .vaga-texto {
-      font-weight: bold;
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      color: var(--white);
+    .cta-title {
+      font-size:1.5rem;
+      font-weight:600;
+      margin-bottom:1.2rem;
     }
 
     .cta-button {
+      display:inline-block;
       background: var(--pink);
-      border: 3px solid var(--yellow);
+      border:2px solid var(--yellow);
       color: var(--white);
-      font-size: 1.2rem;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      cursor: pointer;
-      margin: 1rem 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      animation: pulse 1.2s infinite;
+      font-size:1.2rem;
+      font-weight:bold;
+      padding:1rem 2rem;
+      border-radius:40px;
+      cursor:pointer;
+      animation:pulse 1.5s infinite;
+      transition:.3s;
     }
+
+    .cta-button:hover { transform:scale(1.05); }
 
     @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+      0% { transform:scale(1); }
+      50% { transform:scale(1.08); }
+      100% { transform:scale(1); }
     }
 
+    /* Feed de nomes */
     .feed {
-      background: var(--white);
-      color: var(--gray);
-      border-radius: 10px;
-      margin: 1rem auto;
-      width: 85%;
-      max-width: 400px;
-      height: 120px;
-      overflow: hidden;
-      position: relative;
+      margin-top:1.5rem;
+      height:60px;
+      overflow:hidden;
+      position:relative;
     }
-
     .feed p {
-      margin: 0;
-      padding: 0.5rem;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      animation: scrollUp 1.5s linear forwards;
+      position:absolute;
+      width:100%;
+      text-align:center;
+      font-size:1rem;
+      color:var(--gray);
+      animation:scrollFeed 1.5s linear forwards;
+    }
+    @keyframes scrollFeed {
+      0% { top:100%; opacity:0; }
+      20% { opacity:1; }
+      80% { opacity:1; }
+      100% { top:-100%; opacity:0; }
     }
 
-    @keyframes scrollUp {
-      from { transform: translateY(100%); }
-      to { transform: translateY(0); }
+    .benefits-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+      gap:1rem;
+      margin:2rem auto;
+      max-width:900px;
     }
 
-    .benefits {
-      background: var(--white);
-      color: var(--gray);
-      padding: 2rem 1rem;
-      border-radius: 20px 20px 0 0;
-      margin-top: 2rem;
+    .benefit-card {
+      background:var(--white);
+      padding:1.5rem;
+      border-radius:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      text-align:center;
     }
 
-    .benefit {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin: 1rem auto;
-      max-width: 400px;
-      padding: 1rem;
-      background: rgba(255,215,0,0.15);
-      border-radius: 12px;
-      font-size: 1rem;
-    }
-
-    .benefit span {
-      background: var(--yellow);
-      border-radius: 50%;
-      padding: 0.5rem;
-      margin-right: 0.8rem;
-      font-size: 1.2rem;
+    .benefit-title {
+      font-size:1.1rem;
+      font-weight:600;
+      margin:.5rem 0;
     }
 
     footer {
-      background: var(--white);
-      color: var(--gray);
-      padding: 1rem;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+      position:fixed;
+      bottom:0; left:0; right:0;
+      background: var(--yellow);
+      color: var(--black);
+      padding:1rem;
+      text-align:center;
     }
 
     .footer-btn {
-      background: var(--yellow);
-      border: none;
-      color: var(--gray);
-      font-weight: bold;
-      padding: 0.8rem 1.5rem;
-      border-radius: 30px;
-      cursor: pointer;
-      margin-top: 0.5rem;
+      background:var(--white);
+      border:none;
+      padding:.8rem 2rem;
+      border-radius:30px;
+      font-weight:600;
+      cursor:pointer;
+      margin-top:.5rem;
     }
+
   </style>
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo Achei Promo Boa">
     <h1>Achei Promo Boa 😱🛍</h1>
-    <p class="subtitle">Não somos uma loja<br>Mandamos promoções da Shopee direto no seu celular<br>Pra você, dona de casa, economizar</p>
-    
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-    <p class="vaga-texto" id="vagaTexto">⏳ Restam 25 vagas hoje</p>
-
-    <button class="cta-button" id="mainBtn">ENTRAR NO GRUPO AGORA</button>
-
-    <div class="feed" id="feed"></div>
+    <p class="subtitle">Não somos uma loja – Mandamos promoções da Shopee direto no seu celular</p>
   </header>
 
-  <section class="benefits">
-    <div class="benefit"><span>✅</span> <b>Ofertas validadas</b> — promoções reais e testadas</div>
-    <div class="benefit"><span>🔥</span> <b>Descontos insanos</b> — produtos com até 70% OFF</div>
-    <div class="benefit"><span>👀</span> <b>Itens em alta</b> — os mais desejados do momento</div>
-    <div class="benefit"><span>🎟️</span> <b>Cupons exclusivos</b> — vantagens só para membros VIP</div>
-  </section>
+  <div class="cta-section">
+    <h2 class="cta-title">⏳ Últimas vagas de hoje</h2>
+    <button class="cta-button" onclick="entrarGrupo()">ENTRAR NO GRUPO AGORA</button>
+
+    <!-- Feed de nomes -->
+    <div class="feed" id="feed"></div>
+  </div>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">✅ <div class="benefit-title">Ofertas validadas</div><p>Promoções reais e testadas</p></div>
+    <div class="benefit-card">🔥 <div class="benefit-title">Descontos insanos</div><p>Produtos com até 70% OFF</p></div>
+    <div class="benefit-card">👀 <div class="benefit-title">Itens em alta</div><p>Os mais desejados do momento</p></div>
+    <div class="benefit-card">🎟️ <div class="benefit-title">Cupons exclusivos</div><p>Descontos especiais só para membros</p></div>
+  </div>
 
   <footer>
-    <p>Últimas vagas de hoje ⏳</p>
-    <button class="footer-btn" id="footerBtn">Entrar no Grupo</button>
+    <p>⏳ Últimas vagas de hoje</p>
+    <button class="footer-btn" onclick="entrarGrupo()">Entrar no grupo</button>
   </footer>
 
   <script>
-    // Pixel tracking
-    function trackLead() {
-      fbq('track', 'Lead');
-    }
-
-    // Botões
-    document.getElementById("mainBtn").onclick = function() {
-      trackLead();
-      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG", "_blank");
-    };
-    document.getElementById("footerBtn").onclick = function() {
-      trackLead();
-      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG", "_blank");
-    };
-
-    // Barra de vagas
-    let vagas = 25;
-    const vagaTexto = document.getElementById("vagaTexto");
-    const progressBar = document.getElementById("progressBar");
-
-    function atualizarVagas() {
-      if (vagas > 2) {
-        vagas--;
-        vagaTexto.textContent = "⏳ Restam " + vagas + " vagas hoje";
-        progressBar.style.width = ((25 - vagas) / 25 * 100) + "%";
-        setTimeout(atualizarVagas, Math.random() * 3000 + 1500);
-      }
-    }
-    setTimeout(atualizarVagas, 2000);
-
-    // Lista de nomes brasileiros
     const nomes = [
-      "✅ Maria Souza entrou no grupo",
-      "✅ João Silva entrou no grupo",
-      "✅ Ana Paula entrou no grupo",
-      "✅ Marcos Oliveira entrou no grupo",
-      "✅ Fernanda Costa entrou no grupo",
-      "✅ Rafael Almeida entrou no grupo",
-      "✅ Júlia Santos entrou no grupo",
-      "✅ Bruno Rocha entrou no grupo",
-      "✅ Mariana Ribeiro entrou no grupo",
-      "✅ Tiago Fernandes entrou no grupo",
-      "✅ Camila Moreira entrou no grupo",
-      "✅ Rodrigo Lima entrou no grupo",
-      "✅ Patrícia Gomes entrou no grupo",
-      "✅ André Carvalho entrou no grupo",
-      "✅ Aline Martins entrou no grupo",
-      "✅ Felipe Araújo entrou no grupo",
-      "✅ Beatriz Mendes entrou no grupo",
-      "✅ Daniel Pereira entrou no grupo",
-      "✅ Larissa Monteiro entrou no grupo",
-      "✅ Gabriel Souza entrou no grupo"
+      "✅️ Maria Silva entrou no grupo",
+      "✅️ João Souza entrou no grupo",
+      "✅️ Ana Clara entrou no grupo",
+      "✅️ Pedro Henrique entrou no grupo",
+      "✅️ Júlia Santos entrou no grupo",
+      "✅️ Carlos Eduardo entrou no grupo",
+      "✅️ Marina Oliveira entrou no grupo",
+      "✅️ Roberto Soares entrou no grupo",
+      "✅️ Fernanda Costa entrou no grupo",
+      "✅️ Beatriz Rocha entrou no grupo",
+      "✅️ André Luiz entrou no grupo",
+      "✅️ Gabriela Martins entrou no grupo"
     ];
 
-    function embaralhar(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    let feed = document.getElementById("feed");
-    let lista = embaralhar([...nomes]);
     let index = 0;
-
-    function atualizarFeed() {
-      if (index >= lista.length) {
-        lista = embaralhar([...nomes]);
-        index = 0;
-      }
-      let p = document.createElement("p");
-      p.textContent = lista[index];
-      feed.appendChild(p);
-      if (feed.childNodes.length > 4) {
-        feed.removeChild(feed.childNodes[0]);
-      }
-      index++;
-      setTimeout(atualizarFeed, 1500);
+    function mostrarNome() {
+      const feed = document.getElementById("feed");
+      feed.innerHTML = `<p>${nomes[index]}</p>`;
+      index = (index + 1) % nomes.length;
     }
-    atualizarFeed();
+    setInterval(mostrarNome, 1500);
+
+    function entrarGrupo(){
+      fbq('track','Lead');
+      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t","_blank");
+    }
   </script>
 </body>
 </html>
