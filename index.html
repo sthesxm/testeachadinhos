@@ -34,6 +34,7 @@
       --off-white: #f9f9f9;
       --text: #2b2b2b;
       --shadow: 0 14px 40px rgba(255,31,174,0.15);
+      --cta-dark: #7a004f; /* rosa bem escuro */
     }
 
     body {
@@ -47,7 +48,7 @@
     header {
       background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
       color: var(--white);
-      padding: 2.2rem 1rem 2.6rem;
+      padding: 1.8rem 1rem 2.2rem; /* menor para subir a CTA */
       text-align:center;
       border-radius: 0 0 40px 40px;
       box-shadow: var(--shadow);
@@ -71,18 +72,24 @@
 
     /* CTA */
     .cta-section {
-      text-align:center;margin:2.2rem auto;
+      text-align:center;margin:1.5rem auto;
       background: var(--white);border-radius:20px;
       box-shadow: var(--shadow);max-width:850px;
       padding:2rem 1.5rem 1.6rem;
     }
-    .cta-title {font-size:1.45rem;font-weight:600;margin-bottom:1.2rem;}
+    .cta-title {
+      font-size:1.2rem;
+      font-weight:900;
+      color: var(--cta-dark);
+      margin-bottom:1.2rem;
+    }
     .cta-button {
       display:inline-block;background:linear-gradient(135deg, var(--pink), var(--pink-dark));
       color:var(--white);padding:1rem 2.5rem;border-radius:999px;
       font-weight:800;letter-spacing:.2px;font-size:1.05rem;
       border:3px solid var(--yellow);cursor:pointer;min-width:280px;
-      animation:pulse 1.6s ease-in-out infinite;transform-origin:center;
+      animation:pulse 1.6s ease-in-out infinite;
+      transform-origin:center;
     }
     .cta-button:hover{transform:scale(1.05);}
     @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
@@ -108,12 +115,11 @@
     /* BENEFITS */
     .benefits{max-width:900px;margin:2rem auto;padding:0 6px;}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
-    .benefit{background:#fff;border-radius:16px;padding:16px 14px;box-shadow:var(--shadow);
-      display:flex;gap:12px;align-items:flex-start;}
-    .emojibox{width:42px;height:42px;display:flex;align-items:center;justify-content:center;
-      font-size:20px;background:rgba(255,204,0,.22);border-radius:12px;}
-    .benefit h4{font-weight:900;font-size:15px;margin-bottom:4px;color:#111;}
-    .benefit p{font-size:14px;color:#4b4b4b;}
+    .benefit{background:#fff;border-radius:16px;padding:20px 14px;box-shadow:var(--shadow);
+      text-align:center;}
+    .benefit .emojibox{font-size:28px;margin-bottom:10px;}
+    .benefit h4{font-weight:900;font-size:16px;margin-bottom:6px;color:#111;}
+    .benefit p{font-size:14px;color:#666;}
 
     /* RODAPÉ FIXO */
     .sticky-footer{position:fixed;left:0;right:0;bottom:0;z-index:50;
@@ -135,7 +141,7 @@
 
   <div class="container">
     <div class="cta-section">
-      <h2 class="cta-title">Entre agora no grupo VIP</h2>
+      <h2 class="cta-title">Vagas limitadas ● Clique abaixo</h2>
       <button id="ctaMain" class="cta-button">👉 Entrar no grupo agora</button>
 
       <!-- Barra de vagas -->
@@ -151,10 +157,26 @@
     <!-- Benefícios -->
     <section class="benefits">
       <div class="grid">
-        <div class="benefit"><div class="emojibox">🔥</div><div><h4>Descontos Insanos</h4><p>Produtos com até 70% OFF.</p></div></div>
-        <div class="benefit"><div class="emojibox">🎟️</div><div><h4>Cupons Exclusivos</h4><p>Só para membros do grupo.</p></div></div>
-        <div class="benefit"><div class="emojibox">👀</div><div><h4>Itens em Alta</h4><p>Os mais desejados do momento.</p></div></div>
-        <div class="benefit"><div class="emojibox">✅</div><div><h4>Ofertas Verificadas</h4><p>Promoções reais e testadas.</p></div></div>
+        <div class="benefit">
+          <div class="emojibox">🔥</div>
+          <h4>Descontos Insanos</h4>
+          <p>Produtos com até 70% OFF</p>
+        </div>
+        <div class="benefit">
+          <div class="emojibox">🎟️</div>
+          <h4>Cupons Exclusivos</h4>
+          <p>Só para membros do grupo</p>
+        </div>
+        <div class="benefit">
+          <div class="emojibox">👀</div>
+          <h4>Itens em Alta</h4>
+          <p>Os mais desejados do momento</p>
+        </div>
+        <div class="benefit">
+          <div class="emojibox">✅</div>
+          <h4>Ofertas Verificadas</h4>
+          <p>Promoções reais e testadas</p>
+        </div>
       </div>
     </section>
   </div>
@@ -198,16 +220,16 @@
     }
 
     function pushNotification(name){
-      const row=document.createElement('div');
-      row.className='notif';
-      row.innerHTML=`<div class="badge">✅</div><div class="text"><strong>${name}</strong> entrou no grupo</div>`;
-      feedEl.insertBefore(row,feedEl.firstChild);
-      if(feedEl.children.length>3){
+      if(feedEl.children.length>=3){
         const last=feedEl.lastElementChild;
         last.style.transition='opacity .35s ease, transform .35s ease';
         last.style.opacity='0';last.style.transform='translateY(8px)';
         setTimeout(()=>last&&last.remove(),350);
       }
+      const row=document.createElement('div');
+      row.className='notif';
+      row.innerHTML=`<div class="badge">✅</div><div class="text"><strong>${name}</strong> entrou no grupo</div>`;
+      feedEl.insertBefore(row,feedEl.firstChild);
     }
     function startFeed(){setInterval(()=>{pushNotification(NAMES[idx%NAMES.length]);idx++;},2000);}
 
