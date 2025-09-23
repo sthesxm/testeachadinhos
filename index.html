@@ -1,165 +1,237 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Achei Promo Boa 😱🛍 | Entrar no Grupo</title>
+  <title>😱🛍 Achei Promo Boa | Ofertas Exclusivas</title>
+  
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1652603255345461'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none" 
+         src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Pixel -->
 
   <style>
-    :root{
-      --pink:#ff1fae;
-      --pink-dark:#d5148f;
-      --amber:#ffcc00;
-      --amber-dark:#e0b500;
-      --white:#ffffff;
-      --soft:#fff5fb;
-      --text:#2b2b2b;
-      --muted:#6b6b6b;
+    :root {
+      --pink: #ff1fae; 
+      --pink-dark: #d5148f;
+      --yellow: #ffcc00;
+      --yellow-dark: #e0b500;
+      --white: #ffffff;
+      --off-white: #f9f9f9;
+      --text: #2b2b2b;
+      --muted: #555;
       --shadow: 0 14px 40px rgba(255,31,174,0.15);
-      --radius:18px;
     }
 
-    body{
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      color:var(--text);
+    body {
+      font-family: 'Inter','Poppins',sans-serif;
+      margin:0;
       background: var(--white);
+      color: var(--text);
     }
 
-    .container{max-width:980px;margin:0 auto;padding:20px}
-
-    /* HEADER ROSA MENOR */
-    header{
-      background: linear-gradient(160deg, var(--pink) 0%, #ff5ac6 60%, #ffc9ea 100%);
-      border-radius: 0 0 50px 50px; /* curvinha */
-      padding: 32px 18px 44px;
-      color:var(--white);
+    header {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+      color: var(--white);
+      padding: 2.5rem 1rem;
       text-align:center;
+      border-radius: 0 0 40px 40px;
       box-shadow: var(--shadow);
-      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size:2.5rem;
+      font-weight:700;
+      margin-bottom:.6rem;
+    }
+    header p {
+      font-size:1.2rem;
+      font-weight:400;
     }
 
-    .logo-wrap{
-      width:100px; height:100px;
-      margin:0 auto 14px;
-      border-radius:50%;
-      background:#fff;
-      padding:5px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.12);
-      display:flex;align-items:center;justify-content:center;
-    }
-    .logo-wrap img{
-      width:100%; height:100%; object-fit:cover; border-radius:50%;
-    }
-
-    .title{
-      font-size:28px; font-weight:800; margin-bottom:10px;
-    }
-    .subtitle{
-      font-size:16px; line-height:1.5; font-weight:500;
-    }
-
-    /* CARD CTA */
-    .card{
-      background:#fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:22px 18px;
-      max-width:860px;
+    /* CTA */
+    .cta-section {
       text-align:center;
-      margin:0 auto 20px;
+      margin:2.5rem auto;
+      background: var(--white);
+      border-radius:20px;
+      box-shadow: var(--shadow);
+      max-width:850px;
+      padding:2rem 1.5rem;
     }
-    .cta-btn{
+    .cta-title {
+      font-size:1.6rem;
+      font-weight:600;
+      margin-bottom:1.5rem;
+    }
+    .cta-button {
       display:inline-block;
-      min-width:260px;
-      background:linear-gradient(180deg, var(--pink) 0%, var(--pink-dark) 100%);
-      color:#fff;
+      background:linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color:var(--white);
+      padding:1rem 2.5rem;
       border-radius:999px;
-      padding:16px 26px;
-      font-weight:900;
-      font-size:15px;
-      border:3px solid var(--amber);
+      font-weight:700;
+      font-size:1.1rem;
+      border:3px solid var(--yellow);
       cursor:pointer;
-      margin-bottom:20px;
+      transition:.3s;
+    }
+    .cta-button:hover { transform:scale(1.05); }
+
+    /* Barra de vagas */
+    .vacancy-wrap {
+      margin:1.5rem auto;
+      max-width:650px;
+      text-align:center;
+    }
+    .vacancy-top {
+      font-weight:700;
+      margin-bottom:.5rem;
+      color: var(--pink-dark);
+    }
+    .bar {
+      width:100%; height:14px;
+      background:#eee;
+      border-radius:999px;
+      overflow:hidden;
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,.05);
+    }
+    .fill {
+      height:100%;
+      background: linear-gradient(90deg, var(--yellow), var(--yellow-dark));
+      width:0%;
+      transition: width .6s ease;
     }
 
-    /* FEED DE NOMES EM BOX */
-    .feed-box{
-      background:#f9f9f9;
+    /* Feed */
+    .feed-box {
+      background: var(--off-white);
       border-radius:16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.06);
-      padding:14px 10px;
-      max-width:680px;
-      margin:0 auto;
-      overflow:hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+      padding:14px 12px;
+      margin:1.5rem auto 0;
+      max-width:650px;
+      min-height:120px;
     }
-    .notif{
+    .notif {
       display:flex; align-items:center; gap:10px;
-      background: #fff;
+      background:#fff;
       border-radius:12px;
-      padding:10px 12px;
+      padding:8px 12px;
       margin-bottom:10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.05);
-      border:1px solid #f2f2f2;
+      box-shadow:0 3px 10px rgba(0,0,0,.05);
       opacity:0;
-      transform: translateY(-20px);
+      transform:translateY(-15px);
       animation: slideDown .45s ease forwards;
     }
-    .notif .badge{
-      background: rgba(46, 204, 113, .12);
-      border:1px solid rgba(46, 204, 113, .35);
+    .notif .badge {
+      background:rgba(46,204,113,.12);
+      border:1px solid rgba(46,204,113,.35);
       color:#1e8e3e;
-      font-weight:800; font-size:14px;
-      padding:6px 10px; border-radius:999px;
+      font-weight:700;
+      font-size:.85rem;
+      padding:4px 8px;
+      border-radius:999px;
     }
-    .notif .text{font-size:14px; color:#222; font-weight:600}
+    .notif .text {font-size:.9rem; font-weight:600;}
 
-    @keyframes slideDown{
-      to {opacity:1; transform: translateY(0);}
+    @keyframes slideDown {
+      to { opacity:1; transform:translateY(0); }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>😱🛍 Achei Promo Boa</h1>
+    <p>As melhores promoções da Shopee direto no seu WhatsApp</p>
+  </header>
+
   <div class="container">
+    <div class="cta-section">
+      <h2 class="cta-title">Entre agora no grupo VIP</h2>
+      <button id="ctaMain" class="cta-button">👉 Entrar no grupo agora</button>
 
-    <!-- HEADER -->
-    <header>
-      <div class="logo-wrap"><img src="/logo.png" alt="Logo"></div>
-      <h1 class="title">Achei Promo Boa 😱🛍</h1>
-      <p class="subtitle">Não somos uma loja<br>Mandamos promoções direto no seu celular<br>Pra você economizar</p>
-    </header>
+      <!-- Barra de vagas -->
+      <div class="vacancy-wrap">
+        <div class="vacancy-top" id="vacancyText">⏳ Últimas vagas de hoje • Restam 24</div>
+        <div class="bar"><div class="fill" id="fillBar"></div></div>
+      </div>
 
-    <!-- CTA -->
-    <section class="card">
-      <h2>Clique para entrar no grupo VIP</h2>
-      <p>Receba promoções verificadas, descontos insanos e cupons exclusivos.</p>
-      <button id="ctaMain" class="cta-btn">Entrar no grupo agora</button>
-
-      <!-- FEED EM BOX -->
+      <!-- Feed -->
       <div class="feed-box" id="feed"></div>
-    </section>
-
+    </div>
   </div>
 
   <script>
     const feedEl = document.getElementById('feed');
-    const NAMES = ["Maria Souza","Ana Clara","Marina Silva","Beatriz Santos","Fernanda Lima","Carlos Eduardo","João Pedro","Matheus Araújo","Bruno Almeida","Diego Pereira"];
-    let index = 0;
+    const vacancyText = document.getElementById('vacancyText');
+    const fillBar = document.getElementById('fillBar');
 
-    function pushNotification(name){
+    const START_VACANCIES = 24;
+    const MIN_VACANCIES = 2;
+    let currentVacancies = START_VACANCIES;
+
+    const NAMES = [
+      "Maria Souza","Ana Clara","Marina Silva","Beatriz Santos","Fernanda Lima",
+      "Carlos Eduardo","João Pedro","Matheus Araújo","Bruno Almeida","Diego Pereira",
+      "Rafaela Costa","Juliana Rocha","Camila Moreira","Lucas Ribeiro","Victor Moreira"
+    ];
+    let idx = 0;
+
+    function updateVacancyUI() {
+      vacancyText.textContent = `⏳ Últimas vagas de hoje • Restam ${currentVacancies}`;
+      const filled = (START_VACANCIES - currentVacancies) / (START_VACANCIES - MIN_VACANCIES);
+      fillBar.style.width = `${filled*100}%`;
+    }
+
+    function stepVacancies() {
+      if(currentVacancies <= MIN_VACANCIES) return;
+      currentVacancies--;
+      updateVacancyUI();
+      if(currentVacancies > MIN_VACANCIES) {
+        setTimeout(stepVacancies, [1200,1600,2000,1400,1700][Math.floor(Math.random()*5)]);
+      }
+    }
+
+    function pushNotification(name) {
       const row = document.createElement('div');
       row.className = 'notif';
       row.innerHTML = `<div class="badge">✅</div><div class="text"><strong>${name}</strong> entrou no grupo</div>`;
       feedEl.insertBefore(row, feedEl.firstChild);
-
-      if(feedEl.children.length > 6){
-        feedEl.lastChild.remove();
-      }
+      if(feedEl.children.length > 6) feedEl.lastChild.remove();
     }
 
-    setInterval(()=>{
-      pushNotification(NAMES[index % NAMES.length]);
-      index++;
-    }, 2000);
+    function startFeed() {
+      setInterval(()=>{
+        pushNotification(NAMES[idx % NAMES.length]);
+        idx++;
+      }, 2000);
+    }
+
+    document.getElementById('ctaMain').addEventListener('click', ()=>{
+      try { fbq('track','Lead'); } catch(e){}
+      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG", "_blank");
+    });
+
+    window.addEventListener('load', ()=>{
+      updateVacancyUI();
+      setTimeout(stepVacancies, 1000);
+      startFeed();
+      try { fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'});}catch(e){}
+    });
   </script>
 </body>
 </html>
