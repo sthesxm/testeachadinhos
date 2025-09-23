@@ -1,1 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Achei Promo Boa 😱🛍 | Ofertas validadas e descontos insanos</title>
 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1652603255345461'); 
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#ff1493;           /* rosa pink (principal) */
+  --pink-dark:#d20e77;
+  --pink-verydark:#a90b60;
+  --yellow:#ffd11a;         /* amarelo gema */
+  --yellow-soft:#ffe680;
+  --card-shadow: 0 10px 30px rgba(0,0,0,.10);
+  --txt:#1f1f1f;
+  --muted:#666;
+  --white:#fff;
+  --bg:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--txt);
+  background:
+    radial-gradient(1200px 600px at 80% -100%, rgba(255,255,255,.25), transparent 60%),
+    linear-gradient(180deg, #ffe9f6 0%, #ffd6ef 20%, #ffc4ea 40%, #ffa0df 60%, #ff85d7 75%, #ff69cf 87%, #ff52c9 95%, var(--pink) 100%);
+  min-height:100dvh;
+}
+.container{
+  max-width:960px; margin:0 auto; padding:24px 16px 140px; /* espaço pro rodapé fixo */
+}
+.hero{
+  background: radial-gradient(120% 140% at 20% 0%, #ff90d8 0%, var(--pink) 45%, #ff52c9 75%, var(--pink-dark) 100%);
+  border-radius:24px;
+  padding:40px 20px 64px;
+  box-shadow: var(--card-shadow);
+  color:#fff; text-align:center; position:relative; overflow:hidden;
+}
+.hero .logo-wrap{
+  width:180px; height:180px; margin:0 auto 18px;
+  border-radius:999px; background:#fff1; position:relative;
+  display:grid; place-items:center;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25), inset 0 0 0 6px #ffffff22;
+}
+.hero .logo{
+  width:154px; height:154px; border-radius:50%;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  object-fit:cover;
+}
+.hero h1{
+  font-family:Poppins, Inter, sans-serif;
+  font-weight:800; letter-spacing:-.3px;
+  font-size:clamp(24px, 4.8vw, 40px);
+}
+.hero .subtitle{
+  margin-top:10px; opacity:.95; font-size:clamp(14px,2.8vw,18px);
+}
+
+/* bloco branco com CTA */
+.panel{
+  background:#fff; color:var(--txt);
+  margin-top:-28px; border-radius:28px; padding:26px 18px 30px;
+  box-shadow: var(--card-shadow);
+}
+.panel h2{
+  font-weight:800; font-size:clamp(18px,3.8vw,24px);
+  text-align:center; margin-bottom:12px;
+}
+.panel .meta{
+  display:flex; align-items:center; justify-content:center;
+  gap:10px; color:var(--txt); font-weight:700; margin-bottom:12px;
+}
+.panel .meta .hourglass{font-size:22px}
+.panel .bar{
+  height:16px; border-radius:999px; background:#eee; overflow:hidden; position:relative;
+}
+.panel .bar .fill{
+  position:absolute; left:0; top:0; bottom:0; width:0%;
+  background:linear-gradient(90deg, var(--yellow) 0%, #ffb300 100%);
+  border-radius:inherit; box-shadow: inset 0 0 2px rgba(0,0,0,.1);
+  transition: width .45s ease;
+}
+
+.cta{
+  display:block; width:100%; text-align:center;
+  margin:16px auto 10px;
+  background:linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 60%, var(--pink-verydark) 100%);
+  color:#fff; border:0; border-radius:999px; padding:18px 28px;
+  font-weight:800; letter-spacing:.2px; text-transform:lowercase;
+  box-shadow:0 14px 30px rgba(255, 20, 147, .35);
+  cursor:pointer; position:relative; isolation:isolate;
+}
+.cta .hand{margin-right:6px}
+.cta.pulse::after{
+  content:""; position:absolute; inset:-6px; border-radius:999px;
+  border:5px solid rgba(255,20,147,.35);
+  animation:pulse 1.2s ease-out infinite;
+}
+@keyframes pulse{
+  from{ transform:scale(.97); opacity:1}
+  to{ transform:scale(1.15); opacity:0}
+}
+
+/* linha “Vagas limitadas …” */
+.rules{
+  margin:8px auto 12px;
+  text-align:center; color:#8a8a8a; font-size:14px;
+}
+
+/* feed de nomes */
+.feed{
+  margin:6px auto 0; height:140px; overflow:hidden; position:relative;
+}
+.feed .item{
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  padding:8px 10px; color:#175c20; font-weight:700;
+}
+.feed .item .check{
+  display:inline-grid; place-items:center; width:20px; height:20px;
+  border-radius:6px; background:#d6f6dd; color:#108a2c; font-size:14px; box-shadow:inset 0 0 0 2px #b6e8c2;
+}
+
+/* benefícios */
+.grid{
+  display:grid; gap:16px; margin-top:18px;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+}
+@media (max-width:720px){ .grid{ grid-template-columns:1fr } }
+.card{
+  display:flex; gap:14px; align-items:flex-start;
+  background:#f9fbff; border-radius:18px; padding:18px;
+  box-shadow: var(--card-shadow);
+}
+.icon{
+  width:48px; height:48px; border-radius:14px;
+  background:color-mix(in srgb, var(--yellow) 80%, transparent);
+  display:grid; place-items:center; font-size:24px;
+  box-shadow: inset 0 0 0 1.5px #0001;
+}
+.card h3{
+  font-size:18px; margin-bottom:6px; font-weight:800;
+}
+.card p{ color:#555; line-height:1.5 }
+
+/* rodapé fixo */
+.footer{
+  position:fixed; left:0; right:0; bottom:0;
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  background:#1c1c1e; color:#fff; padding:14px 12px; z-index:10;
+}
+.footer .badge{
+  display:flex; align-items:center; gap:8px; color:#ffd7a3; font-weight:800;
+}
+.footer .go{
+  background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+  border:0; color:#fff; font-weight:900; border-radius:999px; padding:14px 22px; cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,20,147,.35);
+}
+
+/* util */
+.center{ text-align:center }
+.small{ font-size:13px; color:#808080 }
+.hidden{ display:none }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="logo-wrap">
+        <img id="logo" class="logo" alt="Logo Achei Promo Boa" />
+      </div>
+      <h1>Achei Promo Boa 😱🛍</h1>
+      <p class="subtitle">Ofertas validadas, cupons e descontos insanos — direto no seu WhatsApp.</p>
+    </section>
+
+    <!-- PAINEL BRANCO + CTA -->
+    <section class="panel">
+      <h2>👇 Clique para entrar no grupo VIP</h2>
+
+      <div class="meta">
+        <span class="hourglass">⏳</span>
+        <span id="vagasText"><strong>Restam 24 vagas hoje</strong></span>
+      </div>
+
+      <div class="bar" aria-hidden="true">
+        <div id="fillBar" class="fill"></div>
+      </div>
+
+      <button id="btnMain" class="cta pulse"><span class="hand">👉</span>quero entrar no grupo agora!</button>
+
+      <p class="rules">Vagas limitadas • Oferta válida enquanto durarem os estoques</p>
+
+      <!-- FEED DE NOMES -->
+      <div class="feed" id="feed"></div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="grid" aria-label="benefícios">
+      <article class="card">
+        <div class="icon">✅</div>
+        <div>
+          <h3>Ofertas validadas</h3>
+          <p>Promoções reais e testadas. Curadoria para você comprar com segurança.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔥</div>
+        <div>
+          <h3>Descontos insanos</h3>
+          <p>Produtos com até <strong>70% OFF</strong>, atualizados diariamente.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">👀</div>
+        <div>
+          <h3>Itens em alta</h3>
+          <p>Os queridinhos do momento — do lar à beleza, sem gastar muito.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="icon">🎯</div>
+        <div>
+          <h3>Cupons exclusivos</h3>
+          <p>Vantagens que só o nosso <strong>grupo VIP</strong> recebe primeiro.</p>
+        </div>
+      </article>
+    </section>
+
+    <p class="center small" style="margin-top:20px">Atualizado por <strong>@m.achadinhos</strong> • Achados reais, descontos de verdade.</p>
+  </div>
+
+  <!-- RODAPÉ FIXO -->
+  <div class="footer">
+    <div class="badge">⚡ <span>Últimas vagas de hoje</span></div>
+    <button id="btnFooter" class="go">Entrar no grupo</button>
+  </div>
+
+<script>
+/* ========= CONFIG ========= */
+const WHATSAPP_LINK = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t";
+
+/* LOGO embutida (SVG circular). 
+   QUER USAR SUA IMAGEM REAL? 
+   Substitua o valor de LOGO_DATA_URI por um data URI base64 do seu arquivo (png/jpg). */
+const LOGO_DATA_URI =
+  "data:image/svg+xml;base64," +
+  btoa(`<svg xmlns='http://www.w3.org/2000/svg' width='512' height='512'>
+    <defs>
+      <radialGradient id='g' cx='50%' cy='45%' r='65%'>
+        <stop offset='0%' stop-color='#ffe680'/>
+        <stop offset='55%' stop-color='#ffd11a'/>
+        <stop offset='100%' stop-color='#ffb300'/>
+      </radialGradient>
+      <filter id='shadow' x='-20%' y='-20%' width='140%' height='140%'>
+        <feDropShadow dx='0' dy='6' stdDeviation='12' flood-color='rgba(0,0,0,.35)'/>
+      </filter>
+    </defs>
+    <circle cx='256' cy='256' r='228' fill='url(#g)' filter='url(#shadow)' />
+    <circle cx='256' cy='256' r='206' fill='white' opacity='.08'/>
+    <g font-family='Poppins, Arial, sans-serif' font-weight='800' text-anchor='middle'>
+      <text x='256' y='254' font-size='64' fill='#ff1493'>ACHEI</text>
+      <text x='256' y='328' font-size='64' fill='#ff1493'>PROMO BOA</text>
+    </g>
+  </svg>`);
+
+/* ========= APLICA LOGO ========= */
+document.getElementById("logo").src = LOGO_DATA_URI;
+
+/* ========= LEAD nos dois botões + redirecionamento ========= */
+function goToGroup(){
+  try{ fbq('track','Lead'); }catch(e){}
+  window.location.href = WHATSAPP_LINK;
+}
+document.getElementById("btnMain").addEventListener("click", goToGroup);
+document.getElementById("btnFooter").addEventListener("click", goToGroup);
+
+/* ========= CONTADOR DE VAGAS (⏳ + barra que ENCHE) =========
+   - começa entre 18 e 25
+   - decrementos em tempos aleatórios (1–3.5s)
+   - quando zerar: mostra “Novas vagas disponíveis em breve” e para
+*/
+const vagasIni = Math.floor(Math.random()*8) + 18; // 18–25
+let vagas = vagasIni;
+const vagasText = document.getElementById("vagasText");
+const fillBar = document.getElementById("fillBar");
+
+// barra enche conforme VAGAS vão CAINDO: fill = 1 - vagas/restante
+function updateBar(){
+  const perc = 100 * (1 - (vagas / vagasIni));
+  fillBar.style.width = Math.max(0, Math.min(100, perc)) + "%";
+}
+function updateVagasText(){
+  vagasText.innerHTML = `<strong>Restam ${vagas} vaga${vagas===1?'':'s'} hoje</strong>`;
+}
+updateBar(); updateVagasText();
+
+(function tickVagas(){
+  if (vagas <= 1){
+    vagas = 0;
+    updateVagasText();
+    fillBar.style.width = "100%";
+    setTimeout(()=>{
+      vagasText.innerHTML = `<strong>Novas vagas disponíveis em breve</strong>`;
+    }, 800);
+    return;
+  }
+  const delay = 1000 + Math.random()*2500; // 1.0s – 3.5s
+  setTimeout(()=>{
+    vagas = Math.max(0, vagas-1);
+    updateBar(); updateVagasText();
+    tickVagas();
+  }, delay);
+})();
+
+/* ========= FEED DE NOMES (80) — embaralha a cada reload, 
+          rolagem contínua, centralizado, loop infinito ========= */
+const NAMES = [
+"Marina Souza","Roberto Soares","Júlia Barbosa","Ana Paula Lima","Carla Ferreira",
+"Luiza Nogueira","Fernanda Pires","Priscila Duarte","Camila Azevedo","Larissa Torres",
+"Mariana Almeida","Patrícia Moreira","Tatiana Rocha","Beatriz Menezes","Caroline Batista",
+"Ana Beatriz Ramos","Bruna Ribeiro","Isabela Martins","Lívia Farias","Natália Gomes",
+"Amanda Cardoso","Gabriela Teixeira","Bianca Monteiro","Juliana Rezende","Renata Barros",
+"Vanessa Marques","Aline Cunha","Daniela Antunes","Paula Queiroz","Sabrina Castro",
+"Simone Andrade","Andressa Prado","Elaine Costa","Viviane Moura","Cláudia Pinto",
+"Helena Carvalho","Michele Silveira","Patrícia Carvalho","Rafaela Diniz","Carolina Prado",
+"Talita Correia","Sueli Campos","Marta Siqueira","Tamires Santos","Kelly Guimarães",
+"Débora Aguiar","Letícia Moraes","Flávia Bastos","Rebeca Tavares","Ariane Castro",
+"Nicole Sampaio","Lorena Pacheco","Rayane Martins","Yasmin Freitas","Milena Amaral",
+"Thais Nascimento","Brenda Macedo","Giovanna Rangel","Carina Peixoto","Carol Souza",
+"Daniel Souza","Bruno Almeida","Rafael Oliveira","Lucas Martins","Gustavo Vieira",
+"Felipe Rezende","Renato Teixeira","Diego Barros","Fábio Nunes","Leandro Torres",
+"Caio Ribeiro","Pedro Henrique","João Victor","Matheus Santos","André Luiz",
+"Eduarda Campos","Isis Moretti","Samantha Lopes","Vera Lúcia","Ingrid Furtado"
+];
+
+// Fisher–Yates
+for (let i=NAMES.length-1;i>0;i--){
+  const j = Math.floor(Math.random()*(i+1));
+  [NAMES[i], NAMES[j]] = [NAMES[j], NAMES[i]];
+}
+
+const feed = document.getElementById('feed');
+function makeItem(name){
+  const row = document.createElement('div');
+  row.className = 'item';
+  row.innerHTML = `<span class="check">✓</span> ${name} acabou de entrar no grupo`;
+  return row;
+}
+let feedIdx = 0;
+function pushNext(){
+  if (feedIdx >= NAMES.length) { feedIdx = 0; } // loop infinito
+  const el = makeItem(NAMES[feedIdx++]);
+  feed.appendChild(el);
+  // anima rolagem: move tudo pra cima
+  const step = el.offsetHeight;
+  const start = performance.now();
+  const DUR = 650; // ms
+  const beginScroll = feed.scrollTop;
+  const target = beginScroll + step;
+  function anim(t){
+    const p = Math.min(1,(t-start)/DUR);
+    feed.scrollTop = beginScroll + (target-beginScroll)*p;
+    if (p<1) requestAnimationFrame(anim);
+    else {
+      // remove os que ficaram acima (para não acumular DOM)
+      while(feed.scrollTop > (feed.firstChild?.offsetHeight||0)+4){
+        feed.removeChild(feed.firstChild);
+      }
+      schedule();
+    }
+  }
+  requestAnimationFrame(anim);
+}
+function schedule(){
+  const delay = 900 + Math.random()*1400; // natural: 0.9–2.3s
+  setTimeout(pushNext, delay);
+}
+schedule();
+
+/* Acessibilidade: Enter aciona CTA principal */
+document.addEventListener('keydown', (e)=>{
+  if (e.key === 'Enter') document.getElementById('btnMain').click();
+});
+</script>
+</body>
+</html>
