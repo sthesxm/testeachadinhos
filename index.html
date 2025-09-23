@@ -64,13 +64,13 @@
     /* Barra de vagas */
     .vacancy-wrap{
       max-width:600px;
-      margin:6px auto 12px; /* sobe tudo junto */
+      margin:4px auto 10px;
       text-align:center;
     }
     .vacancy-top{
       font-weight:800;
-      font-size:17px; /* maior e negrito */
-      margin-bottom:6px; /* barra mais próxima do texto */
+      font-size:17px;
+      margin-bottom:6px;
     }
     .bar{
       width:100%;height:16px;background:#f1f1f1;
@@ -79,7 +79,7 @@
     }
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background:linear-gradient(90deg,var(--amber),var(--amber-light));
+      background:linear-gradient(90deg,var(--amber-light),var(--amber));
       border-radius:999px;
       transition:inset .5s ease;
     }
@@ -87,14 +87,13 @@
     /* CTA */
     .cta-section{
       text-align:center;
-      margin:10px auto 0;
+      margin:15px auto 0;
       padding:15px;
       max-width:700px;
     }
     .cta-btn{
       display:inline-block;padding:16px 32px;
-      width:100%; /* ocupa quase toda largura */
-      border-radius:999px;font-weight:800;font-size:16px;
+      border-radius:999px;font-weight:800;font-size:18px;
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
       color:#fff;border:none;cursor:pointer;
       animation:pulse 1.6s ease-in-out infinite;
@@ -109,7 +108,7 @@
     .feed{
       margin:18px auto 12px;
       max-width:500px;
-      background:#f0f0f0;
+      background:#fafafa;
       border:1px solid #ccc;
       border-radius:16px;
       padding:12px;
@@ -139,7 +138,7 @@
       background:rgba(255,31,174,0.08);
       border-radius:16px;
       padding:14px 16px;margin-bottom:14px;
-      border:1px solid var(--pink);
+      border:1px solid #ff1fae;
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
     }
     .emojibox{
@@ -165,7 +164,9 @@
       display:flex;align-items:center;justify-content:space-between;
       z-index:50;
     }
-    .sticky-footer div{font-weight:700;}
+    .sticky-footer div{
+      font-weight:700;
+    }
     .sticky-btn{
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
       color:#fff;border:none;border-radius:999px;
@@ -245,11 +246,12 @@
       "Lorena Ribeiro","Graça Monteiro","Helena Antunes","Patrícia Rocha","Juliana Costa","Madalena Correia",
       "Adélia Vieira","Celina Pinto","Renata Tavares","Gabriela Melo","Sônia Gonçalves","Daniela Farias"
     ];
-    let namesQueue=shuffle([...NAMES_POOL]);
-
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
 
-    let currentVacancies=START_VACANCIES;
+    let namesQueue=shuffle([...NAMES_POOL]);
+
+    // Recupera do localStorage ou inicia com START
+    let currentVacancies = parseInt(localStorage.getItem("currentVacancies")) || START_VACANCIES;
 
     function updateVacancyUI(){
       vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies} 👇`;
@@ -263,7 +265,9 @@
       if(namesQueue.length===0)namesQueue=shuffle([...NAMES_POOL]);
       const name=namesQueue.shift();
       pushNotification(name);
-      currentVacancies--;updateVacancyUI();
+      currentVacancies--;
+      localStorage.setItem("currentVacancies", currentVacancies);
+      updateVacancyUI();
       if(currentVacancies>MIN_VACANCIES){
         const nextMs=[1000,2000,3000][Math.floor(Math.random()*3)];
         setTimeout(step,nextMs);
