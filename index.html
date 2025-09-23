@@ -64,13 +64,13 @@
     /* Barra de vagas */
     .vacancy-wrap{
       max-width:600px;
-      margin:4px auto 10px;
+      margin:6px auto 12px; /* harmônico, sobe tudo junto */
       text-align:center;
     }
     .vacancy-top{
       font-weight:800;
-      font-size:17px;
-      margin-bottom:6px;
+      font-size:17px; /* maior e negrito */
+      margin-bottom:6px; /* barra mais próxima do texto */
     }
     .bar{
       width:100%;height:16px;background:#f1f1f1;
@@ -79,7 +79,7 @@
     }
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background:linear-gradient(90deg,var(--amber-light),var(--amber));
+      background:linear-gradient(90deg,var(--amber),var(--amber-light)); /* mesma paleta do quadradinho, um tico mais clara */
       border-radius:999px;
       transition:inset .5s ease;
     }
@@ -87,13 +87,14 @@
     /* CTA */
     .cta-section{
       text-align:center;
-      margin:15px auto 0;
+      margin:10px auto 0;
       padding:15px;
       max-width:700px;
     }
     .cta-btn{
       display:inline-block;padding:16px 32px;
-      border-radius:999px;font-weight:800;font-size:18px;
+      width:100%; /* ocupa quase toda largura */
+      border-radius:999px;font-weight:800;font-size:18px; /* fonte maior, botão mesmo tamanho */
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
       color:#fff;border:none;cursor:pointer;
       animation:pulse 1.6s ease-in-out infinite;
@@ -108,7 +109,7 @@
     .feed{
       margin:18px auto 12px;
       max-width:500px;
-      background:#fafafa;
+      background:#f0f0f0; /* cinza bloco */
       border:1px solid #ccc;
       border-radius:16px;
       padding:12px;
@@ -135,16 +136,16 @@
     .benefits{max-width:700px;margin:8px auto;padding:0 15px;}
     .benefit{
       display:flex;align-items:center;gap:14px;
-      background:rgba(255,31,174,0.08);
+      background:rgba(255,31,174,0.08); /* rosinha mais forte */
       border-radius:16px;
       padding:14px 16px;margin-bottom:14px;
-      border:1px solid #ff1fae;
+      border:1px solid var(--pink); /* borda rosa */
       box-shadow:0 4px 10px rgba(0,0,0,0.05);
     }
     .emojibox{
       width:46px;height:46px;min-width:46px;
       display:flex;align-items:center;justify-content:center;
-      background:var(--amber);
+      background:var(--amber); /* amarelo-gema forte */
       border-radius:12px;
       font-size:22px;
     }
@@ -164,9 +165,7 @@
       display:flex;align-items:center;justify-content:space-between;
       z-index:50;
     }
-    .sticky-footer div{
-      font-weight:700;
-    }
+    .sticky-footer div{font-weight:700;}
     .sticky-btn{
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
       color:#fff;border:none;border-radius:999px;
@@ -247,11 +246,40 @@
       "Adélia Vieira","Celina Pinto","Renata Tavares","Gabriela Melo","Sônia Gonçalves","Daniela Farias"
     ];
     function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
-
     let namesQueue=shuffle([...NAMES_POOL]);
 
-    // Recupera do localStorage ou inicia com START
+    // ---------- Persistência + Reset Diário ----------
+    // Lê vagas salvas (se houver)
     let currentVacancies = parseInt(localStorage.getItem("currentVacancies")) || START_VACANCIES;
+
+    // Reseta se o dia mudou (ao carregar)
+    function normalizeDateStr(d){return new Date(d.getFullYear(), d.getMonth(), d.getDate()).toDateString();}
+    const todayStr = normalizeDateStr(new Date());
+    const lastResetDate = localStorage.getItem("lastResetDate");
+    if (lastResetDate !== todayStr) {
+      resetVacancies(); // novo dia -> volta para 24
+    }
+
+    // Agenda reset na próxima meia-noite e a cada 24h
+    scheduleMidnightReset();
+
+    function resetVacancies(){
+      currentVacancies = START_VACANCIES;
+      localStorage.setItem("currentVacancies", currentVacancies);
+      localStorage.setItem("lastResetDate", normalizeDateStr(new Date()));
+      updateVacancyUI();
+    }
+
+    function scheduleMidnightReset(){
+      const now = new Date();
+      const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+      const msToMidnight = nextMidnight.getTime() - now.getTime();
+      setTimeout(() => {
+        resetVacancies();
+        setInterval(resetVacancies, 24*60*60*1000); // a cada 24h
+      }, msToMidnight);
+    }
+    // -----------------------------------------------
 
     function updateVacancyUI(){
       vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies} 👇`;
@@ -261,8 +289,8 @@
     }
 
     function step(){
-      if(currentVacancies<=MIN_VACANCIES)return;
-      if(namesQueue.length===0)namesQueue=shuffle([...NAMES_POOL]);
+      if(currentVacancies<=MIN_VACANCIES) return;
+      if(namesQueue.length===0) namesQueue=shuffle([...NAMES_POOL]);
       const name=namesQueue.shift();
       pushNotification(name);
       currentVacancies--;
@@ -288,18 +316,21 @@
       }
     }
 
+    // Ambos os botões disparam Lead e abrem o WhatsApp
     function handleClick(){
-      try{fbq('track','Lead');}catch(e){}
-      setTimeout(()=>{window.open(WHATS_LINK,'_blank');},500);
+      try{ fbq('track','Lead'); }catch(e){}
+      setTimeout(()=>{ window.open(WHATS_LINK,'_blank'); },500);
     }
-
     document.getElementById('ctaMain').addEventListener('click',handleClick);
     document.getElementById('ctaFooter').addEventListener('click',handleClick);
 
     window.addEventListener('load',()=>{
       updateVacancyUI();
-      setTimeout(step,1000);
-      try{fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'})}catch(e){}
+      // Só continua caindo se ainda não chegou em 2
+      if(currentVacancies>MIN_VACANCIES){
+        setTimeout(step,1000);
+      }
+      try{ fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'}) }catch(e){}
     });
   </script>
 </body>
