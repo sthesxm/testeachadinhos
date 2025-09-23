@@ -1,280 +1,270 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>😱🛍 Achei Promo Boa | Ofertas Exclusivas</title>
-  
-  <!-- Meta Pixel Code -->
+  <title>Achei Promo Boa 😱🛍 | Entrar no Grupo</title>
+
+  <!-- Meta Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1652603255345461'); 
-    fbq('track', 'PageView');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1652603255345461');
+  fbq('track', 'PageView');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none" 
-         src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Pixel -->
+  <!-- End Meta Pixel -->
 
   <style>
-    :root {
-      --pink: #ff1fae; 
-      --pink-dark: #d5148f;
-      --yellow: #ffcc00;
-      --yellow-dark: #e0b500;
-      --white: #ffffff;
-      --off-white: #f9f9f9;
-      --text: #2b2b2b;
-      --shadow: 0 14px 40px rgba(255,31,174,0.15);
-      --cta-dark: #7a004f; /* rosa bem escuro */
+    :root{
+      --pink:#ff1fae;
+      --pink-dark:#d5148f;
+      --amber:#ffcc00;
+      --amber-light:#fff4cc;
+      --white:#ffffff;
+      --gray:#555;
+      --muted:#777;
+      --shadow:0 10px 25px rgba(0,0,0,.1);
+      --radius:18px;
     }
 
-    body {
-      font-family: 'Inter','Poppins',sans-serif;
-      background: var(--white);
-      color: var(--text);
-      margin:0;
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#fff;color:#222;}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
-      color: var(--white);
-      padding: 1.8rem 1rem 2.2rem;
+    header{
+      background: linear-gradient(135deg, var(--pink) 0%, #ff6ac6 100%);
+      padding:30px 20px 50px;
       text-align:center;
-      border-radius: 0 0 40px 40px;
-      box-shadow: var(--shadow);
+      border-radius:0 0 28px 28px;
+      color:var(--white);
+      box-shadow:var(--shadow);
     }
     .logo-wrap{
       width:110px;height:110px;margin:0 auto 12px;
       border-radius:50%;background:#fff;padding:6px;
-      box-shadow: 0 12px 30px rgba(0,0,0,.18);
-      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 20px rgba(0,0,0,.2);
     }
-    .logo-wrap img{
-      width:100%;height:100%;object-fit:cover;border-radius:50%;
-    }
-    header h1 {
-      font-size:2rem;font-weight:700;margin:6px 0;
-      white-space:nowrap;
-    }
-    .subtitle{font-size:1.05rem;font-weight:400;opacity:.95;}
+    .logo-wrap img{width:100%;height:100%;border-radius:50%;}
+    h1{font-size:28px;font-weight:800;margin-bottom:6px;}
 
-    .container{max-width:980px;margin:0 auto;padding:0 16px}
+    .top-text{
+      font-weight:700;
+      color:#6a0055; /* rosa bem escuro */
+      margin-top:10px;
+      font-size:16px;
+    }
+
+    /* Barra de vagas */
+    .vacancy-wrap{max-width:600px;margin:18px auto 0;text-align:center;}
+    .vacancy-top{font-weight:700;margin-bottom:8px;}
+    .bar{
+      width:100%;height:16px;background:#f1f1f1;
+      border:2px solid #ddd;border-radius:999px;
+      position:relative;overflow:hidden;
+    }
+    .bar>.fill{
+      position:absolute;inset:0 100% 0 0;
+      background:linear-gradient(90deg,var(--amber),#ffe066);
+      border-radius:999px;
+      transition:inset .5s ease;
+    }
 
     /* CTA */
-    .cta-section {
-      text-align:center;margin:1.5rem auto;
-      background: var(--white);border-radius:20px;
-      box-shadow: var(--shadow);max-width:850px;
-      padding:2rem 1.5rem 1.6rem;
-    }
-    .cta-title {
-      font-size:1.2rem;
-      font-weight:900;
-      color: var(--cta-dark);
-      margin-bottom:1.2rem;
-    }
-    .cta-button {
-      display:inline-block;background:linear-gradient(135deg, var(--pink), var(--pink-dark));
-      color:var(--white);padding:1rem 2.5rem;border-radius:999px;
-      font-weight:800;letter-spacing:.2px;font-size:1.05rem;
-      border:3px solid var(--yellow);cursor:pointer;min-width:280px;
+    .cta-section{text-align:center;margin:30px auto;padding:20px;max-width:700px;}
+    .cta-btn{
+      display:inline-block;padding:16px 32px;
+      border-radius:999px;font-weight:800;font-size:16px;
+      background:linear-gradient(180deg,var(--pink),var(--pink-dark));
+      color:#fff;border:none;cursor:pointer;
       animation:pulse 1.6s ease-in-out infinite;
-      transform-origin:center;
+      box-shadow:0 10px 25px rgba(255,31,174,.35);
     }
-    .cta-button:hover{transform:scale(1.05);}
-    @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+    @keyframes pulse{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.06);}
+    }
 
-    /* BARRA VAGAS */
-    .vacancy-wrap{text-align:center;max-width:650px;margin:1.2rem auto .4rem;}
-    .vacancy-top{font-weight:800;margin-bottom:.5rem;color:var(--pink-dark);}
-    .bar{position:relative;width:100%;height:16px;background:#eee;border-radius:999px;
-      overflow:hidden;box-shadow: inset 0 0 3px rgba(0,0,0,.12);}
-    .fill{position:absolute;inset:0 100% 0 0;background:linear-gradient(90deg,var(--yellow),var(--yellow-dark));
-      box-shadow:0 6px 18px rgba(255,204,0,.35);border-radius:999px;transition:inset .6s ease;}
+    /* Feed */
+    .feed{
+      margin:20px auto;max-width:500px;
+      background:#f9f9f9;border-radius:16px;
+      padding:12px;box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .notif{
+      display:flex;align-items:center;gap:10px;
+      background:#fff;padding:10px;border-radius:12px;
+      margin-bottom:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);
+      font-size:14px;font-weight:600;
+      opacity:0;transform:translateY(10px);
+      animation:slideIn .4s ease forwards;
+    }
+    .notif .badge{
+      background:rgba(46,204,113,.15);
+      border:1px solid rgba(46,204,113,.3);
+      color:#1e8e3e;font-weight:800;font-size:13px;
+      padding:6px 8px;border-radius:999px;
+    }
+    @keyframes slideIn{to{opacity:1;transform:translateY(0)}}
 
-    /* FEED */
-    .feed-box{background:var(--off-white);border-radius:16px;box-shadow:0 6px 20px rgba(0,0,0,.08);
-      padding:14px 12px;margin:1.2rem auto 0;max-width:650px;min-height:110px;}
-    .notif{display:flex;align-items:center;gap:10px;background:#fff;border-radius:12px;
-      padding:8px 12px;margin-bottom:10px;box-shadow:0 3px 10px rgba(0,0,0,.06);
-      opacity:0;transform:translateY(-14px);animation:slideDown .45s ease forwards;}
-    .notif .badge{background:rgba(46,204,113,.12);border:1px solid rgba(46,204,113,.35);
-      color:#1e8e3e;font-weight:800;font-size:.85rem;padding:4px 8px;border-radius:999px;}
-    .notif .text{font-size:.95rem;font-weight:600;color:#222;}
-    @keyframes slideDown{to{opacity:1;transform:translateY(0);}}
-
-    /* BENEFITS */
-    .benefits{max-width:900px;margin:2rem auto;padding:0 6px;}
-    .benefit{background:#fff;border-radius:16px;padding:16px;box-shadow:var(--shadow);
-      display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+    /* Vantagens */
+    .benefits{max-width:700px;margin:30px auto;padding:0 15px;}
+    .benefit{
+      display:flex;align-items:center;gap:14px;
+      background:#fff;border-radius:16px;
+      padding:14px 16px;margin-bottom:14px;
+      box-shadow:var(--shadow);
+    }
     .emojibox{
-      width:42px;height:42px;min-width:42px;
-      border-radius:12px;background:rgba(255,204,0,.25);
+      width:46px;height:46px;min-width:46px;
       display:flex;align-items:center;justify-content:center;
+      background:var(--amber-light);border-radius:12px;
       font-size:22px;
     }
-    .benefit h4{font-weight:900;font-size:15px;margin-bottom:4px;color:#111;}
-    .benefit p{font-size:14px;color:#666;}
+    .benefit-text h4{
+      font-size:16px;font-weight:800;margin-bottom:3px;
+    }
+    .benefit-text p{
+      font-size:14px;color:var(--muted);margin:0;
+    }
 
-    /* RODAPÉ FIXO */
-    .sticky-footer{position:fixed;left:0;right:0;bottom:0;z-index:50;
-      background:linear-gradient(180deg,#121212 0%,#1b1b1b 100%);color:#fff;
-      padding:12px 16px;box-shadow:0 -12px 26px rgba(0,0,0,.25);}
-    .sticky-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;
-      justify-content:space-between;gap:12px;flex-wrap:wrap;}
-    .sticky-btn{background:linear-gradient(180deg,var(--pink) 0%,var(--pink-dark) 100%);
-      color:#fff;border:none;border-radius:999px;padding:12px 20px;font-weight:900;
-      cursor:pointer;box-shadow:0 10px 24px rgba(255,31,174,.35);}
+    /* Rodapé fixo */
+    .sticky-footer{
+      position:fixed;bottom:0;left:0;right:0;
+      background:#111;color:#fff;padding:12px 16px;
+      box-shadow:0 -8px 20px rgba(0,0,0,.2);
+      display:flex;align-items:center;justify-content:space-between;
+      z-index:50;
+    }
+    .sticky-btn{
+      background:linear-gradient(180deg,var(--pink),var(--pink-dark));
+      color:#fff;border:none;border-radius:999px;
+      padding:10px 18px;font-weight:800;cursor:pointer;
+      box-shadow:0 6px 16px rgba(255,31,174,.35);
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-wrap"><img src="/logo.png" alt="Achei Promo Boa"></div>
-    <h1>😱🛍 Achei Promo Boa</h1>
-    <p class="subtitle">As melhores promoções da Shopee direto no seu WhatsApp</p>
+    <div class="logo-wrap"><img src="/logo.png" alt="Logo"></div>
+    <h1>Achei Promo Boa 😱🛍</h1>
+    <div class="top-text">Vagas limitadas ⬤ Clique abaixo</div>
+
+    <div class="vacancy-wrap">
+      <div class="vacancy-top"><span id="vacancyText">Últimas vagas de hoje • Restam 24</span></div>
+      <div class="bar"><div class="fill" id="fillBar"></div></div>
+    </div>
   </header>
 
-  <div class="container">
-    <div class="cta-section">
-      <h2 class="cta-title">Vagas limitadas ● Clique abaixo</h2>
-      <button id="ctaMain" class="cta-button">👉 Entrar no grupo agora</button>
+  <section class="cta-section">
+    <button id="ctaMain" class="cta-btn">ENTRAR NO GRUPO AGORA</button>
+    <div class="feed" id="feed"></div>
+  </section>
 
-      <!-- Barra de vagas -->
-      <div class="vacancy-wrap">
-        <div class="vacancy-top" id="vacancyText">⏳ Últimas vagas de hoje • Restam 24</div>
-        <div class="bar"><div class="fill" id="fillBar"></div></div>
+  <section class="benefits">
+    <div class="benefit">
+      <div class="emojibox">🔥</div>
+      <div class="benefit-text">
+        <h4>Descontos Insanos</h4>
+        <p>Produtos com até 70% OFF</p>
       </div>
-
-      <!-- Feed -->
-      <div class="feed-box" id="feed"></div>
     </div>
+    <div class="benefit">
+      <div class="emojibox">🎟️</div>
+      <div class="benefit-text">
+        <h4>Cupons Exclusivos</h4>
+        <p>Só para membros do grupo</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="emojibox">👀</div>
+      <div class="benefit-text">
+        <h4>Itens em Alta</h4>
+        <p>Os mais desejados do momento</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="emojibox">✅</div>
+      <div class="benefit-text">
+        <h4>Ofertas Verificadas</h4>
+        <p>Promoções reais e testadas</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Benefícios -->
-    <section class="benefits">
-      <div class="benefit">
-        <div class="emojibox">🔥</div>
-        <div>
-          <h4>Descontos Insanos</h4>
-          <p>Produtos com até 70% OFF</p>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="emojibox">🎟️</div>
-        <div>
-          <h4>Cupons Exclusivos</h4>
-          <p>Só para membros do grupo</p>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="emojibox">👀</div>
-        <div>
-          <h4>Itens em Alta</h4>
-          <p>Os mais desejados do momento</p>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="emojibox">✅</div>
-        <div>
-          <h4>Ofertas Verificadas</h4>
-          <p>Promoções reais e testadas</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Rodapé fixo -->
   <div class="sticky-footer">
-    <div class="sticky-inner">
-      <div>⏳ Últimas vagas de hoje</div>
-      <button id="ctaFooter" class="sticky-btn">Entrar no grupo</button>
-    </div>
+    <div>⏳ Últimas vagas de hoje</div>
+    <button id="ctaFooter" class="sticky-btn">Entrar no grupo</button>
   </div>
 
   <script>
-    const WHATS_LINK = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG";
-    const START_VACANCIES = 24, MIN_VACANCIES = 2;
-    let currentVacancies = START_VACANCIES;
+    const WHATS_LINK="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG";
+    const START_VACANCIES=24, MIN_VACANCIES=2;
+    const feedEl=document.getElementById('feed');
+    const vacancyText=document.getElementById('vacancyText');
+    const fillBar=document.getElementById('fillBar');
 
-    const feedEl = document.getElementById('feed');
-    const vacancyText = document.getElementById('vacancyText');
-    const fillBar = document.getElementById('fillBar');
-
-    const NAMES = [
-      "Ana Beatriz Souza","Maria Júlia Ferreira","Francisca Lacerda",
-      "Rosália Maria","Cecília Duarte","Helena Cardoso",
-      "Laura Nogueira","Mariana Castro","Camila Figueiredo",
-      "Isabela Teixeira","Vitória Rocha","Patrícia Mendes",
-      "Lúcia Tavares","Joana Prado","Elisabete Moraes",
-      "Rita de Cássia","Irene Martins","Conceição Almeida",
-      "Adriana Torres","Marta Freitas","Ângela Barbosa",
-      "Fátima Ribeiro","Lourdes Gonçalves","Tereza Lemos",
-      "Clarice Moreira","Josefina Costa","Sílvia Azevedo",
-      "Regina Duarte","Luciana Monteiro","Cristina Xavier",
-      "Sônia Pacheco","Glória Fernandes","Márcia Rezende",
-      "Paula Guimarães","Valéria Batista","Carolina Moura",
-      "Beatriz Correia","Renata Campos","Gabriela Antunes",
-      "Clara Silva"
+    const NAMES_POOL=[
+      "Francisca Lacerda","Rosália Maria","Maria Júlia Souza","Ana Beatriz Nogueira","Josefa Almeida",
+      "Tereza Lemos","Joana Prado","Helena Barbosa","Cecília Andrade","Laura Pacheco","Clara Moreira",
+      "Isabel Figueira","Marta Azevedo","Aurora Fernandes","Olívia Castro","Beatriz Siqueira",
+      "Lúcia Nunes","Ester Carvalho","Camila Duarte","Regina Campos","Noêmia Teixeira","Paula Rezende",
+      "Marina Peixoto","Cristina Moura","Vitória Lopes","Sueli Brito","Rita Xavier","Elisa Cardoso",
+      "Lorena Ribeiro","Graça Monteiro","Helena Antunes","Patrícia Rocha","Juliana Costa","Madalena Correia",
+      "Adélia Vieira","Celina Pinto","Renata Tavares","Gabriela Melo","Sônia Gonçalves","Daniela Farias"
     ];
-    let namesQueue = shuffle([...NAMES]);
-    let idx=0;
+    let namesQueue=shuffle([...NAMES_POOL]);
 
-    function shuffle(arr){
-      for(let i=arr.length-1;i>0;i--){
-        const j=Math.floor(Math.random()*(i+1));
-        [arr[i],arr[j]]=[arr[j],arr[i]];
-      }
-      return arr;
-    }
+    function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
+
+    let currentVacancies=START_VACANCIES;
 
     function updateVacancyUI(){
-      vacancyText.textContent = `⏳ Últimas vagas de hoje • Restam ${currentVacancies}`;
+      vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies}`;
       const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
       const pct=Math.max(0,Math.min(1,filled));
       fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
     }
 
-    function pushNotification(){
-      if(currentVacancies<=MIN_VACANCIES) return;
-      if(feedEl.children.length>=3){
-        const last=feedEl.lastElementChild;
-        last.style.transition='opacity .35s ease, transform .35s ease';
-        last.style.opacity='0';last.style.transform='translateY(8px)';
-        setTimeout(()=>last&&last.remove(),350);
+    function step(){
+      if(currentVacancies<=MIN_VACANCIES)return;
+      if(namesQueue.length===0)namesQueue=shuffle([...NAMES_POOL]);
+      const name=namesQueue.shift();
+      pushNotification(name);
+      currentVacancies--;updateVacancyUI();
+      if(currentVacancies>MIN_VACANCIES){
+        const nextMs=[1000,2000,3000][Math.floor(Math.random()*3)];
+        setTimeout(step,nextMs);
       }
-      const name=namesQueue[idx%namesQueue.length];
-      idx++;
-      const row=document.createElement('div');
-      row.className='notif';
-      row.innerHTML=`<div class="badge">✅</div><div class="text"><strong>${name}</strong> entrou no grupo</div>`;
-      feedEl.insertBefore(row,feedEl.firstChild);
-
-      // Decrementar vagas
-      currentVacancies=Math.max(MIN_VACANCIES,currentVacancies-1);
-      updateVacancyUI();
-
-      // Intervalo aleatório entre 1 e 3s
-      const nextMs=[1000,2000,3000][Math.floor(Math.random()*3)];
-      setTimeout(pushNotification,nextMs);
     }
 
-    function goToGroup(){try{fbq('track','Lead');}catch(e){}window.open(WHATS_LINK,"_blank");}
-    document.getElementById('ctaMain').addEventListener('click',goToGroup);
-    document.getElementById('ctaFooter').addEventListener('click',goToGroup);
+    function pushNotification(name){
+      const row=document.createElement('div');
+      row.className='notif';
+      row.innerHTML=`<div class="badge">✅</div><div><strong>${name}</strong> entrou no grupo</div>`;
+      feedEl.appendChild(row);
+      if(feedEl.children.length>3){
+        feedEl.firstElementChild.remove();
+      }
+    }
+
+    function handleClick(){
+      try{fbq('track','Lead');}catch(e){}
+      setTimeout(()=>{window.open(WHATS_LINK,'_blank');},500);
+    }
+
+    document.getElementById('ctaMain').addEventListener('click',handleClick);
+    document.getElementById('ctaFooter').addEventListener('click',handleClick);
 
     window.addEventListener('load',()=>{
       updateVacancyUI();
-      setTimeout(pushNotification,1500);
-      try{fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'});}catch(e){}
+      setTimeout(step,1000);
+      try{fbq('track','ViewContent',{content_name:'Landing Grupo WhatsApp'})}catch(e){}
     });
   </script>
 </body>
