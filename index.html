@@ -1,225 +1,301 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Achei Promo Boa 😱🛍 | Ofertas Exclusivas</title>
+  <title>Achei Promo Boa 😱🛍 | Ofertas validadas e descontos insanos</title>
 
   <!-- Meta Pixel Code -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1652603255345461');
-    fbq('track', 'PageView');
-
-    function trackConversion(eventName, params) {
-      fbq('track', eventName, params);
-    }
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1652603255345461');
+  fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1"/>
+    src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1" />
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
-    :root {
-      --pink: #FF1493;
-      --yellow: #FFD700;
-      --white: #FFFFFF;
-      --gray: #4A4A4A;
-      --black: #2C2C2C;
+    :root{
+      --pink:#ff1493;          /* rosa pink neon (principal) */
+      --pink-dark:#cc0f76;     /* rosa mais escuro (hover/rodapé) */
+      --yellow:#FFD700;        /* amarelo-gema */
+      --yellow-soft:rgba(255,215,0,0.18);
+      --white:#ffffff;
+      --text:#2c2c2c;
+      --muted:#666;
+      --shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:var(--white);}
+
+    /* HEADER ROSA (até a mensagem “Não somos uma loja…”) */
+    header{background:linear-gradient(180deg,var(--pink) 0%, #ff3cab 60%, var(--pink) 100%);
+      color:var(--white); padding:28px 18px 20px; position:relative; overflow:hidden;}
+    .topbar{max-width:980px;margin:0 auto; display:flex; align-items:center; gap:14px;}
+    .logo-wrap{width:62px;height:62px; flex:0 0 62px; border-radius:50%;
+      box-shadow:0 6px 18px rgba(0,0,0,0.15); overflow:hidden; display:grid; place-items:center; background:var(--white);}
+    .logo-wrap img{width:100%; height:100%; object-fit:cover; border-radius:50%;}
+    .title-block{display:flex; flex-direction:column; gap:6px;}
+    h1{font-size:1.55rem; letter-spacing:-0.4px; line-height:1.1; font-weight:800; display:flex; align-items:center; gap:8px;}
+    .desc-line{font-weight:600; font-size:0.98rem; opacity:.95;}
+    .desc-sub{font-size:0.95rem; opacity:.9;}
+    .desc-sub b{font-weight:800;}
+
+    /* BARRA DE VAGAS + CTA PRINCIPAL (AINDA EM FUNDO ROSA) */
+    .hero{max-width:980px;margin:16px auto 0; padding:0 18px 12px;}
+    .vacant-card{background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
+      border-radius:14px; padding:14px 14px 16px;}
+    .vacant-row{display:flex; justify-content:space-between; align-items:center; color:var(--white); margin-bottom:10px;}
+    .vacant-row .left{display:flex; align-items:center; gap:8px; font-weight:700;}
+    .vacant-row .right{font-weight:700;}
+    .progress{height:10px; width:100%; border-radius:999px; background:rgba(255,255,255,0.45); overflow:hidden;}
+    .progress > i{display:block; height:100%; width:0%; background:var(--yellow); transition:width .6s ease;}
+
+    .cta-wrap{display:grid; place-items:center; margin:14px auto 0;}
+    .btn-primary{
+      appearance:none; border:none; cursor:pointer; text-transform:uppercase; font-weight:900; letter-spacing:.4px;
+      background:var(--pink); color:var(--white); padding:16px 24px; border-radius:12px; min-width:280px;
+      border:3px solid var(--yellow); box-shadow:0 10px 28px rgba(255,20,147,.35);
+      animation:pulse 1.2s ease-in-out infinite;
+    }
+    .btn-primary:hover{filter:brightness(1.05)}
+    @keyframes pulse{
+      0%{transform:scale(1)}
+      50%{transform:scale(1.03)}
+      100%{transform:scale(1)}
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* DIVISÃO: parte branca começa logo abaixo do botão e do aviso */
+    .white-section{background:var(--white); padding:18px 18px 24px;}
+    .white-inner{max-width:980px; margin:0 auto;}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--white);
-      color: var(--gray);
-    }
+    /* AVISO “Vagas limitadas” + FEED DE NOMES (logo abaixo do botão principal) */
+    .note{margin:14px auto 12px; text-align:center; color:#fff; opacity:.95;}
+    .feed{margin:10px auto 0; background:#fff; border:1px solid #eee; border-radius:12px; box-shadow:var(--shadow);
+      max-width:740px; overflow:hidden;}
+    .feed-list{list-style:none; max-height:280px; overflow:hidden; padding:10px;}
+    .feed-item{display:flex; gap:8px; align-items:center; justify-content:center; color:#1f2937; padding:8px 6px; font-weight:600;}
+    .check{color:#10b981}
 
-    header {
-      background: linear-gradient(135deg, var(--pink), #ff4da6);
-      text-align: center;
-      color: var(--white);
-      padding: 2.5rem 1rem;
-      border-radius: 0 0 20px 20px;
-    }
+    /* BENEFÍCIOS */
+    .benefits{margin:18px auto 0; display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+    .benefit{background:#fff; border:1px solid #eee; border-radius:14px; box-shadow:var(--shadow); padding:14px;}
+    .benefit .iconBox{width:40px;height:40px;border-radius:10px;background:var(--yellow-soft);display:grid;place-items:center;margin-bottom:8px;}
+    .benefit b{display:block; margin-bottom:4px;}
+    .benefit p{color:var(--muted); font-weight:500; font-size:0.95rem}
 
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
+    /* RODAPÉ FIXO */
+    .sticky-footer{position:fixed; left:0; right:0; bottom:0; background:linear-gradient(180deg,var(--pink-dark),#a70d68);
+      box-shadow:0 -10px 24px rgba(0,0,0,0.2); padding:10px 12px; z-index:50;}
+    .sticky-inner{max-width:980px;margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:12px;}
+    .sticky-title{color:#fff; font-weight:800; letter-spacing:.3px;}
+    .btn-secondary{
+      appearance:none; border:none; cursor:pointer; font-weight:900; letter-spacing:.3px; text-transform:uppercase;
+      background:#fff; color:var(--pink-dark); padding:12px 16px; border-radius:10px;
+      border:3px solid var(--yellow);
+      box-shadow:0 8px 22px rgba(0,0,0,.18);
     }
+    .spacer{height:68px} /* espaço para o rodapé fixo não cobrir conteúdo */
 
-    .subtitle {
-      font-size: 1.2rem;
-      margin-top: .5rem;
+    @media (max-width:900px){
+      .benefits{grid-template-columns:1fr 1fr}
+      .sticky-title{font-size:0.95rem}
+      .btn-primary{min-width:240px}
     }
-
-    .cta-section {
-      text-align:center;
-      margin:2rem auto;
-      padding:2rem 1rem;
-      background: var(--white);
-      border-radius:15px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.1);
-      max-width:800px;
+    @media (max-width:560px){
+      .benefits{grid-template-columns:1fr}
+      .title-block h1{font-size:1.3rem}
+      .desc-line,.desc-sub{font-size:0.92rem}
     }
-
-    .cta-title {
-      font-size:1.5rem;
-      font-weight:600;
-      margin-bottom:1.2rem;
-    }
-
-    .cta-button {
-      display:inline-block;
-      background: var(--pink);
-      border:2px solid var(--yellow);
-      color: var(--white);
-      font-size:1.2rem;
-      font-weight:bold;
-      padding:1rem 2rem;
-      border-radius:40px;
-      cursor:pointer;
-      animation:pulse 1.5s infinite;
-      transition:.3s;
-    }
-
-    .cta-button:hover { transform:scale(1.05); }
-
-    @keyframes pulse {
-      0% { transform:scale(1); }
-      50% { transform:scale(1.08); }
-      100% { transform:scale(1); }
-    }
-
-    /* Feed de nomes */
-    .feed {
-      margin-top:1.5rem;
-      height:60px;
-      overflow:hidden;
-      position:relative;
-    }
-    .feed p {
-      position:absolute;
-      width:100%;
-      text-align:center;
-      font-size:1rem;
-      color:var(--gray);
-      animation:scrollFeed 1.5s linear forwards;
-    }
-    @keyframes scrollFeed {
-      0% { top:100%; opacity:0; }
-      20% { opacity:1; }
-      80% { opacity:1; }
-      100% { top:-100%; opacity:0; }
-    }
-
-    .benefits-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-      gap:1rem;
-      margin:2rem auto;
-      max-width:900px;
-    }
-
-    .benefit-card {
-      background:var(--white);
-      padding:1.5rem;
-      border-radius:15px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-      text-align:center;
-    }
-
-    .benefit-title {
-      font-size:1.1rem;
-      font-weight:600;
-      margin:.5rem 0;
-    }
-
-    footer {
-      position:fixed;
-      bottom:0; left:0; right:0;
-      background: var(--yellow);
-      color: var(--black);
-      padding:1rem;
-      text-align:center;
-    }
-
-    .footer-btn {
-      background:var(--white);
-      border:none;
-      padding:.8rem 2rem;
-      border-radius:30px;
-      font-weight:600;
-      cursor:pointer;
-      margin-top:.5rem;
-    }
-
   </style>
 </head>
 <body>
+
+  <!-- TOPO ROSA + TÍTULO + LOGO -->
   <header>
-    <h1>Achei Promo Boa 😱🛍</h1>
-    <p class="subtitle">Não somos uma loja – Mandamos promoções da Shopee direto no seu celular</p>
+    <div class="topbar">
+      <div class="logo-wrap">
+        <!-- COLE AQUI A SUA LOGO EM BASE64 (PNG/JPG) -->
+        <!-- Exemplo: src="data:image/png;base64,AAA..." -->
+        <img alt="Logo Achei Promo Boa" src="DATA_URI_DA_SUA_LOGO_AQUI">
+      </div>
+      <div class="title-block">
+        <h1>Achei Promo Boa 😱🛍</h1>
+        <div class="desc-line">Não somos uma loja</div>
+        <div class="desc-sub">Mandamos promoções da Shopee direto no seu celular — <b>pra você, dona de casa, economizar</b> ⏳</div>
+      </div>
+    </div>
+
+    <!-- VAGAS + BARRA + CTA PRINCIPAL -->
+    <div class="hero">
+      <div class="vacant-card">
+        <div class="vacant-row">
+          <div class="left">⏳ <span id="vacantText">Restam 0 vagas hoje</span></div>
+          <div class="right" id="vacantCount">—</div>
+        </div>
+        <div class="progress"><i id="vacantBar"></i></div>
+      </div>
+
+      <div class="cta-wrap">
+        <button id="btnMain" class="btn-primary">ENTRAR NO GRUPO AGORA</button>
+        <div class="note">Vagas limitadas</div>
+      </div>
+    </div>
   </header>
 
-  <div class="cta-section">
-    <h2 class="cta-title">⏳ Últimas vagas de hoje</h2>
-    <button class="cta-button" onclick="entrarGrupo()">ENTRAR NO GRUPO AGORA</button>
+  <!-- PARTE BRANCA: FEED DE NOMES + BENEFÍCIOS -->
+  <section class="white-section">
+    <div class="white-inner">
+      <!-- FEED DE NOMES -->
+      <div class="feed" aria-live="polite">
+        <ul id="feedList" class="feed-list"></ul>
+      </div>
 
-    <!-- Feed de nomes -->
-    <div class="feed" id="feed"></div>
-  </div>
+      <!-- BENEFÍCIOS -->
+      <div class="benefits">
+        <div class="benefit">
+          <div class="iconBox">✅</div>
+          <b>Ofertas validadas</b>
+          <p>Promoções reais e testadas.</p>
+        </div>
+        <div class="benefit">
+          <div class="iconBox">🔥</div>
+          <b>Descontos insanos</b>
+          <p>Produtos com até 70% OFF.</p>
+        </div>
+        <div class="benefit">
+          <div class="iconBox">👀</div>
+          <b>Itens em alta</b>
+          <p>Os mais desejados do momento.</p>
+        </div>
+        <div class="benefit">
+          <div class="iconBox">🎟️</div>
+          <b>Cupons exclusivos</b>
+          <p>Só para membros do grupo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="benefits-grid">
-    <div class="benefit-card">✅ <div class="benefit-title">Ofertas validadas</div><p>Promoções reais e testadas</p></div>
-    <div class="benefit-card">🔥 <div class="benefit-title">Descontos insanos</div><p>Produtos com até 70% OFF</p></div>
-    <div class="benefit-card">👀 <div class="benefit-title">Itens em alta</div><p>Os mais desejados do momento</p></div>
-    <div class="benefit-card">🎟️ <div class="benefit-title">Cupons exclusivos</div><p>Descontos especiais só para membros</p></div>
-  </div>
-
-  <footer>
-    <p>⏳ Últimas vagas de hoje</p>
-    <button class="footer-btn" onclick="entrarGrupo()">Entrar no grupo</button>
+  <!-- RODAPÉ FIXO -->
+  <div class="spacer" aria-hidden="true"></div>
+  <footer class="sticky-footer" role="contentinfo">
+    <div class="sticky-inner">
+      <div class="sticky-title">Últimas vagas de hoje</div>
+      <button id="btnFooter" class="btn-secondary">Entrar no grupo</button>
+    </div>
   </footer>
 
   <script>
-    const nomes = [
-      "✅️ Maria Silva entrou no grupo",
-      "✅️ João Souza entrou no grupo",
-      "✅️ Ana Clara entrou no grupo",
-      "✅️ Pedro Henrique entrou no grupo",
-      "✅️ Júlia Santos entrou no grupo",
-      "✅️ Carlos Eduardo entrou no grupo",
-      "✅️ Marina Oliveira entrou no grupo",
-      "✅️ Roberto Soares entrou no grupo",
-      "✅️ Fernanda Costa entrou no grupo",
-      "✅️ Beatriz Rocha entrou no grupo",
-      "✅️ André Luiz entrou no grupo",
-      "✅️ Gabriela Martins entrou no grupo"
+    // ====== CONFIGURAÇÕES ======
+    const LINK_GRUPO = "https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t";
+
+    // ====== RASTREAR EVENTOS (PIXEL) ======
+    function trackLead(source){
+      try{ fbq('track','Lead',{source}); }catch(e){}
+    }
+    // ViewContent após 3s
+    setTimeout(()=>{ try{ fbq('track','ViewContent',{content_name:'Landing Achei Promo Boa'});}catch(e){} }, 3000);
+
+    // ====== CTA BOTÕES ======
+    document.getElementById('btnMain').addEventListener('click', (e)=>{
+      e.preventDefault(); trackLead('botao_principal');
+      setTimeout(()=>{ window.open(LINK_GRUPO,'_blank'); }, 300);
+    });
+    document.getElementById('btnFooter').addEventListener('click', (e)=>{
+      e.preventDefault(); trackLead('botao_rodape');
+      setTimeout(()=>{ window.open(LINK_GRUPO,'_blank'); }, 300);
+    });
+
+    // ====== BARRA DE VAGAS (começa vazia, enche e PARA em 2 vagas) ======
+    (function vagas(){
+      const minStart = 18, maxStart = 25;        // começa entre 18 e 25
+      let vagas = Math.floor(Math.random()*(maxStart-minStart+1))+minStart;
+      const minRestantes = 2;                    // para em 2
+      const total = vagas;                       // base para calcular barra
+      const text = document.getElementById('vacantText');
+      const count = document.getElementById('vacantCount');
+      const bar = document.getElementById('vacantBar');
+
+      function render(){
+        text.textContent = `Restam ${vagas} vagas hoje`;
+        count.textContent = vagas;
+        const filled = (1 - ((vagas-minRestantes)/ (total-minRestantes))) * 100;
+        const width = Math.max(0, Math.min(100, filled));
+        bar.style.width = width.toFixed(1) + '%';
+      }
+      render();
+
+      function tick(){
+        if(vagas > minRestantes){
+          // intervalos aleatórios 1–3s
+          const wait = Math.floor(Math.random()*2000)+1000;
+          setTimeout(()=>{
+            vagas = Math.max(minRestantes, vagas - 1);
+            render();
+            if(vagas > minRestantes) tick();
+          }, wait);
+        }
+      }
+      // começa esvaziado e vai enchendo: chamamos tick para reduzir "vagas" e aumentar a barra
+      tick();
+    })();
+
+    // ====== FEED INFINITO DE NOMES (BR) ======
+    const firstNames = [
+      "Maria","Ana","Camila","Fernanda","Beatriz","Mariana","Júlia","Letícia","Vitória","Patrícia",
+      "Carla","Natália","Bruna","Renata","Aline","Larissa","Priscila","Bianca","Amanda","Luana",
+      "João","Pedro","Gabriel","Rafael","Lucas","Matheus","Carlos","André","Tiago","Felipe",
+      "Gustavo","Rodrigo","Diego","Henrique","Daniel","Eduardo","Bruno","Vinícius","Leonardo","Caio"
+    ];
+    const compound = ["Clara","Paula","Helena","Sofia","Isabela","Miguel","Antônio","Luiz","Guilherme","Augusto","Henrique","Pedro"];
+    const lastNames = [
+      "Silva","Souza","Oliveira","Ferreira","Costa","Gomes","Rocha","Pereira","Mendes","Barbosa",
+      "Martins","Dias","Teixeira","Almeida","Araújo","Moreira","Castro","Nogueira","Cardoso","Carvalho",
+      "Santos","Lima","Ribeiro","Pinto","Correia","Campos","Moura","Batista","Rezende","Barros"
     ];
 
-    let index = 0;
-    function mostrarNome() {
-      const feed = document.getElementById("feed");
-      feed.innerHTML = `<p>${nomes[index]}</p>`;
-      index = (index + 1) % nomes.length;
+    function sorteio(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+    function nomeBR(){
+      const base = sorteio(firstNames);
+      const usaComposto = Math.random() < 0.45; // ~45% compostos
+      let primeiro = base;
+      if(usaComposto){
+        const segundo = sorteio(compound);
+        // evitar duplicata tipo "Pedro Pedro"
+        if(segundo !== base){ primeiro = `${base} ${segundo}`; }
+      }
+      const sobrenome = `${sorteio(lastNames)}${Math.random()<0.35? " " + sorteio(lastNames):""}`;
+      return `${primeiro} ${sobrenome}`;
     }
-    setInterval(mostrarNome, 1500);
 
-    function entrarGrupo(){
-      fbq('track','Lead');
-      window.open("https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG?mode=ems_copy_t","_blank");
+    const feedList = document.getElementById('feedList');
+    function addFeedItem(){
+      const li = document.createElement('li');
+      li.className = 'feed-item';
+      li.innerHTML = `<span class="check">✅</span> <span>${nomeBR()} entrou no grupo</span>`;
+      feedList.appendChild(li);
+
+      // rolar visualmente: remove o primeiro quando passar de N itens
+      const MAX = 10; // visíveis
+      if(feedList.children.length > MAX){
+        feedList.removeChild(feedList.firstElementChild);
+      }
     }
+    // coloca alguns iniciais
+    for(let i=0;i<4;i++) addFeedItem();
+    // intervalo de 1.5s
+    setInterval(addFeedItem, 1500);
   </script>
 </body>
 </html>
