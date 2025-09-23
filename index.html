@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entre no Grupo VIP</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1652603255345461');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1652603255345461&ev=PageView&noscript=1" />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .urgencia {
+      background: #ff007f;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    main {
+      padding: 40px 20px;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 20px 40px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      background-color: #ff007f; /* Rosa choque */
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    a.button:hover {
+      background-color: #cc0066;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="sua-logo.png" alt="Logo">
+  </header>
+
+  <div class="urgencia">🔥 Últimas vagas de hoje! 🔥</div>
+
+  <main>
+    <h2>Entre para o Grupo VIP do WhatsApp</h2>
+    <p>Aproveite promoções exclusivas e receba as melhores ofertas em primeira mão.</p>
+    <a 
+      class="button" 
+      href="#" 
+      onclick="event.preventDefault(); fbq('track', 'Lead'); setTimeout(function(){ window.open('https://chat.whatsapp.com/Ctra5MIj0CLHcc435AKDCJ?mode=ems_copy_t', '_blank'); }, 500);"
+    >
+      Quero entrar no grupo
+    </a>
+  </main>
+
+  <footer>
+    <a 
+      class="button" 
+      href="#" 
+      onclick="event.preventDefault(); fbq('track', 'Lead'); setTimeout(function(){ window.open('https://chat.whatsapp.com/Ctra5MIj0CLHcc435AKDCJ?mode=ems_copy_t', '_blank'); }, 500);"
+    >
+      Entrar no Grupo de Promoções
+    </a>
+  </footer>
+</body>
+</html>
