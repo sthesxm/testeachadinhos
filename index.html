@@ -42,7 +42,7 @@
 
     header{
       background: linear-gradient(135deg, #ff1493 0%, var(--pink-dark) 100%);
-      padding:30px 20px 36px;
+      padding:30px 20px 25px;
       text-align:center;
       border-radius:0 0 28px 28px;
       color:var(--white);
@@ -60,7 +60,7 @@
     .subtitle{
       font-size:15px;
       color:#f1f1f1;
-      margin-bottom:10px;
+      margin-bottom:0; /* termina logo após o subtítulo */
     }
 
     /* Barra de vagas */
@@ -85,25 +85,15 @@
       padding:15px;
       max-width:700px;
     }
-    .top-text{
-      font-weight:700;
-      color:#6a0055;
-      font-size:16px;
-      margin-bottom:10px;
-    }
     .cta-btn{
       display:block;
       width:100%;
-      max-width:650px;
-      margin:0 auto;
-      padding:18px 0;
-      border-radius:999px;
-      font-weight:800;
-      font-size:18px;
+      max-width:620px;
+      margin:15px auto 0;
+      padding:18px 32px;
+      border-radius:999px;font-weight:800;font-size:18px;
       background:linear-gradient(180deg,var(--pink),var(--pink-dark));
-      color:#fff;
-      border:none;
-      cursor:pointer;
+      color:#fff;border:none;cursor:pointer;
       animation:pulse 1.6s ease-in-out infinite;
       box-shadow:0 10px 25px rgba(255,31,174,.35);
     }
@@ -114,7 +104,7 @@
 
     /* Feed */
     .feed{
-      margin:18px auto 8px; /* espaço levemente menor */
+      margin:18px auto 12px;
       max-width:500px;
       background:#fafafa;
       border:1px solid #ccc;
@@ -143,7 +133,7 @@
     .benefits{max-width:700px;margin:8px auto;padding:0 15px;}
     .benefit{
       display:flex;align-items:center;gap:14px;
-      background:rgba(255,31,174,0.08); /* rosinha um pouco mais forte */
+      background:rgba(255,31,174,0.08); /* rosinha mais forte */
       border-radius:16px;
       padding:14px 16px;margin-bottom:14px;
       border:1px solid var(--pink);
@@ -152,7 +142,8 @@
     .emojibox{
       width:46px;height:46px;min-width:46px;
       display:flex;align-items:center;justify-content:center;
-      background:var(--amber-light);border-radius:12px;
+      background:var(--amber); /* amarelo-gema forte */
+      border-radius:12px;
       font-size:22px;
     }
     .benefit-text h4{
@@ -187,20 +178,18 @@
 </head>
 <body>
   <header>
-    <div class="logo-wrap">
-      <img src="https://drive.google.com/uc?export=view&id=129RzckpYE5YiV2nN4k-w2bpuBdL85W1r" alt="Logo Achei Promo Boa">
-    </div>
+    <div class="logo-wrap"><img src="https://drive.google.com/uc?export=view&id=129RzckpYE5YiV2nN4k-w2bpuBdL85W1r" alt="Logo"></div>
     <h1>Achei Promo Boa 😱🛍</h1>
     <div class="subtitle">As melhores promoções para donas de casa direto no seu WhatsApp.</div>
-
-    <div class="vacancy-wrap">
-      <div class="vacancy-top"><span id="vacancyText">Últimas vagas de hoje • Restam 24</span></div>
-      <div class="bar"><div class="fill" id="fillBar"></div></div>
-    </div>
   </header>
 
   <section class="cta-section">
-    <div class="top-text">Vagas limitadas ⬤ Clique abaixo 👇</div>
+    <!-- Barra de vagas agora fica aqui -->
+    <div class="vacancy-wrap">
+      <div class="vacancy-top"><span id="vacancyTextCTA">Últimas vagas de hoje • Restam 24</span></div>
+      <div class="bar"><div class="fill" id="fillBarCTA"></div></div>
+    </div>
+
     <button id="ctaMain" class="cta-btn">ENTRAR NO GRUPO AGORA</button>
     <div class="feed" id="feed"></div>
   </section>
@@ -245,8 +234,8 @@
     const WHATS_LINK="https://chat.whatsapp.com/DhIRyuANlRgLM1h9yXxsrG";
     const START_VACANCIES=24, MIN_VACANCIES=2;
     const feedEl=document.getElementById('feed');
-    const vacancyText=document.getElementById('vacancyText');
-    const fillBar=document.getElementById('fillBar');
+    const vacancyTextCTA=document.getElementById('vacancyTextCTA');
+    const fillBarCTA=document.getElementById('fillBarCTA');
 
     const NAMES_POOL=[
       "Francisca Lacerda","Rosália Maria","Maria Júlia Souza","Ana Beatriz Nogueira","Josefa Almeida",
@@ -264,10 +253,10 @@
     let currentVacancies=START_VACANCIES;
 
     function updateVacancyUI(){
-      vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies}`;
+      vacancyTextCTA.textContent=`Últimas vagas de hoje • Restam ${currentVacancies}`;
       const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
       const pct=Math.max(0,Math.min(1,filled));
-      fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
+      fillBarCTA.style.inset=`0 ${(1-pct)*100}% 0 0`;
     }
 
     function step(){
