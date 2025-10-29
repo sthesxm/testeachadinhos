@@ -20,7 +20,6 @@
   }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
   (function initPixelWithAdvancedMatching(){
-    // 🔁 PARAM: PIXEL
     var PIXEL_ID = '1942383699942598'; // [PIXEL_ID]
 
     function getParamOrStorage(key, storageKey){
@@ -33,7 +32,6 @@
     try{
       var em = normEmail(getParamOrStorage('em','am_em'));
       var ph = normPhone(getParamOrStorage('ph','am_ph'));
-
       var advMatch = {};
       if (em) advMatch.em = em;
       if (ph) advMatch.ph = ph;
@@ -59,7 +57,6 @@
         if (!until) return false;
         var now = Date.now();
         if (now < until) return true;
-        // expirou, limpar
         sessionStorage.removeItem(PV_SUPPRESS_UNTIL_KEY);
         return false;
       }catch(e){ return false; }
@@ -93,14 +90,13 @@
 
   <style>
     :root{
-      /* 🔁 PARAMS DE CORES (troque por cliente) */
-      --grad-start:#64b2fd;   /* header & sticky-btn grad start */
-      --grad-end:#1d5386;     /* header & sticky-btn grad end   */
-      --cta1-start:#ffd12e;   /* CTA grad start                 */
-      --cta1-end:#ffc20c;     /* CTA grad end                   */
-      --bar-fill:#ffc20c;     /* cor da barra (preenchimento)   */
-      --text-main:#ffffff;    /* cor de texto predominante      */
-      --footer-bg:#ffc20c;    /* bg do rodapé fixo (sólido)     */
+      --grad-start:#64b2fd;
+      --grad-end:#1d5386;
+      --cta1-start:#ffd12e;
+      --cta1-end:#ffc20c;
+      --bar-fill:#ffc20c;
+      --text-main:#ffffff;
+      --footer-bg:#ffc20c;
 
       --muted:#777;
       --shadow:0 10px 25px rgba(0,0,0,.1);
@@ -136,130 +132,35 @@
       background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.4) 50%, transparent 100%);
       transform:skewX(-20deg); animation:barSheen 2.2s linear infinite; pointer-events:none
     }
-    @keyframes barSheen{from{left:-40%} to{left:110%}}
 
-    /* 2.1 Micro-trust (acima do CTA) */
     .micro-trust{
-      font-size:13.5px;
-      font-weight:700;
-      color:#666;
-      margin:10px 0;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:6px;
+      font-size:13.5px;font-weight:700;color:#666;margin:10px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;justify-content:center;gap:6px;
     }
     .live-dot{
-      width:8px; height:8px; border-radius:50%;
-      background:#1fbf75;
-      box-shadow:0 0 0 0 rgba(31,191,117,.55);
-      animation:dotPulse 1.8s ease-out infinite;
-    }
-    @keyframes dotPulse{
-      0%{box-shadow:0 0 0 0 rgba(31,191,117,.55);}
-      70%{box-shadow:0 0 0 10px rgba(31,191,117,0);}
-      100%{box-shadow:0 0 0 0 rgba(31,191,117,0);}
+      width:8px; height:8px; border-radius:50%;background:#1fbf75;box-shadow:0 0 0 0 rgba(31,191,117,.55);animation:dotPulse 1.8s ease-out infinite;
     }
 
-    /* CTA com setas + shine */
     .cta-btn{
-      position:relative; overflow:hidden;
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      width:100%; padding:14px 26px; border-radius:999px;
-      font-weight:900; font-size:17px;
-      background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end));
-      color:#fff; /* cor geral (setas/brilhos) */
-      border:2px solid var(--grad-start);
-      box-shadow:0 10px 25px rgba(0,0,0,.25);
-      transition:transform .12s ease, opacity .2s ease, filter .2s ease;
-      animation:zoomInCta .5s ease both, pulse 1.6s ease-in-out infinite;
-      cursor:pointer;
+      position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; padding:14px 26px; border-radius:999px; font-weight:900; font-size:17px;
+      background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end)); color:#fff;
+      border:2px solid var(--grad-start); box-shadow:0 10px 25px rgba(0,0,0,.25);
+      transition:transform .12s ease, opacity .2s ease, filter .2s ease; animation:zoomInCta .5s ease both, pulse 1.6s ease-in-out infinite; cursor:pointer;
     }
-    @keyframes zoomInCta{from{transform:scale(0.9); opacity:0} to{transform:scale(1); opacity:1}}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-    .cta-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
-
-    /* Brilho/flash */
-    .cta-btn::after{
-      content:"";
-      position:absolute; top:0; bottom:0; left:-25%;
-      width:22%;
-      background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.45) 50%, transparent 100%);
-      transform:skewX(-20deg);
-      animation:shine 3.5s ease-in-out infinite;
-      pointer-events:none;
-    }
-    @keyframes shine{
-      0%,60%{left:-25%;}
-      70%{left:110%;}
-      100%{left:110%;}
-    }
-
-    /* Halo discreto */
-    .cta-btn.attn-halo::before{
-      content:"";
-      position:absolute; inset:-4px; border-radius:999px;
-      border:2px solid rgba(0,0,0,.18);
-      filter:blur(2px);
-      opacity:0; pointer-events:none;
-      animation:haloPop 7s ease-in-out infinite;
-    }
-    @keyframes haloPop{
-      0%,92%{opacity:0; transform:scale(1)}
-      94%{opacity:1; transform:scale(1.03)}
-      100%{opacity:0; transform:scale(1.08)}
-    }
-
-    /* Setas “gordinhas” */
-    .cta-icon{
-      width:26px; height:26px; flex:0 0 26px;
-      display:inline-flex; align-items:center; justify-content:center;
-      filter: drop-shadow(0 0 6px rgba(255,255,255,.35));
-    }
-    .cta-icon svg{width:100%; height:100%;}
-    .cta-icon path{
-      stroke:#fff; stroke-width:4.2; stroke-linecap:round; stroke-linejoin:round; fill:none;
-    }
-    .cta-icon.left{ animation:arrowInLeft 1.5s ease-in-out infinite; }
-    .cta-icon.right{ animation:arrowInRight 1.5s ease-in-out infinite; }
-    @keyframes arrowInLeft{
-      0%,60%,100%{transform:translateX(0); opacity:1;}
-      70%{transform:translateX(4px); opacity:.95;}
-    }
-    @keyframes arrowInRight{
-      0%,60%,100%{transform:translateX(0); opacity:1;}
-      70%{transform:translateX(-4px); opacity:.95;}
-    }
-
-    /* 🔤 Apenas o texto do botão principal em preto */
     .cta-btn .label{ color:#000; }
 
     .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite}
     .cta-btn.loading .spinner{display:inline-block}
-    @keyframes spin{to{transform:rotate(360deg)}}
 
-    .trust-line{
-      font-size:12px;
-      color:#777;
-      margin-top:8px;
-      font-weight:600;
-      text-align:center;
-    }
+    .trust-line{font-size:12px;color:#777;margin-top:8px;font-weight:600;text-align:center;}
 
     .feed{margin:16px auto 10px;max-width:500px;background:#f7f7f7;border:1px solid #eaeaea;border-radius:14px;padding:10px}
     .notif{display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:10px;margin-bottom:8px;border:1px solid #eee;font-size:13.5px;font-weight:600;opacity:0;transform:translateY(-16px);animation:slideDown .4s ease forwards}
-    .notif .badge{background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:#1e8e3e;font-weight:800;font-size:12px;padding:6px 8px;border-radius:999px}
-    @keyframes slideDown{to{opacity:1;transform:translateY(0)}}
 
     .benefits{max-width:700px;margin:6px auto;padding:0 12px}
     .benefit{display:flex;align-items:center;gap:12px;background:rgba(100,178,253,0.10);border-radius:14px;padding:12px;margin-bottom:12px;border:1px solid rgba(29,83,134,.35);box-shadow:0 4px 10px rgba(0,0,0,0.05);transform:translateY(10px); opacity:0}
 
     .emojibox{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--grad-start),var(--grad-end));border-radius:10px;font-size:20px;color:#fff}
-    .benefit-text h4{font-size:16px;font-weight:800;margin-bottom:2px}
-    .benefit-text p{font-size:13.5px;color:#777;margin:0}
 
     .sticky-footer{
       position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#000;
@@ -274,7 +175,6 @@
       transition:filter .2s ease, transform .12s ease
     }
     .sticky-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
-    @keyframes footPulse{0%,92%,100%{transform:scale(1)}95%{transform:scale(1.04)}98%{transform:scale(1.06)}}
 
     @media (prefers-reduced-motion: reduce){
       *, *::before, *::after{ animation: none !important; transition: none !important }
@@ -284,7 +184,6 @@
 <body>
   <header>
     <div class="logo-wrap">
-      <!-- 🔁 PARAM: AVATAR -->
       <img src="https://i.postimg.cc/fTy5znyc/Achei-Aqui-PR-Logo-Oficial-v4.png" alt="Achei Aqui PR 🛒 💛">
     </div>
     <h1>Achei Aqui PR 🛒 💛</h1>
@@ -297,65 +196,30 @@
       <div class="bar"><div class="fill" id="fillBar"></div></div>
     </div>
 
-    <!-- 2.1 Prova social acima do CTA -->
     <div class="micro-trust">
       <span class="live-dot"></span> <strong>+7.500 membros</strong> · <strong>🎯 1 clique</strong> · <strong>🚫 Sem spam</strong>
     </div>
 
-    <!-- 2.2 Botão principal com setas e shine (IDs/classes mantidos) -->
     <button id="ctaMain" class="cta-btn attn-halo" type="button">
       <span class="cta-icon left" aria-hidden="true">
-        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-          <path d="M8 4 L16 12 L8 20" />
-        </svg>
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M8 4 L16 12 L8 20" /></svg>
       </span>
-
       <span class="label">ENTRAR GRÁTIS NO GRUPO</span>
-
       <span class="cta-icon right" aria-hidden="true">
-        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-          <path d="M16 4 L8 12 L16 20" />
-        </svg>
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true"><path d="M16 4 L8 12 L16 20" /></svg>
       </span>
-
       <span class="spinner" aria-hidden="true"></span>
     </button>
 
-    <!-- 2.3 Linha de confiança abaixo do botão -->
     <p class="trust-line">🔒 100% seguro · Link oficial do grupo · Nenhum dado é solicitado</p>
-
     <div class="feed" id="feed"></div>
   </section>
 
   <section class="benefits">
-    <div class="benefit">
-      <div class="emojibox">🔥</div>
-      <div class="benefit-text">
-        <h4>Descontos Insanos</h4>
-        <p>Produtos com até 70% OFF</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <div class="emojibox">🎟</div>
-      <div class="benefit-text">
-        <h4>Cupons Exclusivos</h4>
-        <p>Só para membros do grupo</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <div class="emojibox">👀</div>
-      <div class="benefit-text">
-        <h4>Itens em Alta</h4>
-        <p>Os mais desejados do momento</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <div class="emojibox">✅</div>
-      <div class="benefit-text">
-        <h4>Ofertas Verificadas</h4>
-        <p>Promoções reais e testadas</p>
-      </div>
-    </div>
+    <div class="benefit"><div class="emojibox">🔥</div><div class="benefit-text"><h4>Descontos Insanos</h4><p>Produtos com até 70% OFF</p></div></div>
+    <div class="benefit"><div class="emojibox">🎟</div><div class="benefit-text"><h4>Cupons Exclusivos</h4><p>Só para membros do grupo</p></div></div>
+    <div class="benefit"><div class="emojibox">👀</div><div class="benefit-text"><h4>Itens em Alta</h4><p>Os mais desejados do momento</p></div></div>
+    <div class="benefit"><div class="emojibox">✅</div><div class="benefit-text"><h4>Ofertas Verificadas</h4><p>Promoções reais e testadas</p></div></div>
   </section>
 
   <div class="sticky-footer">
@@ -363,7 +227,6 @@
     <button id="ctaFooter" class="sticky-btn" type="button">Entrar no grupo</button>
   </div>
 
-  <!-- Script principal (UI + Lead dedupe + navegação) -->
   <script>
     function uuidv4(){
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
@@ -373,7 +236,6 @@
     }
 
     function boot(){
-      // 🔁 PARAM: LINK dos dois botões (principal e rodapé)
       const WHATS_LINK="https://sndflw.com/i/acheiaquipromo";
 
       const START_VACANCIES=24, MIN_VACANCIES=2;
@@ -381,15 +243,7 @@
       const vacancyText=document.getElementById('vacancyText');
       const fillBar=document.getElementById('fillBar');
 
-      const NAMES_POOL=[
-        "Francisca Lacerda","Rosália Maria","Maria Júlia Souza","Ana Beatriz Nogueira","Josefa Almeida",
-        "Tereza Lemos","Joana Prado","Helena Barbosa","Cecília Andrade","Laura Pacheco","Clara Moreira",
-        "Isabel Figueira","Marta Azevedo","Aurora Fernandes","Olívia Castro","Beatriz Siqueira",
-        "Lúcia Nunes","Ester Carvalho","Camila Duarte","Regina Campos","Noêmia Teixeira","Paula Rezende",
-        "Marina Peixoto","Cristina Moura","Vitória Lopes","Sueli Brito","Rita Xavier","Elisa Cardoso",
-        "Lorena Ribeiro","Graça Monteiro","Helena Antunes","Patrícia Rocha","Juliana Costa","Madalena Correia",
-        "Adélia Vieira","Celina Pinto","Renata Tavares","Gabriela Melo","Sônia Gonçalves","Daniela Farias"
-      ];
+      const NAMES_POOL=[ "Francisca Lacerda","Rosália Maria","Maria Júlia Souza","Ana Beatriz Nogueira","Josefa Almeida","Tereza Lemos","Joana Prado","Helena Barbosa","Cecília Andrade","Laura Pacheco","Clara Moreira","Isabel Figueira","Marta Azevedo","Aurora Fernandes","Olívia Castro","Beatriz Siqueira","Lúcia Nunes","Ester Carvalho","Camila Duarte","Regina Campos","Noêmia Teixeira","Paula Rezende","Marina Peixoto","Cristina Moura","Vitória Lopes","Sueli Brito","Rita Xavier","Elisa Cardoso","Lorena Ribeiro","Graça Monteiro","Helena Antunes","Patrícia Rocha","Juliana Costa","Madalena Correia","Adélia Vieira","Celina Pinto","Renata Tavares","Gabriela Melo","Sônia Gonçalves","Daniela Farias" ];
       function shuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}return arr;}
       let namesQueue=shuffle([...NAMES_POOL]);
 
@@ -451,20 +305,7 @@
         if(feedEl.children.length>3){ feedEl.removeChild(feedEl.lastChild); }
       }
 
-      // Reveal ao rolar (benefícios)
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.style.transition='transform .4s ease, opacity .4s ease';
-            e.target.style.transform='translateY(0)';
-            e.target.style.opacity='1';
-            io.unobserve(e.target);
-          }
-        });
-      },{threshold:0.12});
-      document.querySelectorAll('.benefit').forEach(b=> io.observe(b));
-
-      /* ===== CLICK → LEAD (ANTI-DUP) ===== */
+      // ===== CLICK → LEAD (ANTI-DUP)
       const LEAD_LOCK_KEY = 'lead_lock_until';
       let leadFiredFlag = false;
       function canFireLead(){
@@ -484,12 +325,13 @@
         return eventId;
       }
 
-      // Redireciona direto para o link (Lead apenas no clique)
+      // 🔁 Lead garantido antes da navegação + supressão de PV
       function openWhatsAppSmart(){
-        trackLeadOnce(); // 👇 garante só Lead no clique
-        // 🔒 SUPPRESS PV: evita que um PageView seja enviado por navegação imediata
+        trackLeadOnce();
         try{ sessionStorage.setItem('pv_suppress_until', String(Date.now() + 60*1000)); }catch(e){}
-        window.location.assign(WHATS_LINK);
+        setTimeout(function(){ // ⏱ Dá tempo do Pixel enviar o Lead
+          window.location.assign(WHATS_LINK);
+        }, 180); // ~180ms é suficiente e imperceptível
       }
 
       function handleClick(e){
@@ -514,12 +356,10 @@
       if (btnMain) btnMain.addEventListener('click', handleClick);
       if (btnFoot) btnFoot.addEventListener('click', handleClick);
 
-      // UI inicial
       updateVacancyUI();
       if(currentVacancies>MIN_VACANCIES){ setTimeout(step,1000); }
     }
 
-    // Garante DOM pronto antes de iniciar
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', boot, { once:true });
     } else {
