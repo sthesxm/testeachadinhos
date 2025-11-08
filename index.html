@@ -108,8 +108,9 @@
       width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
     }
     .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
-    h1{font-size:28px;font-weight:800;margin-bottom:4px}
-    .subtitle{font-size:14px;color:#f1f1f1;margin-bottom:10px}
+    /* ⇩⇩ ALTERAÇÃO: título e subtítulo pretos */
+    h1{font-size:28px;font-weight:800;margin-bottom:4px;color:#000}
+    .subtitle{font-size:14px;color:#000;margin-bottom:10px}
 
     .cta-section{ text-align:center; margin:8px auto 0; padding:12px; max-width:700px; }
     .vacancy-wrap{max-width:600px;margin:4px auto 10px;text-align:center;}
@@ -160,7 +161,7 @@
       width:100%; padding:14px 26px; border-radius:999px;
       font-weight:900; font-size:17px;
       background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end));
-      color:#fff; /* cor geral (setas/brilhos) */
+      color:#fff; /* setas/brilhos */
       border:2px solid var(--grad-start);
       box-shadow:0 10px 25px rgba(0,0,0,.25);
       transition:transform .12s ease, opacity .2s ease, filter .2s ease;
@@ -223,7 +224,7 @@
       70%{transform:translateX(-4px); opacity:.95;}
     }
 
-    /* 🔤 Apenas o texto do botão principal em preto (pedido) */
+    /* 🔤 Texto do CTA principal (meio) preto */
     .cta-btn .label{ color:#000; }
 
     .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite}
@@ -252,14 +253,15 @@
     .benefit-text p{font-size:13.5px;color:#777;margin:0}
 
     .sticky-footer{
-      position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#fff; /* texto branco em fundo escuro */
+      position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#fff;
       padding:10px 14px;box-shadow:0 -8px 20px rgba(0,0,0,.2);
       display:flex;align-items:center;justify-content:space-between;z-index:50
     }
     .sticky-footer div{font-weight:700; font-size:14px;}
     .sticky-btn{
       background:linear-gradient(135deg, var(--grad-start), var(--grad-end));
-      color:#fff;border:none;border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;cursor:pointer;
+      color:#000; /* ⇦⇦ ALTERAÇÃO: texto do botão do rodapé preto */
+      border:none;border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;cursor:pointer;
       box-shadow:0 6px 16px rgba(0,0,0,.25);margin-left:8px;animation:footPulse 6s ease-in-out infinite;
       transition:filter .2s ease, transform .12s ease
     }
