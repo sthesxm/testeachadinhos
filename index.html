@@ -1,218 +1,11 @@
-Implemente as alterações no CÓDIGO EXISTENTE da minha landing page sem mudar a estrutura (posicionamento, hierarquia dos blocos, IDs, classes e eventos do Pixel já existentes).
-Aplique os recursos visuais abaixo e deixe estas partes parametrizadas para eu trocar por cliente:
-1) O que eu vou mudar por cliente (use placeholders)
-•	[BRAND_NAME]: nome exibido no <title> e no <h1> = Achadinhos Da Silva 📦 💛
-•	[PROFILE_IMG_URL]: URL da foto do perfil (logo/avatar) = https://i.postimg.cc/6qJvc624/silva.jpg
-•	[PIXEL_ID]: ID do Meta Pixel (no fbq('init', ...) e no fbq('set','autoConfig', false, ...) se existir). = ID 78509114118616
-•	Cores (todas em variáveis CSS):
-o	--grad-start e --grad-end: gradiente principal (header e botão fixo do rodapé). = #f8ba00 e #ffd34e
-o	--cta1-start e --cta1-end: gradiente do botão principal (CTA).= #f8ba00 e #ffd34e, 
-o	cor do texto do botão principal: #000000
-o	--bar-fill: cor da barra de progresso (preenchimento). = #000000
-o	--text-main: cor de texto predominante (se necessário).= Branco
-o	Onde o fundo for branco o texto é preto
-o	(opcional) --footer-bg: cor de fundo do rodapé fixo, se for sólida.= #000000
-•	Substituir o link do sendflow ( nos dois botões) para esse: https://sndflw.com/i/silvaachadinhos
-IMPORTANTE: Não remova, não renomeie e não desative:
-– o evento fbq('track', 'PageView') já presente;
-– o evento fbq('track', 'Lead') disparado somente no clique dos botões (CTA principal e rodapé);
-– a estrutura geral, IDs e classes já usadas pelo site.
-________________________________________
-2) Ajustes visuais que SEMPRE devem estar presentes
-2.1) Linha de prova social acima do botão principal
-Logo acima do botão principal, adicionar este bloco (mantendo a tipografia limpa e cabendo em uma linha no mobile):
-<div class="micro-trust">
-  <span class="live-dot"></span> <strong>+7.500 membros</strong> · <strong>🎯 1 clique</strong> · <strong>🚫 Sem spam</strong>
-</div>
-CSS mínimo (pode adaptar para o design existente, mas mantenha as classes e comportamento):
-.micro-trust{
-  font-size:13.5px;
-  font-weight:700;
-  color:#666;
-  margin:10px 0;
-  white-space:nowrap;       /* caber em uma linha no mobile */
-  overflow:hidden;
-  text-overflow:ellipsis;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-}
-.live-dot{
-  width:8px; height:8px; border-radius:50%;
-  background:#1fbf75;
-  box-shadow:0 0 0 0 rgba(31,191,117,.55);
-  animation:dotPulse 1.8s ease-out infinite;
-}
-@keyframes dotPulse{
-  0%{box-shadow:0 0 0 0 rgba(31,191,117,.55);}
-  70%{box-shadow:0 0 0 10px rgba(31,191,117,0);}
-  100%{box-shadow:0 0 0 0 rgba(31,191,117,0);}
-}
-Obs.: mantenha tudo em negrito (como no exemplo) e sem margem lateral extra, para grudar melhor no botão em telas pequenas.
-________________________________________
-2.2) Botão principal com setas “gordinhas” animadas e flash/shine
-No botão principal (CTA), insira duas setas modernas apontando para dentro (antes e depois do texto), e adicione o efeito de brilho que cruza o botão periodicamente.
-HTML interno do botão (mesmo ID/class já existente):
-<button id="ctaMain" class="cta-btn attn-halo">
-  <span class="cta-icon left" aria-hidden="true">
-    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-      <path d="M8 4 L16 12 L8 20" />
-    </svg>
-  </span>
-
-  <span>ENTRAR GRÁTIS NO GRUPO</span>
-
-  <span class="cta-icon right" aria-hidden="true">
-    <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-      <path d="M16 4 L8 12 L16 20" />
-    </svg>
-  </span>
-</button>
-CSS das setas e do brilho:
-/* gradiente do CTA vem das variáveis:
-   --cta1-start e --cta1-end (não alterar a lógica existente) */
-
-.cta-btn{
-  position:relative; overflow:hidden;
-  display:inline-flex; align-items:center; justify-content:center; gap:10px;
-  width:100%; padding:14px 26px; border-radius:999px;
-  font-weight:900; font-size:17px; color:#fff;
-  background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end));
-  border:2px solid var(--grad-start); /* borda fina, quando desejado */
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-}
-
-/* Brilho/flash que passa por cima do botão */
-.cta-btn::after{
-  content:"";
-  position:absolute; top:0; bottom:0; left:-25%;
-  width:22%;
-  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.45) 50%, transparent 100%);
-  transform:skewX(-20deg);
-  animation:shine 3.5s ease-in-out infinite;
-}
-@keyframes shine{
-  0%,60%{left:-25%;}
-  70%{left:110%;}
-  100%{left:110%;}
-}
-
-/* “Halo” discreto, chamando atenção com pouca frequência */
-.cta-btn.attn-halo::before{
-  content:"";
-  position:absolute; inset:-4px; border-radius:999px;
-  border:2px solid rgba(0,0,0,.18);
-  filter:blur(2px);
-  opacity:0; pointer-events:none;
-  animation:haloPop 7s ease-in-out infinite;
-}
-@keyframes haloPop{
-  0%,92%{opacity:0; transform:scale(1)}
-  94%{opacity:1; transform:scale(1.03)}
-  100%{opacity:0; transform:scale(1.08)}
-}
-
-/* Setas “gordinhas” animadas apontando para dentro */
-.cta-icon{
-  width:26px; height:26px; flex:0 0 26px;
-  display:inline-flex; align-items:center; justify-content:center;
-  filter: drop-shadow(0 0 6px rgba(255,255,255,.35));
-}
-.cta-icon svg{width:100%; height:100%;}
-.cta-icon path{
-  stroke:#fff; stroke-width:4.2;
-  stroke-linecap:round; stroke-linejoin:round; fill:none;
-}
-.cta-icon.left{ animation:arrowInLeft 1.5s ease-in-out infinite; }
-.cta-icon.right{ animation:arrowInRight 1.5s ease-in-out infinite; }
-
-@keyframes arrowInLeft{
-  0%,60%,100%{transform:translateX(0); opacity:1;}
-  70%{transform:translateX(4px); opacity:.95;}
-}
-@keyframes arrowInRight{
-  0%,60%,100%{transform:translateX(0); opacity:1;}
-  70%{transform:translateX(-4px); opacity:.95;}
-}
-________________________________________
-2.3) Linha de confiança abaixo do botão
-Logo abaixo do botão principal, adicionar:
-<p class="trust-line">
-  🔒 100% seguro · Link oficial do grupo · Nenhum dado é solicitado
-</p>
-.trust-line{
-  font-size:12px;
-  color:#777;
-  margin-top:8px;
-  font-weight:600;
-  text-align:center;
-}
-________________________________________
-2.4) Barra de “vagas” com cor parametrizável
-•	Mantenha a barra e a lógica que já existe.
-•	Deixe a cor do preenchimento configurável por variável --bar-fill:
-.bar>.fill{
-  background: var(--bar-fill);
-}
-Caso já use gradiente, manter — mas permita sobrescrever por cliente com --bar-fill (sólido) se eu quiser.
-________________________________________
-3) Trocas no DOM que a IA deve fazer (find/replace simples)
-1.	Título e nome da marca
-o	Substituir conteúdo do <title> e do <h1> por [BRAND_NAME].
-2.	Foto de perfil
-o	Substituir src do avatar no header por [PROFILE_IMG_URL], preservando o tamanho e o formato circular.
-3.	Meta Pixel
-o	No script do Meta Pixel, substituir o ID atual por [PIXEL_ID] em:
-fbq('init', '[PIXEL_ID]')
-e (se houver) fbq('set','autoConfig', false, '[PIXEL_ID]').
-o	Não remova o PageView e não mude o Lead disparado somente ao clicar nos botões.
-4.	Cores (variáveis CSS)
-o	No bloco :root, definir:
-o	:root{
-o	  --grad-start: [GRADIENT_HEADER_START];
-o	  --grad-end:   [GRADIENT_HEADER_END];
-o	  --cta1-start: [GRADIENT_CTA_START];
-o	  --cta1-end:   [GRADIENT_CTA_END];
-o	  --bar-fill:   [BAR_SOLID_COLOR];  /* ex.: amarelo gema */
-o	  --text-main:  [PRIMARY_TEXT_COLOR]; /* se necessário */
-o	  --footer-bg:  [FOOTER_BG];         /* se rodapé for sólido */
-o	}
-o	Não alterar outras classes/IDs.
-________________________________________
-4) O que NÃO pode mudar
-•	Estrutura do HTML (ordem dos blocos, nomes de IDs/classes) — manter.
-•	Eventos do Meta Pixel e seus disparos — manter.
-•	Textos de prova/segurança já listados acima — usar exatamente como estão.
-•	Links existentes (WhatsApp etc.), a menos que eu peça.
-________________________________________
-5) Checklist final que a IA deve validar
-•	 [BRAND_NAME] aplicado no <title> e <h1>.
-•	 [PROFILE_IMG_URL] aplicado na imagem do header (mesmas dimensões/estilo).
-•	 [PIXEL_ID] atualizado no fbq('init', ...) e no autoConfig (se houver).
-•	 micro-trust acima do botão, em uma linha no mobile, com live-dot pulsando.
-•	 Botão principal com setas “gordinhas” animadas > ENTRAR GRÁTIS NO GRUPO <.
-•	 Brilho (shine) passando sobre o botão periodicamente.
-•	 Linha de confiança abaixo do botão.
-•	 Barra de vagas preenchida com --bar-fill.
-•	 Nada além do solicitado foi alterado.
-________________________________________
-Exemplo rápido de preenchimento (só referência)
-•	[BRAND_NAME]: Universo Promo e Achadinhos 💛🏠
-•	[PROFILE_IMG_URL]: https://…/Achadinhos.png
-•	[PIXEL_ID]: 734806152953802
-•	--grad-start: #520082
-•	--grad-end: #8b0058
-•	--cta1-start: #ab07a4
-•	--cta1-end: #860155
-•	--bar-fill: #FFC107 (amarelo gema)
-Código para substituir <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Achei Aqui PR 🛒 💛 | Entrar no Grupo</title>
+  <!-- [BRAND_NAME] -->
+  <title>Achadinhos Da Silva 📦 💛 | Entrar no Grupo</title>
   <link rel="preconnect" href="https://sndflw.com" crossorigin>
 
   <!-- Meta Pixel (dedupe PageView 1x por sessão + Advanced Matching) -->
@@ -228,8 +21,8 @@ Código para substituir <!DOCTYPE html>
   }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
   (function initPixelWithAdvancedMatching(){
-    // 🔁 PARAM: PIXEL
-    var PIXEL_ID = '2216408915529489'; // [PIXEL_ID]
+    // 🔁 PARAM: [PIXEL_ID]
+    var PIXEL_ID = '78509114118616'; // [PIXEL_ID]
 
     function getParamOrStorage(key, storageKey){
       var params = new URLSearchParams(location.search);
@@ -271,7 +64,7 @@ Código para substituir <!DOCTYPE html>
       if (sessionStorage.getItem(PV_KEY)) return;
       sessionStorage.setItem(PV_KEY, '1');
       try {
-        // ✅ CORREÇÃO: eventID no 4º argumento
+        // ✅ PageView mantido
         fbq('track','PageView', {}, { eventID: 'pv-' + cryptoRandomId() });
       } catch(e){}
     }
@@ -289,14 +82,14 @@ Código para substituir <!DOCTYPE html>
 
   <style>
     :root{
-      /* 🔁 PARAMS DE CORES (troque por cliente) */
-      --grad-start:#64b2fd;   /* header & sticky-btn grad start */
-      --grad-end:#1d5386;     /* header & sticky-btn grad end   */
-      --cta1-start:#ffd12e;   /* CTA grad start                 */
-      --cta1-end:#ffc20c;     /* CTA grad end                   */
-      --bar-fill:#ffc20c;     /* cor da barra (preenchimento)   */
+      /* 🔁 PARAMS DE CORES (trocar por cliente) */
+      --grad-start:#f8ba00;   /* header & sticky-btn grad start */
+      --grad-end:#ffd34e;     /* header & sticky-btn grad end   */
+      --cta1-start:#f8ba00;   /* CTA grad start                 */
+      --cta1-end:#ffd34e;     /* CTA grad end                   */
+      --bar-fill:#000000;     /* cor da barra (preenchimento)   */
       --text-main:#ffffff;    /* cor de texto predominante      */
-      --footer-bg:#ffc20c;    /* bg do rodapé fixo (sólido)     */
+      --footer-bg:#000000;    /* bg do rodapé fixo (sólido)     */
 
       --muted:#777;
       --shadow:0 10px 25px rgba(0,0,0,.1);
@@ -324,7 +117,7 @@ Código para substituir <!DOCTYPE html>
     .bar{width:100%;height:14px;background:#f9f9f9;border:2px solid #eee;border-radius:999px;position:relative;overflow:hidden}
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background: var(--bar-fill);
+      background: var(--bar-fill); /* pode ser sobrescrito por cliente */
       border-radius:999px;transition:inset .5s ease;overflow:hidden
     }
     .bar>.fill::after{
@@ -430,13 +223,14 @@ Código para substituir <!DOCTYPE html>
       70%{transform:translateX(-4px); opacity:.95;}
     }
 
-    /* 🔤 Apenas o texto do botão principal em preto */
+    /* 🔤 Apenas o texto do botão principal em preto (pedido) */
     .cta-btn .label{ color:#000; }
 
     .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite}
     .cta-btn.loading .spinner{display:inline-block}
     @keyframes spin{to{transform:rotate(360deg)}}
 
+    /* 2.3 Trust line */
     .trust-line{
       font-size:12px;
       color:#777;
@@ -458,7 +252,7 @@ Código para substituir <!DOCTYPE html>
     .benefit-text p{font-size:13.5px;color:#777;margin:0}
 
     .sticky-footer{
-      position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#000;
+      position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#fff; /* texto branco em fundo escuro */
       padding:10px 14px;box-shadow:0 -8px 20px rgba(0,0,0,.2);
       display:flex;align-items:center;justify-content:space-between;z-index:50
     }
@@ -480,10 +274,11 @@ Código para substituir <!DOCTYPE html>
 <body>
   <header>
     <div class="logo-wrap">
-      <!-- 🔁 PARAM: AVATAR -->
-      <img src="https://i.postimg.cc/fTy5znyc/Achei-Aqui-PR-Logo-Oficial-v4.png" alt="Achei Aqui PR 🛒 💛">
+      <!-- 🔁 PARAM: [PROFILE_IMG_URL] -->
+      <img src="https://i.postimg.cc/6qJvc624/silva.jpg" alt="Achadinhos Da Silva 📦 💛">
     </div>
-    <h1>Achei Aqui PR 🛒 💛</h1>
+    <!-- 🔁 PARAM: [BRAND_NAME] -->
+    <h1>Achadinhos Da Silva 📦 💛</h1>
     <div class="subtitle">As melhores promoções de casa, cozinha, beleza, moda e mais no seu WhatsApp.</div>
   </header>
 
@@ -570,7 +365,7 @@ Código para substituir <!DOCTYPE html>
 
     function boot(){
       // 🔁 PARAM: LINK dos dois botões (principal e rodapé)
-      const WHATS_LINK="https://sndflw.com/i/acheiaquipromo";
+      const WHATS_LINK="https://sndflw.com/i/silvaachadinhos"; // sendflow novo
 
       const START_VACANCIES=24, MIN_VACANCIES=2;
       const feedEl=document.getElementById('feed');
@@ -677,8 +472,8 @@ Código para substituir <!DOCTYPE html>
         setLeadLock(30000);
         const eventId = 'lead-' + uuidv4();
         try {
-          // ✅ TROCA: em vez de 'Lead' (duplicava com o servidor), usamos custom:
-          fbq('trackCustom','LeadClick', {});
+          // ✅ Mantendo o evento oficial 'Lead' apenas no clique
+          fbq('track','Lead', {}, { eventID: eventId });
         } catch(e){}
         return eventId;
       }
