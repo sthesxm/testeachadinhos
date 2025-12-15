@@ -18,7 +18,7 @@
         ctaEnd:    "#3eae9b",
         barFill:   "#fd7906",
         textMain:  "#ffffff",
-        footerBg:  "#0b0b0b"  // pode trocar; se quiser "sem sólido", use "transparent"
+        footerBg:  "#0b0b0b" // se não quiser sólido: "transparent"
       }
     };
   </script>
@@ -122,14 +122,18 @@
     }
     @keyframes hdrIn{from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:translateY(0)}}
     .logo-wrap{
-      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
+      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;
+      background:#fff;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
     }
     .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
 
+    /* (mantendo seu comportamento atual) */
     h1{font-size:28px;font-weight:800;margin-bottom:4px;color:#000}
     .subtitle{font-size:14px;color:#000;margin-bottom:10px}
 
     .cta-section{ text-align:center; margin:8px auto 0; padding:12px; max-width:700px; }
+
     .vacancy-wrap{max-width:600px;margin:4px auto 10px;text-align:center;}
     .vacancy-top{font-weight:800;font-size:16px;margin-bottom:6px;}
     .bar{width:100%;height:14px;background:#f9f9f9;border:2px solid #eee;border-radius:999px;position:relative;overflow:hidden}
@@ -171,7 +175,7 @@
       100%{box-shadow:0 0 0 0 rgba(31,191,117,0);}
     }
 
-    /* 2.2 CTA com setas + shine */
+    /* 2.2 CTA com setas + shine + halo */
     .cta-btn{
       position:relative; overflow:hidden;
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -180,8 +184,11 @@
       background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end));
       border:2px solid var(--grad-start);
       box-shadow:0 10px 25px rgba(0,0,0,.25);
+      transition:transform .12s ease, opacity .2s ease, filter .2s ease;
       cursor:pointer;
     }
+    .cta-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
+
     .cta-btn::after{
       content:"";
       position:absolute; top:0; bottom:0; left:-25%;
@@ -196,6 +203,7 @@
       70%{left:110%;}
       100%{left:110%;}
     }
+
     .cta-btn.attn-halo::before{
       content:"";
       position:absolute; inset:-4px; border-radius:999px;
@@ -222,7 +230,6 @@
     }
     .cta-icon.left{ animation:arrowInLeft 1.5s ease-in-out infinite; }
     .cta-icon.right{ animation:arrowInRight 1.5s ease-in-out infinite; }
-
     @keyframes arrowInLeft{
       0%,60%,100%{transform:translateX(0); opacity:1;}
       70%{transform:translateX(4px); opacity:.95;}
@@ -232,7 +239,10 @@
       70%{transform:translateX(-4px); opacity:.95;}
     }
 
-    .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite}
+    .spinner{
+      width:18px;height:18px;border:2px solid rgba(255,255,255,.35);
+      border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite
+    }
     .cta-btn.loading .spinner{display:inline-block}
     @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -245,8 +255,35 @@
       text-align:center;
     }
 
+    /* feed + notif (parte que estava faltando) */
     .feed{margin:16px auto 10px;max-width:500px;background:#f7f7f7;border:1px solid #eaeaea;border-radius:14px;padding:10px}
+    .notif{
+      display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:10px;margin-bottom:8px;
+      border:1px solid #eee;font-size:13.5px;font-weight:600;opacity:0;transform:translateY(-16px);
+      animation:slideDown .4s ease forwards
+    }
+    .notif .badge{
+      background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:#1e8e3e;
+      font-weight:800;font-size:12px;padding:6px 8px;border-radius:999px
+    }
+    @keyframes slideDown{to{opacity:1;transform:translateY(0)}}
 
+    /* benefits (parte que estava faltando) */
+    .benefits{max-width:700px;margin:6px auto;padding:0 12px}
+    .benefit{
+      display:flex;align-items:center;gap:12px;background:rgba(100,178,253,0.10);
+      border-radius:14px;padding:12px;margin-bottom:12px;border:1px solid rgba(29,83,134,.35);
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);transform:translateY(10px); opacity:0
+    }
+    .emojibox{
+      width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,var(--grad-start),var(--grad-end));
+      border-radius:10px;font-size:20px;color:#fff
+    }
+    .benefit-text h4{font-size:16px;font-weight:800;margin-bottom:2px}
+    .benefit-text p{font-size:13.5px;color:#777;margin:0}
+
+    /* sticky footer */
     .sticky-footer{
       position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#fff;
       padding:10px 14px;box-shadow:0 -8px 20px rgba(0,0,0,.2);
@@ -260,6 +297,7 @@
       box-shadow:0 6px 16px rgba(0,0,0,.25);margin-left:8px;animation:footPulse 6s ease-in-out infinite;
       transition:filter .2s ease, transform .12s ease
     }
+    .sticky-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
     @keyframes footPulse{0%,92%,100%{transform:scale(1)}95%{transform:scale(1.04)}98%{transform:scale(1.06)}}
 
     @media (prefers-reduced-motion: reduce){
@@ -267,13 +305,12 @@
     }
   </style>
 
-  <!-- ✅ aplica CONFIG no DOM + CSS vars -->
+  <!-- ✅ aplica CONFIG em CSS vars + title sem placeholders -->
   <script>
     (function applyConfig(){
       var c = window.LP_CONFIG || {};
       if (c.BRAND_NAME) document.title = c.BRAND_NAME;
 
-      // css vars
       var r = document.documentElement;
       if (c.COLORS){
         if (c.COLORS.gradStart) r.style.setProperty('--grad-start', c.COLORS.gradStart);
@@ -330,6 +367,37 @@
     <div class="feed" id="feed"></div>
   </section>
 
+  <section class="benefits">
+    <div class="benefit">
+      <div class="emojibox">🔥</div>
+      <div class="benefit-text">
+        <h4>Descontos Insanos</h4>
+        <p>Produtos com até 70% OFF</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="emojibox">🎟</div>
+      <div class="benefit-text">
+        <h4>Cupons Exclusivos</h4>
+        <p>Só para membros do grupo</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="emojibox">👀</div>
+      <div class="benefit-text">
+        <h4>Itens em Alta</h4>
+        <p>Os mais desejados do momento</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <div class="emojibox">✅</div>
+      <div class="benefit-text">
+        <h4>Ofertas Verificadas</h4>
+        <p>Promoções reais e testadas</p>
+      </div>
+    </div>
+  </section>
+
   <div class="sticky-footer">
     <div>⏳ Últimas vagas de hoje</div>
     <button id="ctaFooter" class="sticky-btn" type="button">Entrar no grupo</button>
@@ -337,17 +405,17 @@
 
   <!-- Script principal (UI + Lead dedupe + navegação) -->
   <script>
-    // aplica config no DOM (h1/img) sem mexer estrutura
+    // aplica config no DOM (h1/img) sem mexer estrutura de blocos/IDs
     (function applyConfigDom(){
       var c = window.LP_CONFIG || {};
       if (c.BRAND_NAME){
         var h1 = document.getElementById('brandTitle');
         if (h1) h1.textContent = c.BRAND_NAME;
-        var img = document.getElementById('brandAvatar');
-        if (img){
-          img.alt = c.BRAND_NAME;
-          if (c.PROFILE_IMG_URL) img.src = c.PROFILE_IMG_URL;
-        }
+      }
+      var img = document.getElementById('brandAvatar');
+      if (img){
+        if (c.PROFILE_IMG_URL) img.src = c.PROFILE_IMG_URL;
+        if (c.BRAND_NAME) img.alt = c.BRAND_NAME;
       }
     })();
 
@@ -402,7 +470,13 @@
       }
       function updateVacancyUI(){
         if (!vacancyText || !fillBar) return;
+        const prev = vacancyText.textContent;
         vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies} 👇`;
+        if(prev !== vacancyText.textContent){
+          vacancyText.style.transition = 'transform .12s ease';
+          vacancyText.style.transform = 'scale(1.08)';
+          setTimeout(()=>vacancyText.style.transform='scale(1)', 120);
+        }
         const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
         const pct=Math.max(0,Math.min(1,filled));
         fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
@@ -429,6 +503,19 @@
         else{ feedEl.appendChild(row); }
         if(feedEl.children.length>3){ feedEl.removeChild(feedEl.lastChild); }
       }
+
+      // Reveal ao rolar (benefícios)
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.style.transition='transform .4s ease, opacity .4s ease';
+            e.target.style.transform='translateY(0)';
+            e.target.style.opacity='1';
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:0.12});
+      document.querySelectorAll('.benefit').forEach(b=> io.observe(b));
 
       /* ===== CLICK → LEAD (ANTI-DUP) ===== */
       const LEAD_LOCK_KEY = 'lead_lock_until';
@@ -479,6 +566,7 @@
       if (btnMain) btnMain.addEventListener('click', handleClick);
       if (btnFoot) btnFoot.addEventListener('click', handleClick);
 
+      // UI inicial
       updateVacancyUI();
       if(currentVacancies>MIN_VACANCIES){ setTimeout(step,1000); }
     }
