@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- [BRAND_NAME] -->
-  <title>Achadinhos Da Silva 📦 💛 | Entrar no Grupo</title>
+  <!-- 🔁 PARAM: [BRAND_NAME] -->
+  <title>[BRAND_NAME]</title>
   <link rel="preconnect" href="https://sndflw.com" crossorigin>
 
   <!-- Meta Pixel (dedupe PageView 1x por sessão + Advanced Matching) -->
@@ -22,7 +22,7 @@
 
   (function initPixelWithAdvancedMatching(){
     // 🔁 PARAM: [PIXEL_ID]
-    var PIXEL_ID = '78509114118616'; // [PIXEL_ID]
+    var PIXEL_ID = '[PIXEL_ID]'; // [PIXEL_ID]
 
     function getParamOrStorage(key, storageKey){
       var params = new URLSearchParams(location.search);
@@ -83,13 +83,13 @@
   <style>
     :root{
       /* 🔁 PARAMS DE CORES (trocar por cliente) */
-      --grad-start:#f8ba00;   /* header & sticky-btn grad start */
-      --grad-end:#ffd34e;     /* header & sticky-btn grad end   */
-      --cta1-start:#f8ba00;   /* CTA grad start                 */
-      --cta1-end:#ffd34e;     /* CTA grad end                   */
-      --bar-fill:#000000;     /* cor da barra (preenchimento)   */
-      --text-main:#ffffff;    /* cor de texto predominante      */
-      --footer-bg:#000000;    /* bg do rodapé fixo (sólido)     */
+      --grad-start: [GRADIENT_HEADER_START];
+      --grad-end:   [GRADIENT_HEADER_END];
+      --cta1-start: [GRADIENT_CTA_START];
+      --cta1-end:   [GRADIENT_CTA_END];
+      --bar-fill:   [BAR_SOLID_COLOR];
+      --text-main:  [PRIMARY_TEXT_COLOR];
+      --footer-bg:  [FOOTER_BG];
 
       --muted:#777;
       --shadow:0 10px 25px rgba(0,0,0,.1);
@@ -108,7 +108,7 @@
       width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
     }
     .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
-    /* ⇩⇩ ALTERAÇÃO: título e subtítulo pretos */
+
     h1{font-size:28px;font-weight:800;margin-bottom:4px;color:#000}
     .subtitle{font-size:14px;color:#000;margin-bottom:10px}
 
@@ -118,7 +118,7 @@
     .bar{width:100%;height:14px;background:#f9f9f9;border:2px solid #eee;border-radius:999px;position:relative;overflow:hidden}
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background: var(--bar-fill); /* pode ser sobrescrito por cliente */
+      background: var(--bar-fill); /* ✅ parametrizável */
       border-radius:999px;transition:inset .5s ease;overflow:hidden
     }
     .bar>.fill::after{
@@ -154,25 +154,20 @@
       100%{box-shadow:0 0 0 0 rgba(31,191,117,0);}
     }
 
-    /* CTA com setas + shine */
+    /* 2.2 CTA com setas + shine */
     .cta-btn{
       position:relative; overflow:hidden;
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
       width:100%; padding:14px 26px; border-radius:999px;
-      font-weight:900; font-size:17px;
+      font-weight:900; font-size:17px; color:#fff;
       background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end));
-      color:#fff; /* setas/brilhos */
       border:2px solid var(--grad-start);
       box-shadow:0 10px 25px rgba(0,0,0,.25);
       transition:transform .12s ease, opacity .2s ease, filter .2s ease;
-      animation:zoomInCta .5s ease both, pulse 1.6s ease-in-out infinite;
       cursor:pointer;
     }
-    @keyframes zoomInCta{from{transform:scale(0.9); opacity:0} to{transform:scale(1); opacity:1}}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
     .cta-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
 
-    /* Brilho/flash */
     .cta-btn::after{
       content:"";
       position:absolute; top:0; bottom:0; left:-25%;
@@ -188,7 +183,6 @@
       100%{left:110%;}
     }
 
-    /* Halo discreto */
     .cta-btn.attn-halo::before{
       content:"";
       position:absolute; inset:-4px; border-radius:999px;
@@ -203,7 +197,6 @@
       100%{opacity:0; transform:scale(1.08)}
     }
 
-    /* Setas “gordinhas” */
     .cta-icon{
       width:26px; height:26px; flex:0 0 26px;
       display:inline-flex; align-items:center; justify-content:center;
@@ -211,7 +204,8 @@
     }
     .cta-icon svg{width:100%; height:100%;}
     .cta-icon path{
-      stroke:#fff; stroke-width:4.2; stroke-linecap:round; stroke-linejoin:round; fill:none;
+      stroke:#fff; stroke-width:4.2;
+      stroke-linecap:round; stroke-linejoin:round; fill:none;
     }
     .cta-icon.left{ animation:arrowInLeft 1.5s ease-in-out infinite; }
     .cta-icon.right{ animation:arrowInRight 1.5s ease-in-out infinite; }
@@ -223,9 +217,6 @@
       0%,60%,100%{transform:translateX(0); opacity:1;}
       70%{transform:translateX(-4px); opacity:.95;}
     }
-
-    /* 🔤 Texto do CTA principal (meio) preto */
-    .cta-btn .label{ color:#000; }
 
     .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite}
     .cta-btn.loading .spinner{display:inline-block}
@@ -260,7 +251,7 @@
     .sticky-footer div{font-weight:700; font-size:14px;}
     .sticky-btn{
       background:linear-gradient(135deg, var(--grad-start), var(--grad-end));
-      color:#000; /* ⇦⇦ ALTERAÇÃO: texto do botão do rodapé preto */
+      color:#000;
       border:none;border-radius:999px;padding:12px 20px;font-weight:800;font-size:14px;cursor:pointer;
       box-shadow:0 6px 16px rgba(0,0,0,.25);margin-left:8px;animation:footPulse 6s ease-in-out infinite;
       transition:filter .2s ease, transform .12s ease
@@ -277,10 +268,11 @@
   <header>
     <div class="logo-wrap">
       <!-- 🔁 PARAM: [PROFILE_IMG_URL] -->
-      <img src="https://i.postimg.cc/6qJvc624/silva.jpg" alt="Achadinhos Da Silva 📦 💛">
+      <img src="[PROFILE_IMG_URL]" alt="[BRAND_NAME]">
     </div>
+
     <!-- 🔁 PARAM: [BRAND_NAME] -->
-    <h1>Achadinhos Da Silva 📦 💛</h1>
+    <h1>[BRAND_NAME]</h1>
     <div class="subtitle">As melhores promoções de casa, cozinha, beleza, moda e mais no seu WhatsApp.</div>
   </header>
 
@@ -303,7 +295,7 @@
         </svg>
       </span>
 
-      <span class="label">ENTRAR GRÁTIS NO GRUPO</span>
+      <span>ENTRAR GRÁTIS NO GRUPO</span>
 
       <span class="cta-icon right" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
@@ -367,7 +359,7 @@
 
     function boot(){
       // 🔁 PARAM: LINK dos dois botões (principal e rodapé)
-      const WHATS_LINK="https://sndflw.com/i/silvaachadinhos"; // sendflow novo
+      const WHATS_LINK="[SEND_FLOW_URL]";
 
       const START_VACANCIES=24, MIN_VACANCIES=2;
       const feedEl=document.getElementById('feed');
@@ -444,7 +436,6 @@
         if(feedEl.children.length>3){ feedEl.removeChild(feedEl.lastChild); }
       }
 
-      // Reveal ao rolar (benefícios)
       const io = new IntersectionObserver((entries)=>{
         entries.forEach(e=>{
           if(e.isIntersecting){
@@ -480,12 +471,11 @@
         return eventId;
       }
 
-      // Redireciona direto para o link (evento no clique) — micro-delay
       function openWhatsAppSmart(){
         trackLeadOnce();
         setTimeout(function(){
           window.location.assign(WHATS_LINK);
-        }, 180); // ~180ms dá tempo do Pixel enviar o evento
+        }, 180);
       }
 
       function handleClick(e){
@@ -510,12 +500,10 @@
       if (btnMain) btnMain.addEventListener('click', handleClick);
       if (btnFoot) btnFoot.addEventListener('click', handleClick);
 
-      // UI inicial
       updateVacancyUI();
       if(currentVacancies>MIN_VACANCIES){ setTimeout(step,1000); }
     }
 
-    // Garante DOM pronto antes de iniciar
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', boot, { once:true });
     } else {
