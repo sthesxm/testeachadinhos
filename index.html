@@ -18,11 +18,12 @@
         ctaEnd:    "#3eae9b",
         barFill:   "#fd7906",
         textMain:  "#ffffff",
-        footerBg:  "#0b0b0b" // se não quiser sólido: "transparent"
+        footerBg:  "#0b0b0b"
       }
     };
   </script>
 
+  <!-- [BRAND_NAME] -->
   <title>M&F PROMOS 💚🛒</title>
   <link rel="preconnect" href="https://sndflw.com" crossorigin>
 
@@ -39,6 +40,7 @@
   }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
   (function initPixelWithAdvancedMatching(){
+    // 🔁 PARAM: [PIXEL_ID] vindo do CONFIG
     var PIXEL_ID = (window.LP_CONFIG && window.LP_CONFIG.PIXEL_ID) ? String(window.LP_CONFIG.PIXEL_ID) : "";
     PIXEL_ID = PIXEL_ID.replace(/[^\d]/g,''); // sanitiza
 
@@ -100,13 +102,14 @@
 
   <style>
     :root{
-      --grad-start:#073fe7;
-      --grad-end:#3eae9b;
-      --cta1-start:#073fe7;
-      --cta1-end:#3eae9b;
-      --bar-fill:#fd7906;
-      --text-main:#ffffff;
-      --footer-bg:#0b0b0b;
+      /* 🔁 PARAMS DE CORES (trocar por cliente) */
+      --grad-start:#073fe7;   /* header & sticky-btn grad start */
+      --grad-end:#3eae9b;     /* header & sticky-btn grad end   */
+      --cta1-start:#073fe7;   /* CTA grad start                 */
+      --cta1-end:#3eae9b;     /* CTA grad end                   */
+      --bar-fill:#fd7906;     /* cor da barra (preenchimento)   */
+      --text-main:#ffffff;    /* cor de texto predominante      */
+      --footer-bg:#0b0b0b;    /* bg do rodapé fixo (sólido)     */
 
       --muted:#777;
       --shadow:0 10px 25px rgba(0,0,0,.1);
@@ -122,24 +125,21 @@
     }
     @keyframes hdrIn{from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:translateY(0)}}
     .logo-wrap{
-      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;
-      background:#fff;display:flex;align-items:center;justify-content:center;
-      box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
+      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
     }
     .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
 
-    /* (mantendo seu comportamento atual) */
-    h1{font-size:28px;font-weight:800;margin-bottom:4px;color:#000}
-    .subtitle{font-size:14px;color:#000;margin-bottom:10px}
+    /* ✅ PEDIDO: título e subtítulo em branco */
+    h1{font-size:28px;font-weight:800;margin-bottom:4px;color:var(--text-main)}
+    .subtitle{font-size:14px;color:var(--text-main);margin-bottom:10px;opacity:.95}
 
     .cta-section{ text-align:center; margin:8px auto 0; padding:12px; max-width:700px; }
-
     .vacancy-wrap{max-width:600px;margin:4px auto 10px;text-align:center;}
     .vacancy-top{font-weight:800;font-size:16px;margin-bottom:6px;}
     .bar{width:100%;height:14px;background:#f9f9f9;border:2px solid #eee;border-radius:999px;position:relative;overflow:hidden}
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background: var(--bar-fill);
+      background: var(--bar-fill); /* pode ser sobrescrito por cliente */
       border-radius:999px;transition:inset .5s ease;overflow:hidden
     }
     .bar>.fill::after{
@@ -149,7 +149,7 @@
     }
     @keyframes barSheen{from{left:-40%} to{left:110%}}
 
-    /* 2.1 Micro-trust */
+    /* 2.1 Micro-trust (acima do CTA) */
     .micro-trust{
       font-size:13.5px;
       font-weight:700;
@@ -239,10 +239,7 @@
       70%{transform:translateX(-4px); opacity:.95;}
     }
 
-    .spinner{
-      width:18px;height:18px;border:2px solid rgba(255,255,255,.35);
-      border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite
-    }
+    .spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;display:none;animation:spin .7s linear infinite}
     .cta-btn.loading .spinner{display:inline-block}
     @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -255,35 +252,18 @@
       text-align:center;
     }
 
-    /* feed + notif (parte que estava faltando) */
     .feed{margin:16px auto 10px;max-width:500px;background:#f7f7f7;border:1px solid #eaeaea;border-radius:14px;padding:10px}
-    .notif{
-      display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:10px;margin-bottom:8px;
-      border:1px solid #eee;font-size:13.5px;font-weight:600;opacity:0;transform:translateY(-16px);
-      animation:slideDown .4s ease forwards
-    }
-    .notif .badge{
-      background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:#1e8e3e;
-      font-weight:800;font-size:12px;padding:6px 8px;border-radius:999px
-    }
+    .notif{display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:10px;margin-bottom:8px;border:1px solid #eee;font-size:13.5px;font-weight:600;opacity:0;transform:translateY(-16px);animation:slideDown .4s ease forwards}
+    .notif .badge{background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:#1e8e3e;font-weight:800;font-size:12px;padding:6px 8px;border-radius:999px}
     @keyframes slideDown{to{opacity:1;transform:translateY(0)}}
 
-    /* benefits (parte que estava faltando) */
     .benefits{max-width:700px;margin:6px auto;padding:0 12px}
-    .benefit{
-      display:flex;align-items:center;gap:12px;background:rgba(100,178,253,0.10);
-      border-radius:14px;padding:12px;margin-bottom:12px;border:1px solid rgba(29,83,134,.35);
-      box-shadow:0 4px 10px rgba(0,0,0,0.05);transform:translateY(10px); opacity:0
-    }
-    .emojibox{
-      width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(180deg,var(--grad-start),var(--grad-end));
-      border-radius:10px;font-size:20px;color:#fff
-    }
+    .benefit{display:flex;align-items:center;gap:12px;background:rgba(100,178,253,0.10);border-radius:14px;padding:12px;margin-bottom:12px;border:1px solid rgba(29,83,134,.35);box-shadow:0 4px 10px rgba(0,0,0,0.05);transform:translateY(10px); opacity:0}
+
+    .emojibox{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--grad-start),var(--grad-end));border-radius:10px;font-size:20px;color:#fff}
     .benefit-text h4{font-size:16px;font-weight:800;margin-bottom:2px}
     .benefit-text p{font-size:13.5px;color:#777;margin:0}
 
-    /* sticky footer */
     .sticky-footer{
       position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#fff;
       padding:10px 14px;box-shadow:0 -8px 20px rgba(0,0,0,.2);
@@ -305,7 +285,7 @@
     }
   </style>
 
-  <!-- ✅ aplica CONFIG em CSS vars + title sem placeholders -->
+  <!-- ✅ aplica CONFIG em title + CSS vars (sem placeholders quebrando) -->
   <script>
     (function applyConfig(){
       var c = window.LP_CONFIG || {};
@@ -405,17 +385,17 @@
 
   <!-- Script principal (UI + Lead dedupe + navegação) -->
   <script>
-    // aplica config no DOM (h1/img) sem mexer estrutura de blocos/IDs
+    // aplica config no DOM (h1/img) sem mexer estrutura
     (function applyConfigDom(){
       var c = window.LP_CONFIG || {};
       if (c.BRAND_NAME){
         var h1 = document.getElementById('brandTitle');
         if (h1) h1.textContent = c.BRAND_NAME;
-      }
-      var img = document.getElementById('brandAvatar');
-      if (img){
-        if (c.PROFILE_IMG_URL) img.src = c.PROFILE_IMG_URL;
-        if (c.BRAND_NAME) img.alt = c.BRAND_NAME;
+        var img = document.getElementById('brandAvatar');
+        if (img){
+          img.alt = c.BRAND_NAME;
+          if (c.PROFILE_IMG_URL) img.src = c.PROFILE_IMG_URL;
+        }
       }
     })();
 
@@ -427,6 +407,7 @@
     }
 
     function boot(){
+      // 🔁 PARAM: LINK dos dois botões (principal e rodapé)
       const WHATS_LINK = (window.LP_CONFIG && window.LP_CONFIG.SEND_FLOW_URL) ? window.LP_CONFIG.SEND_FLOW_URL : "https://sndflw.com/i/mfpromos";
 
       const START_VACANCIES=24, MIN_VACANCIES=2;
@@ -533,10 +514,14 @@
         leadFiredFlag = true;
         setLeadLock(30000);
         const eventId = 'lead-' + uuidv4();
-        try { fbq('track','Lead', {}, { eventID: eventId }); } catch(e){}
+        try {
+          // ✅ Mantendo o evento oficial 'Lead' apenas no clique
+          fbq('track','Lead', {}, { eventID: eventId });
+        } catch(e){}
         return eventId;
       }
 
+      // Redireciona direto para o link (evento no clique) — micro-delay
       function openWhatsAppSmart(){
         trackLeadOnce();
         setTimeout(function(){
@@ -571,6 +556,7 @@
       if(currentVacancies>MIN_VACANCIES){ setTimeout(step,1000); }
     }
 
+    // Garante DOM pronto antes de iniciar
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', boot, { once:true });
     } else {
