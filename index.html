@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 🔁 PARAM: [BRAND_NAME] -->
-  <title>[BRAND_NAME]</title>
+  <title>M&F PROMOS 💚🛒</title>
   <link rel="preconnect" href="https://sndflw.com" crossorigin>
 
   <!-- Meta Pixel (dedupe PageView 1x por sessão + Advanced Matching) -->
@@ -21,8 +20,7 @@
   }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
   (function initPixelWithAdvancedMatching(){
-    // 🔁 PARAM: [PIXEL_ID]
-    var PIXEL_ID = '[PIXEL_ID]'; // [PIXEL_ID]
+    var PIXEL_ID = '778851721564331';
 
     function getParamOrStorage(key, storageKey){
       var params = new URLSearchParams(location.search);
@@ -82,14 +80,13 @@
 
   <style>
     :root{
-      /* 🔁 PARAMS DE CORES (trocar por cliente) */
-      --grad-start: [GRADIENT_HEADER_START];
-      --grad-end:   [GRADIENT_HEADER_END];
-      --cta1-start: [GRADIENT_CTA_START];
-      --cta1-end:   [GRADIENT_CTA_END];
-      --bar-fill:   [BAR_SOLID_COLOR];
-      --text-main:  [PRIMARY_TEXT_COLOR];
-      --footer-bg:  [FOOTER_BG];
+      --grad-start:#60cc7b;
+      --grad-end:#b9e631;
+      --cta1-start:#073fe7;
+      --cta1-end:#3eae9b;
+      --bar-fill:#fd7906;
+      --text-main:#ffffff;
+      --footer-bg:#0b0b0b;
 
       --muted:#777;
       --shadow:0 10px 25px rgba(0,0,0,.1);
@@ -100,12 +97,14 @@
 
     header{
       background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-end) 100%);
-      padding:18px 18px 22px;text-align:center;border-radius:0 0 24px 24px;color:var(--text-main);
+      padding:18px 18px 26px;text-align:center;border-radius:0 0 24px 24px;color:var(--text-main);
       box-shadow:var(--shadow);animation:hdrIn .6s ease both;
     }
     @keyframes hdrIn{from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:translateY(0)}}
     .logo-wrap{
-      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
+      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;
+      background:#fff;display:flex;align-items:center;justify-content:center;
+      box-shadow:0 12px 28px rgba(0,0,0,.18);overflow:hidden;
     }
     .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
 
@@ -118,7 +117,7 @@
     .bar{width:100%;height:14px;background:#f9f9f9;border:2px solid #eee;border-radius:999px;position:relative;overflow:hidden}
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background: var(--bar-fill); /* ✅ parametrizável */
+      background: var(--bar-fill);
       border-radius:999px;transition:inset .5s ease;overflow:hidden
     }
     .bar>.fill::after{
@@ -128,12 +127,12 @@
     }
     @keyframes barSheen{from{left:-40%} to{left:110%}}
 
-    /* 2.1 Micro-trust (acima do CTA) */
+    /* 2.1 Micro-trust */
     .micro-trust{
       font-size:13.5px;
       font-weight:700;
       color:#666;
-      margin:10px 0;
+      margin:10px 0 6px;
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
@@ -154,7 +153,7 @@
       100%{box-shadow:0 0 0 0 rgba(31,191,117,0);}
     }
 
-    /* 2.2 CTA com setas + shine */
+    /* 2.2 CTA com setas + shine + halo */
     .cta-btn{
       position:relative; overflow:hidden;
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -165,6 +164,7 @@
       box-shadow:0 10px 25px rgba(0,0,0,.25);
       transition:transform .12s ease, opacity .2s ease, filter .2s ease;
       cursor:pointer;
+      margin-top:0;
     }
     .cta-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
 
@@ -259,20 +259,23 @@
     .sticky-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
     @keyframes footPulse{0%,92%,100%{transform:scale(1)}95%{transform:scale(1.04)}98%{transform:scale(1.06)}}
 
+    /* 🔧 PATCH: se existir CSS antigo no deploy, garante CTA sempre visível */
+    .cta-btn, .cta-btn *{ color:#fff !important; }
+    .cta-btn{ background:linear-gradient(180deg, var(--cta1-start), var(--cta1-end)) !important; }
+
     @media (prefers-reduced-motion: reduce){
       *, *::before, *::after{ animation: none !important; transition: none !important }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo-wrap">
-      <!-- 🔁 PARAM: [PROFILE_IMG_URL] -->
-      <img src="[PROFILE_IMG_URL]" alt="[BRAND_NAME]">
+      <img src="https://i.postimg.cc/GpScDQ9L/Design-sem-nome-(23).png" alt="M&F PROMOS 💚🛒">
     </div>
 
-    <!-- 🔁 PARAM: [BRAND_NAME] -->
-    <h1>[BRAND_NAME]</h1>
+    <h1>M&F PROMOS 💚🛒</h1>
     <div class="subtitle">As melhores promoções de casa, cozinha, beleza, moda e mais no seu WhatsApp.</div>
   </header>
 
@@ -282,12 +285,10 @@
       <div class="bar"><div class="fill" id="fillBar"></div></div>
     </div>
 
-    <!-- 2.1 Prova social acima do CTA -->
     <div class="micro-trust">
       <span class="live-dot"></span> <strong>+7.500 membros</strong> · <strong>🎯 1 clique</strong> · <strong>🚫 Sem spam</strong>
     </div>
 
-    <!-- 2.2 Botão principal com setas e shine (IDs/classes mantidos) -->
     <button id="ctaMain" class="cta-btn attn-halo" type="button">
       <span class="cta-icon left" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
@@ -306,7 +307,6 @@
       <span class="spinner" aria-hidden="true"></span>
     </button>
 
-    <!-- 2.3 Linha de confiança abaixo do botão -->
     <p class="trust-line">🔒 100% seguro · Link oficial do grupo · Nenhum dado é solicitado</p>
 
     <div class="feed" id="feed"></div>
@@ -358,8 +358,7 @@
     }
 
     function boot(){
-      // 🔁 PARAM: LINK dos dois botões (principal e rodapé)
-      const WHATS_LINK="[SEND_FLOW_URL]";
+      const WHATS_LINK="https://sndflw.com/i/mfpromos";
 
       const START_VACANCIES=24, MIN_VACANCIES=2;
       const feedEl=document.getElementById('feed');
