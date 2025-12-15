@@ -4,8 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- 🔁 PARAM: [BRAND_NAME] -->
-  <title>[BRAND_NAME]</title>
+  <!-- ✅ CONFIG ÚNICO (trocar por cliente aqui) -->
+  <script>
+    window.LP_CONFIG = {
+      BRAND_NAME: "M&F PROMOS 💚🛒",
+      PROFILE_IMG_URL: "https://i.postimg.cc/GpScDQ9L/Design-sem-nome-(23).png",
+      PIXEL_ID: "778851721564331",
+      SEND_FLOW_URL: "https://sndflw.com/i/mfpromos",
+      COLORS: {
+        gradStart: "#073fe7",
+        gradEnd:   "#3eae9b",
+        ctaStart:  "#073fe7",
+        ctaEnd:    "#3eae9b",
+        barFill:   "#fd7906",
+        textMain:  "#ffffff",
+        footerBg:  "#0b0b0b"  // pode trocar; se quiser "sem sólido", use "transparent"
+      }
+    };
+  </script>
+
+  <title>M&F PROMOS 💚🛒</title>
   <link rel="preconnect" href="https://sndflw.com" crossorigin>
 
   <!-- Meta Pixel (dedupe PageView 1x por sessão + Advanced Matching) -->
@@ -21,8 +39,8 @@
   }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
   (function initPixelWithAdvancedMatching(){
-    // 🔁 PARAM: [PIXEL_ID]
-    var PIXEL_ID = '[PIXEL_ID]'; // [PIXEL_ID]
+    var PIXEL_ID = (window.LP_CONFIG && window.LP_CONFIG.PIXEL_ID) ? String(window.LP_CONFIG.PIXEL_ID) : "";
+    PIXEL_ID = PIXEL_ID.replace(/[^\d]/g,''); // sanitiza
 
     function getParamOrStorage(key, storageKey){
       var params = new URLSearchParams(location.search);
@@ -82,20 +100,18 @@
 
   <style>
     :root{
-      /* 🔁 PARAMS DE CORES (trocar por cliente) */
-      --grad-start: [GRADIENT_HEADER_START]; /* header & sticky-btn grad start */
-      --grad-end:   [GRADIENT_HEADER_END];   /* header & sticky-btn grad end   */
-      --cta1-start: [GRADIENT_CTA_START];    /* CTA grad start                 */
-      --cta1-end:   [GRADIENT_CTA_END];      /* CTA grad end                   */
-      --bar-fill:   [BAR_SOLID_COLOR];       /* cor da barra (preenchimento)   */
-      --text-main:  [PRIMARY_TEXT_COLOR];    /* cor de texto predominante      */
-      --footer-bg:  [FOOTER_BG];             /* bg do rodapé fixo (sólido)     */
+      --grad-start:#073fe7;
+      --grad-end:#3eae9b;
+      --cta1-start:#073fe7;
+      --cta1-end:#3eae9b;
+      --bar-fill:#fd7906;
+      --text-main:#ffffff;
+      --footer-bg:#0b0b0b;
 
       --muted:#777;
       --shadow:0 10px 25px rgba(0,0,0,.1);
       --radius:18px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#fff;color:#222;padding-bottom:80px}
 
@@ -105,26 +121,21 @@
       box-shadow:var(--shadow);animation:hdrIn .6s ease both;
     }
     @keyframes hdrIn{from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:translateY(0)}}
-
     .logo-wrap{
-      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;
-      box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
+      width:120px;height:120px;margin:0 auto 10px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.2);overflow:hidden;
     }
     .logo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
 
-    /* (mantendo sua estrutura) */
     h1{font-size:28px;font-weight:800;margin-bottom:4px;color:#000}
     .subtitle{font-size:14px;color:#000;margin-bottom:10px}
 
     .cta-section{ text-align:center; margin:8px auto 0; padding:12px; max-width:700px; }
-
     .vacancy-wrap{max-width:600px;margin:4px auto 10px;text-align:center;}
     .vacancy-top{font-weight:800;font-size:16px;margin-bottom:6px;}
-
     .bar{width:100%;height:14px;background:#f9f9f9;border:2px solid #eee;border-radius:999px;position:relative;overflow:hidden}
     .bar>.fill{
       position:absolute;inset:0 100% 0 0;
-      background: var(--bar-fill); /* ✅ parametrizável */
+      background: var(--bar-fill);
       border-radius:999px;transition:inset .5s ease;overflow:hidden
     }
     .bar>.fill::after{
@@ -134,7 +145,7 @@
     }
     @keyframes barSheen{from{left:-40%} to{left:110%}}
 
-    /* 2.1 Micro-trust (acima do CTA) */
+    /* 2.1 Micro-trust */
     .micro-trust{
       font-size:13.5px;
       font-weight:700;
@@ -160,7 +171,7 @@
       100%{box-shadow:0 0 0 0 rgba(31,191,117,0);}
     }
 
-    /* 2.2 CTA com setas + shine + halo */
+    /* 2.2 CTA com setas + shine */
     .cta-btn{
       position:relative; overflow:hidden;
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -171,7 +182,6 @@
       box-shadow:0 10px 25px rgba(0,0,0,.25);
       cursor:pointer;
     }
-
     .cta-btn::after{
       content:"";
       position:absolute; top:0; bottom:0; left:-25%;
@@ -186,7 +196,6 @@
       70%{left:110%;}
       100%{left:110%;}
     }
-
     .cta-btn.attn-halo::before{
       content:"";
       position:absolute; inset:-4px; border-radius:999px;
@@ -213,6 +222,7 @@
     }
     .cta-icon.left{ animation:arrowInLeft 1.5s ease-in-out infinite; }
     .cta-icon.right{ animation:arrowInRight 1.5s ease-in-out infinite; }
+
     @keyframes arrowInLeft{
       0%,60%,100%{transform:translateX(0); opacity:1;}
       70%{transform:translateX(4px); opacity:.95;}
@@ -236,16 +246,6 @@
     }
 
     .feed{margin:16px auto 10px;max-width:500px;background:#f7f7f7;border:1px solid #eaeaea;border-radius:14px;padding:10px}
-    .notif{display:flex;align-items:center;gap:10px;background:#fff;padding:10px;border-radius:10px;margin-bottom:8px;border:1px solid #eee;font-size:13.5px;font-weight:600;opacity:0;transform:translateY(-16px);animation:slideDown .4s ease forwards}
-    .notif .badge{background:rgba(46,204,113,.15);border:1px solid rgba(46,204,113,.3);color:#1e8e3e;font-weight:800;font-size:12px;padding:6px 8px;border-radius:999px}
-    @keyframes slideDown{to{opacity:1;transform:translateY(0)}}
-
-    .benefits{max-width:700px;margin:6px auto;padding:0 12px}
-    .benefit{display:flex;align-items:center;gap:12px;background:rgba(100,178,253,0.10);border-radius:14px;padding:12px;margin-bottom:12px;border:1px solid rgba(29,83,134,.35);box-shadow:0 4px 10px rgba(0,0,0,0.05);transform:translateY(10px); opacity:0}
-
-    .emojibox{width:42px;height:42px;min-width:42px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,var(--grad-start),var(--grad-end));border-radius:10px;font-size:20px;color:#fff}
-    .benefit-text h4{font-size:16px;font-weight:800;margin-bottom:2px}
-    .benefit-text p{font-size:13.5px;color:#777;margin:0}
 
     .sticky-footer{
       position:fixed;bottom:0;left:0;right:0;background:var(--footer-bg);color:#fff;
@@ -260,28 +260,40 @@
       box-shadow:0 6px 16px rgba(0,0,0,.25);margin-left:8px;animation:footPulse 6s ease-in-out infinite;
       transition:filter .2s ease, transform .12s ease
     }
-    .sticky-btn:hover{ filter:brightness(1.06); transform:scale(1.02) }
     @keyframes footPulse{0%,92%,100%{transform:scale(1)}95%{transform:scale(1.04)}98%{transform:scale(1.06)}}
-
-    /* 🔧 patch anti-css antigo (CTA sempre visível) */
-    .cta-btn{ background:linear-gradient(180deg,var(--cta1-start),var(--cta1-end)) !important; color:#fff !important; }
-    .cta-btn *{ color:#fff !important; }
 
     @media (prefers-reduced-motion: reduce){
       *, *::before, *::after{ animation: none !important; transition: none !important }
     }
   </style>
+
+  <!-- ✅ aplica CONFIG no DOM + CSS vars -->
+  <script>
+    (function applyConfig(){
+      var c = window.LP_CONFIG || {};
+      if (c.BRAND_NAME) document.title = c.BRAND_NAME;
+
+      // css vars
+      var r = document.documentElement;
+      if (c.COLORS){
+        if (c.COLORS.gradStart) r.style.setProperty('--grad-start', c.COLORS.gradStart);
+        if (c.COLORS.gradEnd)   r.style.setProperty('--grad-end',   c.COLORS.gradEnd);
+        if (c.COLORS.ctaStart)  r.style.setProperty('--cta1-start',  c.COLORS.ctaStart);
+        if (c.COLORS.ctaEnd)    r.style.setProperty('--cta1-end',    c.COLORS.ctaEnd);
+        if (c.COLORS.barFill)   r.style.setProperty('--bar-fill',    c.COLORS.barFill);
+        if (c.COLORS.textMain)  r.style.setProperty('--text-main',   c.COLORS.textMain);
+        if (c.COLORS.footerBg)  r.style.setProperty('--footer-bg',   c.COLORS.footerBg);
+      }
+    })();
+  </script>
 </head>
 
 <body>
   <header>
     <div class="logo-wrap">
-      <!-- 🔁 PARAM: [PROFILE_IMG_URL] -->
-      <img src="[PROFILE_IMG_URL]" alt="[BRAND_NAME]">
+      <img id="brandAvatar" src="https://i.postimg.cc/GpScDQ9L/Design-sem-nome-(23).png" alt="M&F PROMOS 💚🛒">
     </div>
-
-    <!-- 🔁 PARAM: [BRAND_NAME] -->
-    <h1>[BRAND_NAME]</h1>
+    <h1 id="brandTitle">M&F PROMOS 💚🛒</h1>
     <div class="subtitle">As melhores promoções de casa, cozinha, beleza, moda e mais no seu WhatsApp.</div>
   </header>
 
@@ -291,12 +303,10 @@
       <div class="bar"><div class="fill" id="fillBar"></div></div>
     </div>
 
-    <!-- 2.1 Prova social acima do CTA -->
     <div class="micro-trust">
       <span class="live-dot"></span> <strong>+7.500 membros</strong> · <strong>🎯 1 clique</strong> · <strong>🚫 Sem spam</strong>
     </div>
 
-    <!-- 2.2 Botão principal com setas e shine (IDs/classes mantidos) -->
     <button id="ctaMain" class="cta-btn attn-halo" type="button">
       <span class="cta-icon left" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
@@ -315,41 +325,9 @@
       <span class="spinner" aria-hidden="true"></span>
     </button>
 
-    <!-- 2.3 Linha de confiança abaixo do botão -->
     <p class="trust-line">🔒 100% seguro · Link oficial do grupo · Nenhum dado é solicitado</p>
 
     <div class="feed" id="feed"></div>
-  </section>
-
-  <section class="benefits">
-    <div class="benefit">
-      <div class="emojibox">🔥</div>
-      <div class="benefit-text">
-        <h4>Descontos Insanos</h4>
-        <p>Produtos com até 70% OFF</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <div class="emojibox">🎟</div>
-      <div class="benefit-text">
-        <h4>Cupons Exclusivos</h4>
-        <p>Só para membros do grupo</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <div class="emojibox">👀</div>
-      <div class="benefit-text">
-        <h4>Itens em Alta</h4>
-        <p>Os mais desejados do momento</p>
-      </div>
-    </div>
-    <div class="benefit">
-      <div class="emojibox">✅</div>
-      <div class="benefit-text">
-        <h4>Ofertas Verificadas</h4>
-        <p>Promoções reais e testadas</p>
-      </div>
-    </div>
   </section>
 
   <div class="sticky-footer">
@@ -359,6 +337,20 @@
 
   <!-- Script principal (UI + Lead dedupe + navegação) -->
   <script>
+    // aplica config no DOM (h1/img) sem mexer estrutura
+    (function applyConfigDom(){
+      var c = window.LP_CONFIG || {};
+      if (c.BRAND_NAME){
+        var h1 = document.getElementById('brandTitle');
+        if (h1) h1.textContent = c.BRAND_NAME;
+        var img = document.getElementById('brandAvatar');
+        if (img){
+          img.alt = c.BRAND_NAME;
+          if (c.PROFILE_IMG_URL) img.src = c.PROFILE_IMG_URL;
+        }
+      }
+    })();
+
     function uuidv4(){
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
         const r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);
@@ -367,8 +359,7 @@
     }
 
     function boot(){
-      // 🔁 PARAM: LINK dos dois botões (principal e rodapé)
-      const WHATS_LINK="https://sndflw.com/i/mfpromos";
+      const WHATS_LINK = (window.LP_CONFIG && window.LP_CONFIG.SEND_FLOW_URL) ? window.LP_CONFIG.SEND_FLOW_URL : "https://sndflw.com/i/mfpromos";
 
       const START_VACANCIES=24, MIN_VACANCIES=2;
       const feedEl=document.getElementById('feed');
@@ -411,13 +402,7 @@
       }
       function updateVacancyUI(){
         if (!vacancyText || !fillBar) return;
-        const prev = vacancyText.textContent;
         vacancyText.textContent=`Últimas vagas de hoje • Restam ${currentVacancies} 👇`;
-        if(prev !== vacancyText.textContent){
-          vacancyText.style.transition = 'transform .12s ease';
-          vacancyText.style.transform = 'scale(1.08)';
-          setTimeout(()=>vacancyText.style.transform='scale(1)', 120);
-        }
         const filled=(START_VACANCIES-currentVacancies)/(START_VACANCIES-MIN_VACANCIES);
         const pct=Math.max(0,Math.min(1,filled));
         fillBar.style.inset=`0 ${(1-pct)*100}% 0 0`;
@@ -445,19 +430,6 @@
         if(feedEl.children.length>3){ feedEl.removeChild(feedEl.lastChild); }
       }
 
-      // Reveal ao rolar (benefícios)
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            e.target.style.transition='transform .4s ease, opacity .4s ease';
-            e.target.style.transform='translateY(0)';
-            e.target.style.opacity='1';
-            io.unobserve(e.target);
-          }
-        });
-      },{threshold:0.12});
-      document.querySelectorAll('.benefit').forEach(b=> io.observe(b));
-
       /* ===== CLICK → LEAD (ANTI-DUP) ===== */
       const LEAD_LOCK_KEY = 'lead_lock_until';
       let leadFiredFlag = false;
@@ -474,14 +446,10 @@
         leadFiredFlag = true;
         setLeadLock(30000);
         const eventId = 'lead-' + uuidv4();
-        try {
-          // ✅ Mantendo o evento oficial 'Lead' apenas no clique
-          fbq('track','Lead', {}, { eventID: eventId });
-        } catch(e){}
+        try { fbq('track','Lead', {}, { eventID: eventId }); } catch(e){}
         return eventId;
       }
 
-      // Redireciona direto para o link (evento no clique) — micro-delay
       function openWhatsAppSmart(){
         trackLeadOnce();
         setTimeout(function(){
@@ -511,7 +479,6 @@
       if (btnMain) btnMain.addEventListener('click', handleClick);
       if (btnFoot) btnFoot.addEventListener('click', handleClick);
 
-      // UI inicial
       updateVacancyUI();
       if(currentVacancies>MIN_VACANCIES){ setTimeout(step,1000); }
     }
